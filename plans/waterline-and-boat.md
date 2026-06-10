@@ -1,6 +1,6 @@
 # Plan: a waterline and a small boat
 
-Status: planned, not started · June 2026
+Status: implemented · June 2026
 
 ## The idea
 

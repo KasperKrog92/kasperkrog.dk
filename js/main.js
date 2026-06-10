@@ -43,6 +43,21 @@
   }
   syncLantern();
   if (lantern) {
+    var lanternDock = document.createElement("span");
+    lanternDock.className = "lantern-dock";
+    lanternDock.setAttribute("aria-hidden", "true");
+    lantern.parentNode.insertBefore(lanternDock, lantern);
+
+    var carryLantern = function (carried) {
+      lantern.classList.toggle("is-carried", carried);
+    };
+
+    var checkLanternDock = function () {
+      carryLantern(window.scrollY > 8);
+    };
+    checkLanternDock();
+    window.addEventListener("scroll", checkLanternDock, { passive: true });
+
     lantern.addEventListener("click", function () {
       root.dataset.theme = root.dataset.theme === "dusk" ? "dawn" : "dusk";
       try {
@@ -58,6 +73,7 @@
   setInterval(function () {
     applyTheme(storedTheme() || timeTheme());
     syncLantern();
+    moor();
   }, 60000);
 
   /* --- the harbor clock --------------------------------------------- */
@@ -141,4 +157,56 @@
       window.requestAnimationFrame(frame);
     })();
   }
+
+  /* --- the water ---------------------------------------------------- */
+  var sea = document.createElement("div");
+  sea.className = "sea";
+  sea.setAttribute("aria-hidden", "true");
+  sea.innerHTML =
+    '<div class="sea-water"></div>' +
+    '<div class="boat">' +
+      '<span class="boat-bob">' +
+        '<svg viewBox="0 0 44 36" width="44" height="36" aria-hidden="true">' +
+          '<path d="M4 24.5h35l-5 7H10Z" fill="currentColor" opacity=".9"/>' +
+          '<path d="M21.5 5v20" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
+          '<path d="M20.5 7 9 22h11.5Z" fill="currentColor" opacity=".68"/>' +
+          '<path d="m23 8 10.5 14H23Z" fill="currentColor" opacity=".42"/>' +
+          '<path d="M7 31.5c8 1.4 22 1.4 30 0" fill="none" stroke="currentColor" stroke-width="1" opacity=".42"/>' +
+          '<circle class="boat-lamp-glow" cx="32.5" cy="23.2" r="7"/>' +
+          '<path class="boat-lantern-frame" d="M30.7 21.3h3.6v4.2h-3.6Zm.7 0c0-1.4 2.2-1.4 2.2 0" fill="none" stroke="currentColor" stroke-width=".8"/>' +
+          '<circle class="boat-lamp" cx="32.5" cy="23.2" r="1.15"/>' +
+        '</svg>' +
+      '</span>' +
+    '</div>';
+  document.body.classList.add("has-sea");
+  document.body.appendChild(sea);
+
+  var boat = sea.querySelector(".boat");
+
+  function sailProgress(date) {
+    var minutes = date.getHours() * 60 + date.getMinutes();
+    var DAWN = 7 * 60;
+    var DUSK = 19 * 60;
+
+    if (minutes >= DAWN && minutes < DUSK) {
+      return { sail: (minutes - DAWN) / (12 * 60), west: false };
+    }
+
+    var nightMinutes = (minutes - DUSK + 24 * 60) % (24 * 60);
+    return { sail: 1 - nightMinutes / (12 * 60), west: true };
+  }
+
+  function moor() {
+    if (!boat) return;
+    var position = sailProgress(new Date());
+    var percent = position.sail * 100;
+    var boatOffset = position.sail * 44;
+    boat.style.setProperty(
+      "--sail-x",
+      "calc(" + percent.toFixed(4) + "% - " + boatOffset.toFixed(2) + "px)"
+    );
+    boat.classList.toggle("westward", position.west);
+  }
+
+  moor();
 })();

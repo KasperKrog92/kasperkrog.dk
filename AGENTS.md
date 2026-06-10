@@ -144,7 +144,8 @@ fragments), `.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card
 roman-numeral caption, one per page at most — see `assets/img/README.md`),
 `.section-head` + `.mono` labels, `.reveal` (scroll arrival). Atmosphere
 layers: `#rain` canvas (both themes: pale drops at dusk, ink drops slightly
-softened at dawn) and `.grain` film-grain overlay.
+softened at dawn), `.grain` film-grain overlay, and a fixed `.sea` whose small
+boat crosses the viewport twice a day by the visitor's local clock.
 
 Images: optimized JPGs only (~150–230 KB, raw PNGs are gitignored), always
 with `width`/`height` attributes and `loading="lazy"`. Every plate has a
