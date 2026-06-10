@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dusk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasper Krog — a small harbor, kept lit</title>
+  <meta name="description" content="A personal digital space at the intersection of culture, stories, atmosphere and human technology. Projects, rituals and worlds from Aarhus, Denmark.">
+  <meta property="og:title" content="Kasper Krog — a small harbor, kept lit">
+  <meta property="og:description" content="Not a portfolio. A quiet cultural archive of projects, rituals and worlds, built by a human being.">
+  <meta property="og:url" content="https://kasperkrog.dk/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0e1216">
+  <script>
+    // Apply stored theme before first paint to avoid a flash.
+    try {
+      var t = localStorage.getItem('kk-theme');
+      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <span class="mono head-label">Kasper Krog &mdash; Aarhus, Denmark</span>
+    <button id="lantern" type="button" aria-pressed="false" aria-label="Toggle between night and daylight">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 3h4"/>
+        <path d="M12 3v3"/>
+        <path d="M8.5 6h7l1 2.5v7L15 18H9l-1.5-2.5v-7Z"/>
+        <path d="M12 9.5c1.4 1.8 1.4 3.2 0 4.2c-1.4-1-1.4-2.4 0-4.2Z" fill="currentColor" stroke="none"/>
+        <path d="M9 21h6"/>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <p class="mono eyebrow reveal">kasperkrog.dk &middot; a personal harbor &middot; 56.15&deg; N, 10.20&deg; E</p>
+      <h1 class="reveal">A small harbor,<br><em>kept lit against the rain.</em></h1>
+      <p class="lead reveal">
+        This is not a portfolio, and it is not a brand. It is a shelf of rooms and
+        rituals &mdash; a game club run like a book club, software for volunteers,
+        a tea journal, a few stranger worlds. Things built slowly, by a human,
+        for other humans.
+      </p>
+      <p class="mono hint reveal"><a href="#archive">&darr; the archive is open</a></p>
+    </section>
+
+    <section class="fragments" aria-label="Field notes">
+      <div class="note reveal">
+        <span class="mono note-label">Feltnotat 01</span>
+        <p>Light and darkness intensify each other. A lamp matters most in a storm.</p>
+      </div>
+      <div class="note reveal">
+        <span class="mono note-label">Feltnotat 02</span>
+        <p>Warmth inside melancholy &mdash; small moments of care against the vastness of everything.</p>
+      </div>
+      <div class="note reveal">
+        <span class="mono note-label">Feltnotat 03</span>
+        <p>Technology can still feel human: made by someone who would also offer you tea.</p>
+      </div>
+    </section>
+
+    <section id="archive" class="archive">
+      <header class="section-head reveal">
+        <span class="mono section-label">Kartoteket &mdash; the archive</span>
+        <h2>Five rooms, doors open.</h2>
+        <p class="section-sub">Projects and worlds, in no particular order of importance. Each one is alive in its own way.</p>
+      </header>
+
+      <a class="entry reveal" href="https://www.gamestormers.dk/" target="_blank" rel="noopener">
+        <span class="mono idx">N&deg;01</span>
+        <div class="entry-body">
+          <h3>Aarhus Gamestormers <span class="mono host">gamestormers.dk</span></h3>
+          <p>A community-driven video game club in Aarhus that treats games as cultural
+             experiences worth talking about &mdash; closer to a film club than a tournament.
+             Stories, shared evenings, and room for curious people.</p>
+          <p class="mono tags">community &middot; games as culture &middot; storytelling &middot; belonging</p>
+        </div>
+        <span class="arrow" aria-hidden="true">&nearr;</span>
+      </a>
+
+      <a class="entry reveal" href="http://turkis.gamestormers.dk/" target="_blank" rel="noopener">
+        <span class="mono idx">N&deg;02</span>
+        <div class="entry-body">
+          <h3>Turkis Crew <span class="mono host">turkis.gamestormers.dk</span></h3>
+          <p>A volunteer platform for cultural spaces &mdash; software shaped around people
+             instead of metrics. Built for music venues and the humans who keep them
+             running, on trust and accessibility rather than dashboards.</p>
+          <p class="mono tags">humane technology &middot; volunteers &middot; cultural infrastructure</p>
+        </div>
+        <span class="arrow" aria-hidden="true">&nearr;</span>
+      </a>
+
+      <a class="entry reveal" href="https://matchabladet.dk/" target="_blank" rel="noopener">
+        <span class="mono idx">N&deg;03</span>
+        <div class="entry-body">
+          <h3>Matchabladet <span class="mono host">matchabladet.dk</span></h3>
+          <p>A Danish matcha journal about ritual, slowness and attention. Part caf&eacute;
+             guide, part reflective blog, part aesthetic archive &mdash; tea as a calm
+             anchor in a loud world.</p>
+          <p class="mono tags">ritual &middot; slowness &middot; caf&eacute;s &middot; attention</p>
+        </div>
+        <span class="arrow" aria-hidden="true">&nearr;</span>
+      </a>
+
+      <a class="entry reveal" href="https://solis.gamestormers.dk/" target="_blank" rel="noopener">
+        <span class="mono idx">N&deg;04</span>
+        <div class="entry-body">
+          <h3>Solis Lantern Chronicles <span class="mono host">solis.gamestormers.dk</span></h3>
+          <p>An evolving, slightly mythological creative space &mdash; mood, identity,
+             systems and worldbuilding. Less a product than a lantern carried through
+             liminal rooms.</p>
+          <p class="mono tags">worldbuilding &middot; liminal spaces &middot; experiment &middot; introspection</p>
+        </div>
+        <span class="arrow" aria-hidden="true">&nearr;</span>
+      </a>
+
+      <a class="entry reveal" href="https://folk.gamestormers.dk/" target="_blank" rel="noopener">
+        <span class="mono idx">N&deg;05</span>
+        <div class="entry-body">
+          <h3>Aarhus Folk Festival <span class="mono host">folk.gamestormers.dk</span></h3>
+          <p>A redesign concept for a community-driven folk music festival in Aarhus:
+             warm, alive and intergenerational. Music as shared human experience,
+             not commercial spectacle.</p>
+          <p class="mono tags">folk culture &middot; gathering &middot; tradition &middot; scandinavian warmth</p>
+        </div>
+        <span class="arrow" aria-hidden="true">&nearr;</span>
+      </a>
+    </section>
+
+    <section class="keeper">
+      <header class="section-head reveal">
+        <span class="mono section-label">Om v&aelig;rten &mdash; about</span>
+        <h2>The keeper of this place</h2>
+      </header>
+      <div class="keeper-body reveal">
+        <p>
+          Kasper Krog lives in Aarhus, Denmark. He runs a game club the way other
+          people run book clubs, builds software for volunteers and music venues,
+          writes about matcha, and keeps a few stranger worlds on the side.
+        </p>
+        <p>
+          He reads long fantasy, stays late in theaters and backstage rooms, and
+          believes the best technology feels like a well-kept library: quiet,
+          generous, and clearly made by someone who cares.
+        </p>
+        <p class="contact">
+          The harbor light is on. Say hej &mdash;
+          <a href="mailto:kkandersen01@gmail.com">kkandersen01@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
