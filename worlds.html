@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Worlds — Kasper Krog</title>
+  <title>Worlds &middot; Kasper Krog</title>
   <meta name="description" content="Baglokalet: worldbuilding, fictional fragments, cozy horror and unfinished experiments. The back room stays half-lit.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +95,7 @@
 
       <figure class="plate reveal">
         <img src="assets/img/worlds.jpg" alt="Oil painting of an old ferry on dark water at night, a single lantern glowing on its deck, faint town lights on the far shore." width="1536" height="1024" loading="lazy">
-        <figcaption class="mono">pl. v &mdash; the night ferry. it docks when it docks</figcaption>
+        <figcaption class="mono">pl. v &middot; the night ferry. it docks when it docks</figcaption>
       </figure>
 
       <div class="entry reveal">
@@ -100,20 +111,20 @@
 
       <blockquote class="pull reveal">
         a harbor is a promise<br>
-        that the dark is navigable &mdash;<br>
+        that the dark is navigable;<br>
         that someone before you<br>
         left a light on, on purpose.
       </blockquote>
 
-      <p class="annotation reveal">&mdash; don't finish everything. some doors are better left ajar.</p>
+      <p class="annotation reveal">don't finish everything. some doors are better left ajar.</p>
     </section>
 
   </main>
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

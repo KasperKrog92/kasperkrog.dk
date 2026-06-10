@@ -1,22 +1,61 @@
-/* kasperkrog.dk — lantern, clock, reveal, rain. No dependencies. */
+/* kasper-krog.dk — lantern, clock, reveal, rain. No dependencies. */
 (function () {
   "use strict";
 
   var root = document.documentElement;
   var KEY = "kk-theme";
+  var THEME_TTL = 3 * 60 * 60 * 1000;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* --- the lantern: dusk <-> dawn ---------------------------------- */
   var lantern = document.getElementById("lantern");
+  var themeColor = document.querySelector('meta[name="theme-color"]');
+
+  function timeTheme() {
+    var hour = new Date().getHours();
+    return hour >= 7 && hour < 19 ? "dawn" : "dusk";
+  }
+
+  function storedTheme() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(KEY));
+      if (saved && (saved.theme === "dawn" || saved.theme === "dusk") &&
+          saved.expiresAt > Date.now()) {
+        return saved.theme;
+      }
+      localStorage.removeItem(KEY);
+    } catch (e) {
+      try { localStorage.removeItem(KEY); } catch (storageError) {}
+    }
+    return null;
+  }
+
+  function applyTheme(theme) {
+    root.dataset.theme = theme;
+    if (themeColor) {
+      themeColor.content = theme === "dawn" ? "#ece5d6" : "#0e1216";
+    }
+  }
+
   function syncLantern() {
     lantern.setAttribute("aria-pressed", String(root.dataset.theme === "dawn"));
   }
   syncLantern();
   lantern.addEventListener("click", function () {
     root.dataset.theme = root.dataset.theme === "dusk" ? "dawn" : "dusk";
-    try { localStorage.setItem(KEY, root.dataset.theme); } catch (e) {}
+    try {
+      localStorage.setItem(KEY, JSON.stringify({
+        theme: root.dataset.theme,
+        expiresAt: Date.now() + THEME_TTL
+      }));
+    } catch (e) {}
+    applyTheme(root.dataset.theme);
     syncLantern();
   });
+  setInterval(function () {
+    applyTheme(storedTheme() || timeTheme());
+    syncLantern();
+  }, 60000);
 
   /* --- the harbor clock --------------------------------------------- */
   var clock = document.getElementById("aarhus-time");

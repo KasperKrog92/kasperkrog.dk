@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Journal — Kasper Krog</title>
-  <meta name="description" content="Notesbogen: fragments, observations and margin notes — quiet, reflective, written before they evaporated.">
+  <title>Journal &middot; Kasper Krog</title>
+  <meta name="description" content="Notesbogen: fragments, observations and margin notes. Quiet, reflective, written before they evaporated.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,15 +62,15 @@
       <p class="mono eyebrow reveal">Notesbogen &middot; margin notes</p>
       <h1 class="reveal">Fragments,<br><em>not essays.</em></h1>
       <p class="lead reveal">
-        Observations written down before they evaporated &mdash; after club nights,
+        Observations written down before they evaporated: after club nights,
         over cooling tea, on the last bus home. Polished later, but not too much.
       </p>
-      <p class="annotation reveal">&mdash; some of these began on receipts.</p>
+      <p class="annotation reveal">some of these began on receipts.</p>
     </section>
 
     <figure class="plate reveal">
       <img src="assets/img/journal.jpg" alt="An open notebook with handwritten notes beside a cup of tea, lit by a desk lamp, rain on the window behind." width="1536" height="1024" loading="lazy">
-      <figcaption class="mono">pl. ii &mdash; the notesbog, before transcription</figcaption>
+      <figcaption class="mono">pl. ii &middot; the notesbog, before transcription</figcaption>
     </figure>
 
     <section class="section" aria-label="Journal entries">
@@ -120,8 +131,8 @@
         <span class="mono date">01 &middot; 2026</span>
         <div>
           <h3>Small lights</h3>
-          <p>The harbor at night is mostly darkness &mdash; which is what makes it a
-             harbor. A few fixed lights, a few moving ones, and everyone navigating
+          <p>The harbor at night is mostly darkness. That is what makes it a harbor.
+             A few fixed lights, a few moving ones, and everyone navigating
              anyway. Hope works at roughly this scale: not floodlight. Lantern.</p>
         </div>
       </article>
@@ -133,8 +144,8 @@
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

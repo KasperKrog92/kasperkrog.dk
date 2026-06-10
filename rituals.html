@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rituals — Kasper Krog</title>
-  <meta name="description" content="Ritualer: the small machinery of ordinary days — matcha, night walks, notebooks, playlists, cafés and the kettle rule.">
+  <title>Rituals &middot; Kasper Krog</title>
+  <meta name="description" content="Ritualer: the small machinery of ordinary days. Matcha, night walks, notebooks, playlists, cafés and the kettle rule.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +69,7 @@
 
     <figure class="plate reveal">
       <img src="assets/img/rituals.jpg" alt="A dark ceramic bowl of freshly whisked matcha beside a bamboo whisk on a wooden table, a rainy window above." width="1536" height="1024" loading="lazy">
-      <figcaption class="mono">pl. vi &mdash; the day's first measurement</figcaption>
+      <figcaption class="mono">pl. vi &middot; the day's first measurement</figcaption>
     </figure>
 
     <section class="section" aria-label="Rituals">
@@ -112,8 +123,8 @@
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

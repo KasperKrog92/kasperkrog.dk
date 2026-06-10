@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Working guide for anyone — human or agent — changing kasperkrog.dk.
+Working guide for anyone — human or agent — changing kasper-krog.dk.
 This is the single source of truth; `CLAUDE.md` only points here.
 
 ## What this is
@@ -17,9 +17,11 @@ feel more like *a real place someone inhabits*, never like a product.
   The Google Fonts stylesheet is the single tolerated external request.
 - **No engagement patterns.** No newsletter prompts, popups, share buttons,
   view counters, infinite feeds or calls to action. "There is no feed."
-- **Both themes must keep working.** Dusk (default, rainy night) and dawn
-  (warm paper), toggled by the lantern button, stored as `kk-theme` in
-  localStorage, applied pre-paint by the inline script in each page's head.
+- **Both themes must keep working.** Dusk (rainy night) and dawn (warm paper)
+  follow the visitor's local time: dawn from 07:00 to 18:59, dusk otherwise.
+  The lantern button overrides this for three hours, stored as `kk-theme` in
+  localStorage with an expiry timestamp. The inline script in each page's
+  head applies the theme pre-paint.
 - **Respect `prefers-reduced-motion`** — rain, smooth scroll and reveal
   animations are all disabled under it. Keep it that way for anything new.
 - Plain accessible HTML: landmarks, `aria-current` on nav, visible focus.
@@ -57,11 +59,12 @@ text, and they multiply when nobody is watching:
 - *Negative parallelism* ("not X, but Y" / "it isn't X, it's Y"): at most
   one per page, and only when the contrast is the actual point. Two
   headlines already own this device ("Fragments, not essays", "Not what I
-  made — what we gather around") — don't add more.
+  made. What we gather around") — don't add more.
 - *Rule of three*: only for literal lists of three real things, never for
   rhythm ("warm, alive and intergenerational" was cut for this reason).
-- *Em dashes*: a couple per page. Prefer the period, the colon, the
-  semicolon, the comma — in that order.
+- *Em dashes*: never use them in visitor-facing copy, including page titles,
+  metadata, captions, labels, annotations and footers. Prefer the period,
+  the colon, the semicolon, the comma, or a middle dot for short labels.
 - *Trailing participles* ("…, highlighting the importance of…"): never.
 - *Symmetrical clause stacks* (three parallel phrases in a row): break the
   rhythm — turn one into its own short sentence.
@@ -161,8 +164,8 @@ not a feed):
 
 GitHub Pages from `main` branch root at
 [github.com/KasperKrog92/kasperkrog.dk](https://github.com/KasperKrog92/kasperkrog.dk),
-custom domain `kasperkrog.dk` via the `CNAME` file; `.nojekyll` disables
-Jekyll. **DNS note (June 2026):** kasperkrog.dk still points at Simply.com
+custom domain `kasper-krog.dk` via the `CNAME` file; `.nojekyll` disables
+Jekyll. **DNS note (June 2026):** kasper-krog.dk still points at Simply.com
 hosting (94.231.103.132). Going live on Pages requires A records to GitHub's
 `185.199.108–111.153`, then "Enforce HTTPS" — or uploading these files to the
 Simply.com webspace instead.

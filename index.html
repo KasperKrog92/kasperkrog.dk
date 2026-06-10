@@ -3,24 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kasper Krog — a small harbor, kept lit</title>
+  <title>Kasper Krog: a small harbor, kept lit</title>
   <meta name="description" content="A personal digital space at the intersection of culture, stories, atmosphere and human technology. Projects, rituals and worlds from Aarhus, Denmark.">
-  <meta property="og:title" content="Kasper Krog — a small harbor, kept lit">
+  <meta property="og:title" content="Kasper Krog: a small harbor, kept lit">
   <meta property="og:description" content="Not a portfolio. A quiet cultural archive of projects, rituals and worlds, built by a human being.">
-  <meta property="og:url" content="https://kasperkrog.dk/">
+  <meta property="og:url" content="https://kasper-krog.dk/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://kasperkrog.dk/assets/img/og.jpg">
+  <meta property="og:image" content="https://kasper-krog.dk/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
-    // Apply stored theme before first paint to avoid a flash.
+    // Apply a recent choice, or follow the visitor's local time, before first paint.
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +68,7 @@
   <main>
 
     <section class="hero">
-      <p class="mono eyebrow reveal">kasperkrog.dk &middot; a personal harbor &middot; 56.15&deg; N, 10.20&deg; E</p>
+      <p class="mono eyebrow reveal">kasper-krog.dk &middot; a personal harbor &middot; 56.15&deg; N, 10.20&deg; E</p>
       <h1 class="reveal">A small harbor,<br><em>kept lit against the rain.</em></h1>
       <p class="lead reveal">
         Portfolio is the wrong word. Think of a shelf of rooms and rituals:
@@ -75,7 +86,7 @@
       </div>
       <div class="note reveal">
         <span class="mono note-label">Feltnotat 02</span>
-        <p>Warmth inside melancholy &mdash; small moments of care against the vastness of everything.</p>
+        <p>Warmth inside melancholy: small moments of care against the vastness of everything.</p>
       </div>
       <div class="note reveal">
         <span class="mono note-label">Feltnotat 03</span>
@@ -85,12 +96,12 @@
 
     <figure class="plate reveal">
       <img src="assets/img/harbor.jpg" alt="A rainy harbor at night: a gas lamp on the quay, sailing boats at their moorings, warm windows along the waterfront." width="1672" height="941" loading="lazy">
-      <figcaption class="mono">pl. i &mdash; the harbor, after closing time</figcaption>
+      <figcaption class="mono">pl. i &middot; the harbor, after closing time</figcaption>
     </figure>
 
     <section id="archive" class="archive">
       <header class="section-head reveal">
-        <span class="mono section-label">Kartoteket &mdash; the archive</span>
+        <span class="mono section-label">Kartoteket &middot; the archive</span>
         <h2>Five rooms, doors open.</h2>
         <p class="section-sub">Projects and worlds, in no particular order. Some are tidy, some are mid-thought.</p>
       </header>
@@ -147,7 +158,7 @@
         <div class="entry-body">
           <h3>Aarhus Folk Festival <span class="mono host">folk.gamestormers.dk</span></h3>
           <p>A redesign concept for a community folk festival in Aarhus. The brief,
-             more or less: make the website feel like folk music does &mdash; warm,
+             more or less: make the website feel like folk music does. Warm,
              homemade, shared.</p>
           <p class="mono tags">folk culture &middot; gathering &middot; tradition &middot; scandinavian warmth</p>
         </div>
@@ -157,7 +168,7 @@
 
     <section class="archive" aria-label="The rooms of the house">
       <header class="section-head reveal">
-        <span class="mono section-label">Huset &mdash; the rooms</span>
+        <span class="mono section-label">Huset &middot; the rooms</span>
         <h2>The rest of the house.</h2>
         <p class="section-sub">Smaller rooms, kept for slower things. Wander; the doors stay unlocked.</p>
       </header>
@@ -170,7 +181,7 @@
         <a class="room-card reveal" href="shelf.html">
           <span class="mono">Hylden</span>
           <h3>Shelf</h3>
-          <p>What is feeding the atmosphere lately &mdash; books, sounds, ideas, leaves.</p>
+          <p>What is feeding the atmosphere lately: books, sounds, ideas, leaves.</p>
         </a>
         <a class="room-card reveal" href="gatherings.html">
           <span class="mono">Forsamlingshuset</span>
@@ -185,7 +196,7 @@
         <a class="room-card reveal" href="rituals.html">
           <span class="mono">Ritualer</span>
           <h3>Rituals</h3>
-          <p>The small machinery of ordinary days &mdash; matcha, night walks, notebooks.</p>
+          <p>The small machinery of ordinary days: matcha, night walks, notebooks.</p>
         </a>
         <a class="room-card reveal" href="keeper.html">
           <span class="mono">V&aelig;rten</span>
@@ -199,8 +210,8 @@
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

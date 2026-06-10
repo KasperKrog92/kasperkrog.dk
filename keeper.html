@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Keeper — Kasper Krog</title>
-  <meta name="description" content="Værten: who keeps this place — about Kasper Krog, the philosophy behind the projects, and how to send a signal.">
+  <title>The Keeper &middot; Kasper Krog</title>
+  <meta name="description" content="Værten: Kasper Krog, the philosophy behind the projects, and how to send a signal.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,12 +65,12 @@
 
     <figure class="plate reveal">
       <img src="assets/img/keeper.jpg" alt="A desk at night: open notebook, tea, lamp and keyboard before a rain-streaked window, the chair empty." width="1536" height="1024" loading="lazy">
-      <figcaption class="mono">pl. vii &mdash; a portrait, told through a room</figcaption>
+      <figcaption class="mono">pl. vii &middot; a portrait, told through a room</figcaption>
     </figure>
 
     <section class="section" aria-label="About">
       <header class="section-head reveal">
-        <span class="mono section-label">Om v&aelig;rten &mdash; about</span>
+        <span class="mono section-label">Om v&aelig;rten &middot; about</span>
         <h2>Hello. My name is Kasper Krog.</h2>
       </header>
       <div class="prose reveal">
@@ -77,8 +88,8 @@
         <p>
           What keeps me curious: how digital systems could feel more human, how
           communities get warmer and more deliberate, how rituals and stories shape
-          an ordinary day. The projects are all attempts at the same room, really
-          &mdash; somewhere to gather. Games treated as art. Volunteers trusted
+          an ordinary day. The projects are all attempts at the same room, really:
+          somewhere to gather. Games treated as art. Volunteers trusted
           instead of measured. Matcha. Folk music. Conversation.
         </p>
         <p>
@@ -101,13 +112,13 @@
 
     <section class="section" aria-label="Philosophy">
       <header class="section-head reveal">
-        <span class="mono section-label">Grundtonen &mdash; philosophy</span>
+        <span class="mono section-label">Grundtonen &middot; philosophy</span>
         <h2>What holds it together.</h2>
       </header>
       <div class="prose reveal">
         <p>
-          I don't think meaning is invented out of nothing. It grows between things
-          &mdash; between people, places, stories, memories. Something matters
+          I don't think meaning is invented out of nothing. It grows between things:
+          between people, places, stories, memories. Something matters
           because it takes part in a life.
         </p>
         <p>
@@ -142,40 +153,40 @@
         </p>
         <p>
           Most of my projects come down to one impulse: keep a few small refuges
-          open &mdash; for culture, for reflection, for company.
+          open for culture, reflection and company.
         </p>
       </div>
     </section>
 
     <section class="section" aria-label="Contact">
       <header class="section-head reveal">
-        <span class="mono section-label">Send et signal &mdash; presence</span>
+        <span class="mono section-label">Send et signal &middot; presence</span>
         <h2>The light is on.</h2>
         <p class="section-sub">No forms, no funnels, no newsletter. If you write, a human reads it.</p>
       </header>
       <ul class="signal reveal">
         <li>
           <span class="mono">post</span>
-          <span><a href="mailto:kkandersen01@gmail.com">kkandersen01@gmail.com</a> &mdash; Danish or English; letters preferred over pitches.</span>
+          <span><a href="mailto:kkandersen01@gmail.com">kkandersen01@gmail.com</a>. Danish or English; letters preferred over pitches.</span>
         </li>
         <li>
           <span class="mono">code</span>
-          <span><a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a> &mdash; where this harbor's blueprints live.</span>
+          <span><a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a>. Where this harbor's blueprints live.</span>
         </li>
         <li>
           <span class="mono">rooms</span>
-          <span><a href="https://www.gamestormers.dk/" target="_blank" rel="noopener">Aarhus Gamestormers</a> &mdash; the community door; the others open from there.</span>
+          <span><a href="https://www.gamestormers.dk/" target="_blank" rel="noopener">Aarhus Gamestormers</a>. The community door; the others open from there.</span>
         </li>
       </ul>
-      <p class="annotation afterword reveal">&mdash; if you're ever in Aarhus, the kettle rule applies to you too.</p>
+      <p class="annotation afterword reveal">if you're ever in Aarhus, the kettle rule applies to you too.</p>
     </section>
 
   </main>
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

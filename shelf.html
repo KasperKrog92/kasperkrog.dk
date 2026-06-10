@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shelf — Kasper Krog</title>
-  <meta name="description" content="Hylden: current inspirations — books, games, sounds, films and ideas feeding the atmosphere lately.">
+  <title>Shelf &middot; Kasper Krog</title>
+  <meta name="description" content="Hylden: current inspirations. Books, games, sounds, films and ideas feeding the atmosphere lately.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +69,7 @@
 
     <figure class="plate reveal">
       <img src="assets/img/shelf.jpg" alt="A dim wooden bookshelf with worn paperbacks, records and a small ceramic tea bowl under a single reading lamp." width="1536" height="1024" loading="lazy">
-      <figcaption class="mono">pl. iii &mdash; the shelf, mid-rotation</figcaption>
+      <figcaption class="mono">pl. iii &middot; the shelf, mid-rotation</figcaption>
     </figure>
 
     <section class="section" aria-label="The shelf">
@@ -125,15 +136,15 @@
 
       </div>
 
-      <p class="annotation afterword reveal">&mdash; the shelf rotates. nothing on it is sponsored, ever.</p>
+      <p class="annotation afterword reveal">the shelf rotates. nothing on it is sponsored, ever.</p>
     </section>
 
   </main>
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>

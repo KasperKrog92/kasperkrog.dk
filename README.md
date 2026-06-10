@@ -1,4 +1,4 @@
-# kasperkrog.dk
+# kasper-krog.dk
 
 > A small harbor, kept lit against the rain.
 
@@ -38,7 +38,7 @@ The site is a house with rooms:
 - `rituals.html` — *Ritualer*: the small machinery of ordinary days
 - `keeper.html` — *Værten*: about, philosophy, and how to send a signal
 - `404.html` — for pages the rain washed away
-- `css/style.css` — two themes: **dusk** (default, rainy night) and **dawn** (warm paper), toggled by the lantern button
+- `css/style.css` — two themes: **dusk** (rainy night) and **dawn** (warm paper), chosen by local time with a three-hour lantern override
 - `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, and canvas rain (all respecting `prefers-reduced-motion`)
 
 Conventions for working on the site (voice, design tokens, components) live
@@ -53,9 +53,9 @@ python -m http.server 8000
 ## Deployment
 
 Hosted on GitHub Pages from the `main` branch with the custom domain
-`kasperkrog.dk` (see `CNAME`).
+`kasper-krog.dk` (see `CNAME`).
 
-DNS for kasperkrog.dk should point at GitHub Pages:
+DNS for kasper-krog.dk should point at GitHub Pages:
 
 ```
 A     @    185.199.108.153

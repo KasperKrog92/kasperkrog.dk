@@ -3,15 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gatherings — Kasper Krog</title>
-  <meta name="description" content="Forsamlingshuset: clubs, tables, festivals and venues — what we gather around, and the warmth that keeps it going.">
+  <title>Gatherings &middot; Kasper Krog</title>
+  <meta name="description" content="Forsamlingshuset: clubs, tables, festivals and venues. What we gather around, and the warmth that keeps it going.">
   <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
   <meta name="theme-color" content="#0e1216">
   <script>
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
     try {
-      var t = localStorage.getItem('kk-theme');
-      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
-    } catch (e) {}
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#ece5d6' : '#0e1216';
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +60,7 @@
 
     <section class="hero page-hero">
       <p class="mono eyebrow reveal">Forsamlingshuset &middot; gatherings &amp; community</p>
-      <h1 class="reveal">Not what I made &mdash;<br><em>what we gather around.</em></h1>
+      <h1 class="reveal">Not what I made.<br><em>What we gather around.</em></h1>
       <p class="lead reveal">
         Projects are one thing. What they're for is another: rooms with other
         people in them, and something good on the table.
@@ -58,7 +69,7 @@
 
     <figure class="plate reveal">
       <img src="assets/img/gatherings.jpg" alt="Seen through a rain-covered window: people gathered around tables with board games, under string lights." width="1536" height="1024" loading="lazy">
-      <figcaption class="mono">pl. iv &mdash; forsamlingshuset, seen from the rain</figcaption>
+      <figcaption class="mono">pl. iv &middot; forsamlingshuset, seen from the rain</figcaption>
     </figure>
 
     <section class="section" aria-label="Gatherings">
@@ -121,8 +132,8 @@
 
   <footer class="site-foot">
     <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
-    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
-    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">--:--</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies. Just HTML, CSS and rain.</p>
   </footer>
 
   <script src="js/main.js"></script>
