@@ -29,7 +29,7 @@
   --bg-raised: #e4dbc8;
   --ink: #322c24;
   --ink-strong: #211c15;
-  --muted: #71685a;
+  --muted: #6d6456;
   --line: #d2c7b2;
   --accent: #8a5a28;
   --accent-soft: rgba(138, 90, 40, 0.12);
@@ -61,6 +61,36 @@ a:hover { color: var(--ink-strong); }
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 10;
+  top: 0.8rem;
+  left: 0.8rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--bg-raised);
+  color: var(--ink-strong);
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .mono {
@@ -339,6 +369,7 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  body, #rain, .skip-link { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   #rain { display: none; }
 }
@@ -347,6 +378,12 @@ h2 {
 
 .page-hero { padding: clamp(4.5rem, 11vh, 7.5rem) 1.5rem 3.2rem; }
 .page-hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.6rem); }
+
+.lost {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: clamp(5rem, 16vh, 10rem) 1.5rem 6rem;
+}
 
 .section {
   max-width: var(--wide);
@@ -522,6 +559,33 @@ section .plate {
 /* --- small screens ------------------------------------------------------- */
 
 @media (max-width: 640px) {
+  .site-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.8rem 1rem;
+    padding-top: 1.2rem;
+  }
+
+  .head-label {
+    grid-column: 1;
+    grid-row: 1;
+    margin-right: 0;
+  }
+
+  .site-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    gap: 0.35rem 1rem;
+  }
+
+  #lantern {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .hero { padding-top: 4rem; }
+  .page-hero { padding-top: 3rem; }
+  .lost { padding-top: 4rem; }
   .entry { grid-template-columns: 1fr 2rem; }
   .idx { grid-column: 1 / -1; }
   .host { display: block; margin: 0.3rem 0 0; }

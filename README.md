@@ -18,7 +18,7 @@ libraries and backstage rooms, Japanese tea aesthetics.
 | | | |
 |---|---|---|
 | N°01 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club |
-| N°02 | [Turkis Crew](http://turkis.gamestormers.dk/) | humane software for cultural volunteers |
+| N°02 | [Turkis Crew](https://turkis.gamestormers.dk/) | humane software for cultural volunteers |
 | N°03 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha journal on ritual and slowness |
 | N°04 | [Solis Lantern Chronicles](https://solis.gamestormers.dk/) | an evolving, slightly mythological space |
 | N°05 | [Aarhus Folk Festival](https://folk.gamestormers.dk/) | a redesign for a community folk festival |
@@ -42,12 +42,13 @@ The site is a house with rooms:
 - `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, and canvas rain (all respecting `prefers-reduced-motion`)
 
 Conventions for working on the site (voice, design tokens, components) live
-in [AGENTS.md](AGENTS.md).
+in [AGENTS.md](AGENTS.md). Personal and editorial context lives in
+[KASPER.md](KASPER.md).
 
 Run it locally by opening `index.html`, or:
 
 ```sh
-python -m http.server 8000
+python -m http.server 8741
 ```
 
 ## Deployment
@@ -55,7 +56,7 @@ python -m http.server 8000
 Hosted on GitHub Pages from the `main` branch with the custom domain
 `kasper-krog.dk` (see `CNAME`).
 
-DNS for kasper-krog.dk should point at GitHub Pages:
+DNS for kasper-krog.dk points at GitHub Pages:
 
 ```
 A     @    185.199.108.153

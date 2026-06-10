@@ -2,6 +2,8 @@
 
 Working guide for anyone — human or agent — changing kasper-krog.dk.
 This is the single source of truth; `CLAUDE.md` only points here.
+Read [KASPER.md](KASPER.md) for the living personal and editorial context
+behind the site.
 
 ## What this is
 
@@ -9,6 +11,32 @@ The personal site of Kasper Krog: a quiet cultural archive, not a portfolio
 and not a brand. The governing metaphor is **a small harbor / a house with
 rooms** — warmth kept lit against darkness. Every change should make the site
 feel more like *a real place someone inhabits*, never like a product.
+
+## How the site grows
+
+This site is also Kasper's personal playground. He may bring unfinished
+thoughts, memories, stories, interests, projects, habits, convictions, passing
+observations or odd scraps that matter to him. They do not need to arrive as
+finished website copy or with a page already chosen.
+
+Add durable personal context to [KASPER.md](KASPER.md). Keep implementation
+rules and visitor-facing voice guidance in this file.
+
+The agent's job is to listen for what the material is really about, decide
+where it belongs in the house, and give it a form that feels native to the
+site. That may mean a journal fragment, a shelf item, a new archive entry, a
+small detail on the keeper page, a ritual, a fictional seed, or something the
+current structure does not yet have.
+
+Do not incorporate every fact literally or immediately. Find the detail that
+has life in it. Preserve Kasper's specificity, uncertainty and contradictions;
+do not flatten them into a tidy personal profile. Some material should become
+one plain sentence. Some should wait until it has company. When several scraps
+point toward a new room, the structure may grow.
+
+The aim is accumulation with judgment: over time, the site should know more
+about the person who keeps it, while still feeling like a house rather than a
+database, résumé or biography.
 
 ## Hard rules
 
@@ -24,7 +52,10 @@ feel more like *a real place someone inhabits*, never like a product.
   head applies the theme pre-paint.
 - **Respect `prefers-reduced-motion`** — rain, smooth scroll and reveal
   animations are all disabled under it. Keep it that way for anything new.
-- Plain accessible HTML: landmarks, `aria-current` on nav, visible focus.
+- Plain accessible HTML: landmarks, logical heading levels, `aria-current`
+  on nav, a skip link to `<main>`, visible focus and WCAG AA text contrast in
+  both themes.
+- External links use HTTPS wherever the destination supports it.
 
 ## Voice & tone
 
@@ -165,10 +196,17 @@ not a feed):
 GitHub Pages from `main` branch root at
 [github.com/KasperKrog92/kasperkrog.dk](https://github.com/KasperKrog92/kasperkrog.dk),
 custom domain `kasper-krog.dk` via the `CNAME` file; `.nojekyll` disables
-Jekyll. **DNS note (June 2026):** kasper-krog.dk still points at Simply.com
-hosting (94.231.103.132). Going live on Pages requires A records to GitHub's
-`185.199.108–111.153`, then "Enforce HTTPS" — or uploading these files to the
-Simply.com webspace instead.
+Jekyll. As of June 10, 2026, the domain uses GitHub's four Pages A records,
+`www` points to `kasperkrog92.github.io`, and HTTPS is live.
+
+## Before committing and pushing
+
+When Kasper says "commit and push", first review the completed work for durable
+changes that should be reflected in `AGENTS.md`, `KASPER.md`, `README.md`,
+`assets/img/README.md` or another relevant documentation file. Update those
+files when it helps future agents understand the site, Kasper or the current
+structure. Do not manufacture documentation changes when the existing guidance
+is still accurate.
 
 ## Checking your work
 
@@ -177,4 +215,6 @@ python -m http.server 8741
 ```
 
 Then verify: both themes (click the lantern), mobile width (~380px), keyboard
-focus order, and that nothing moves when the OS asks for reduced motion.
+focus order, skip-link behavior, logical heading order, and that nothing moves
+when the OS asks for reduced motion. Muted text must retain at least 4.5:1
+contrast against the page background in both themes.

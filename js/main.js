@@ -38,20 +38,23 @@
   }
 
   function syncLantern() {
+    if (!lantern) return;
     lantern.setAttribute("aria-pressed", String(root.dataset.theme === "dawn"));
   }
   syncLantern();
-  lantern.addEventListener("click", function () {
-    root.dataset.theme = root.dataset.theme === "dusk" ? "dawn" : "dusk";
-    try {
-      localStorage.setItem(KEY, JSON.stringify({
-        theme: root.dataset.theme,
-        expiresAt: Date.now() + THEME_TTL
-      }));
-    } catch (e) {}
-    applyTheme(root.dataset.theme);
-    syncLantern();
-  });
+  if (lantern) {
+    lantern.addEventListener("click", function () {
+      root.dataset.theme = root.dataset.theme === "dusk" ? "dawn" : "dusk";
+      try {
+        localStorage.setItem(KEY, JSON.stringify({
+          theme: root.dataset.theme,
+          expiresAt: Date.now() + THEME_TTL
+        }));
+      } catch (e) {}
+      applyTheme(root.dataset.theme);
+      syncLantern();
+    });
+  }
   setInterval(function () {
     applyTheme(storedTheme() || timeTheme());
     syncLantern();
