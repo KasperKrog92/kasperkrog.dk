@@ -58,8 +58,14 @@ handwritten marginalia, use sparingly: at most one or two per page).
 Reusable components: `.entry` (catalogue rows), `.journal-entry` (dated
 fragments), `.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card`
 (the house map), `.pull` (pull quotes / poems), `.signal` (contact rows),
+`.plate` (archival images: `<figure>` with thin border and a mono
+roman-numeral caption, one per page at most — see `assets/img/README.md`),
 `.section-head` + `.mono` labels, `.reveal` (scroll arrival). Atmosphere
 layers: `#rain` canvas (dusk only) and `.grain` film-grain overlay.
+
+Images: optimized JPGs only (~150–230 KB, raw PNGs are gitignored), always
+with `width`/`height` attributes and `loading="lazy"`, muted/grainy so they
+sit well on both themes.
 
 ## Structure
 

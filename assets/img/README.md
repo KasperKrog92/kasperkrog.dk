@@ -1,22 +1,25 @@
 # assets/img — the picture drawer
 
-Drop generated images here using the exact filenames below, then ask for them
-to be wired into the pages. JPG preferred, roughly 1600px on the long edge
-(og.jpg exactly 1200×630). Keep them muted and grainy — they must work on both
-the dusk and dawn themes.
+The plates of the house. All images are committed as optimized JPGs
+(~150–230 KB); raw generator PNGs are gitignored. To regenerate from a PNG:
 
-| File | Goes where | Mood |
+```sh
+ffmpeg -i name.png -q:v 4 name.jpg
+```
+
+| File | Wired into | As |
 |---|---|---|
-| `harbor.jpg` | index hero / 404 | rainy harbor at night, warm lights |
-| `journal.jpg` | journal.html | notebook, tea, café lamp |
-| `shelf.jpg` | shelf.html | books, vinyl, reading lamp |
-| `gatherings.jpg` | gatherings.html | warm hall, blurred people |
-| `worlds.jpg` | worlds.html | the night ferry, painterly |
-| `rituals.jpg` | rituals.html | matcha bowl, morning rain |
-| `keeper.jpg` | keeper.html | a desk that describes a person |
-| `og.jpg` | social share card | one lantern over dark water |
+| `harbor.jpg` | index.html | pl. i — between the field notes and the archive |
+| `journal.jpg` | journal.html | pl. ii — after the hero |
+| `shelf.jpg` | shelf.html | pl. iii — after the hero |
+| `gatherings.jpg` | gatherings.html | pl. iv — after the hero |
+| `worlds.jpg` | worlds.html | pl. v — directly under the Night Ferry fragment |
+| `rituals.jpg` | rituals.html | pl. vi — after the hero |
+| `keeper.jpg` | keeper.html | pl. vii — after the hero |
+| `og.jpg` | index.html `og:image` | social share card, exactly 1200×630 |
 
-The full generation prompts are in the project conversation / can be
-regenerated from the moods above + the house style: analog 35mm film
-photography, heavy film grain, muted deep ink-blue-black with warm amber,
-melancholic but warm, Nordic, no text in the image.
+House style for any new image: analog 35mm film photography (worlds.jpg is
+the painterly exception), heavy grain, muted deep ink-blue-black with warm
+amber, melancholic but warm, no text in the image. Use the `.plate` figure
+component (thin border + mono roman-numeral caption) and continue the
+numbering.
