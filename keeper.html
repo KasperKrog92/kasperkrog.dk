@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dusk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Keeper — Kasper Krog</title>
+  <meta name="description" content="Værten: who keeps this place — about Kasper Krog, the philosophy behind the projects, and how to send a signal.">
+  <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0e1216">
+  <script>
+    try {
+      var t = localStorage.getItem('kk-theme');
+      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <a class="mono head-label" href="index.html">Kasper Krog</a>
+    <nav class="site-nav mono" aria-label="Rooms of the site">
+      <a href="index.html">Harbor</a>
+      <a href="journal.html">Journal</a>
+      <a href="shelf.html">Shelf</a>
+      <a href="gatherings.html">Gatherings</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="rituals.html">Rituals</a>
+      <a href="keeper.html" aria-current="page">Keeper</a>
+    </nav>
+    <button id="lantern" type="button" aria-pressed="false" aria-label="Toggle between night and daylight">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 3h4"/>
+        <path d="M12 3v3"/>
+        <path d="M8.5 6h7l1 2.5v7L15 18H9l-1.5-2.5v-7Z"/>
+        <path d="M12 9.5c1.4 1.8 1.4 3.2 0 4.2c-1.4-1-1.4-2.4 0-4.2Z" fill="currentColor" stroke="none"/>
+        <path d="M9 21h6"/>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+
+    <section class="hero page-hero">
+      <p class="mono eyebrow reveal">V&aelig;rten &middot; about, philosophy &amp; contact</p>
+      <h1 class="reveal">The keeper<br><em>of this place.</em></h1>
+    </section>
+
+    <section class="section" aria-label="About">
+      <header class="section-head reveal">
+        <span class="mono section-label">Om v&aelig;rten &mdash; about</span>
+        <h2>Hello. My name is Kasper Krog.</h2>
+      </header>
+      <div class="prose reveal">
+        <p>
+          I build communities, digital spaces and small cultural projects centered
+          on atmosphere, meaning and human connection.
+        </p>
+        <p>
+          I'm based in Aarhus, Denmark, where I work in public transportation &mdash;
+          and spend much of my free time on community-driven projects around games,
+          culture, music, volunteering and storytelling. Most of what I make exists
+          somewhere between technology and atmosphere.
+        </p>
+        <p>
+          I'm interested in how digital systems can feel more human. How communities
+          can feel warmer and more intentional. How aesthetics, rituals and stories
+          shape the way we experience everyday life. Many of my projects are attempts
+          to make rooms where people can gather around shared experience: video games
+          treated as art, volunteer communities built on trust rather than metrics,
+          matcha as a calming ritual, folk culture, storytelling, music, conversation.
+        </p>
+        <p>
+          I'm deeply inspired by works that combine melancholy with warmth and
+          humanity: Disco Elysium, Malazan Book of the Fallen, cozy horror, Nordic
+          atmospheres, fantasy worldbuilding, late-night conversations, rainy cities,
+          ambient music and quiet cultural spaces. I'm drawn to contrast &mdash; light
+          becoming brighter in darkness, stillness existing beside chaos, technology
+          alongside humanity, rituals within modern life.
+        </p>
+        <p>
+          I believe meaningful things are often built through small acts of care:
+          organizing events, building welcoming spaces, making tea for someone,
+          sharing stories, staying curious, helping people feel seen.
+        </p>
+        <p>
+          This website is less a portfolio and more an archive of the things I care
+          about, the worlds I build and the communities I try to nurture.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Philosophy">
+      <header class="section-head reveal">
+        <span class="mono section-label">Grundtonen &mdash; philosophy</span>
+        <h2>What holds it together.</h2>
+      </header>
+      <div class="prose reveal">
+        <p>
+          I don't think meaning is something humans invent out of nothing. It emerges
+          &mdash; through relationships, perspectives and existence itself. Everything
+          lives inside systems of connection: people, places, stories, communities,
+          rituals, memories. Things matter because they participate in the unfolding
+          of life and experience.
+        </p>
+        <p>
+          I'm drawn to philosophies that embrace process, uncertainty and becoming
+          rather than rigid certainty: process philosophy, Daoism, existential
+          reflection &mdash; ways of seeing reality as something alive and constantly
+          unfolding.
+        </p>
+        <blockquote class="pull">
+          Light becomes brighter in darkness.<br>
+          Warmth matters because cold exists.
+        </blockquote>
+        <p>
+          A recurring idea in my life is that contrast gives shape to experience.
+          Small moments of kindness become meaningful against the scale and
+          uncertainty of the world.
+        </p>
+        <p>
+          Many modern systems forget the human dimension: technology optimized for
+          engagement rather than care, communities treated as metrics, culture
+          flattened into content. Much of what I build is an attempt to move in the
+          opposite direction &mdash; toward spaces that feel slower, warmer, more
+          reflective and more alive.
+        </p>
+        <p>
+          I care deeply about atmosphere: the emotional texture of places,
+          conversations, music, games and rituals. Not only what something does,
+          but how it feels to inhabit. And I believe rituals matter &mdash; making
+          tea, sharing meals, walking through a rainy city at night, staying after
+          an event to help clean up. These small actions shape the emotional
+          architecture of a life.
+        </p>
+        <p>
+          I'm fascinated by stories and worlds where people continue caring for each
+          other despite uncertainty, grief or cosmic scale. Not because darkness is
+          desirable in itself &mdash; but because tenderness becomes more visible
+          within it.
+        </p>
+        <p>
+          At the center of most of my projects is the same impulse: to create small
+          refuges for culture, reflection, creativity and human connection.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Contact">
+      <header class="section-head reveal">
+        <span class="mono section-label">Send et signal &mdash; presence</span>
+        <h2>The light is on.</h2>
+        <p class="section-sub">No forms, no funnels, no newsletter. If you write, a human reads it.</p>
+      </header>
+      <ul class="signal reveal">
+        <li>
+          <span class="mono">post</span>
+          <span><a href="mailto:kkandersen01@gmail.com">kkandersen01@gmail.com</a> &mdash; Danish or English; letters preferred over pitches.</span>
+        </li>
+        <li>
+          <span class="mono">code</span>
+          <span><a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a> &mdash; where this harbor's blueprints live.</span>
+        </li>
+        <li>
+          <span class="mono">rooms</span>
+          <span><a href="https://www.gamestormers.dk/" target="_blank" rel="noopener">Aarhus Gamestormers</a> &mdash; the community door; the others open from there.</span>
+        </li>
+      </ul>
+      <p class="annotation afterword reveal">&mdash; if you're ever in Aarhus, the kettle rule applies to you too.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

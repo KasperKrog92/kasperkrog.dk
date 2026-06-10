@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dusk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rituals — Kasper Krog</title>
+  <meta name="description" content="Ritualer: the small machinery of ordinary days — matcha, night walks, notebooks, playlists, cafés and the kettle rule.">
+  <link rel="icon" href="assets/lantern.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0e1216">
+  <script>
+    try {
+      var t = localStorage.getItem('kk-theme');
+      if (t === 'dawn' || t === 'dusk') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <a class="mono head-label" href="index.html">Kasper Krog</a>
+    <nav class="site-nav mono" aria-label="Rooms of the site">
+      <a href="index.html">Harbor</a>
+      <a href="journal.html">Journal</a>
+      <a href="shelf.html">Shelf</a>
+      <a href="gatherings.html">Gatherings</a>
+      <a href="worlds.html">Worlds</a>
+      <a href="rituals.html" aria-current="page">Rituals</a>
+      <a href="keeper.html">Keeper</a>
+    </nav>
+    <button id="lantern" type="button" aria-pressed="false" aria-label="Toggle between night and daylight">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 3h4"/>
+        <path d="M12 3v3"/>
+        <path d="M8.5 6h7l1 2.5v7L15 18H9l-1.5-2.5v-7Z"/>
+        <path d="M12 9.5c1.4 1.8 1.4 3.2 0 4.2c-1.4-1-1.4-2.4 0-4.2Z" fill="currentColor" stroke="none"/>
+        <path d="M9 21h6"/>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+
+    <section class="hero page-hero">
+      <p class="mono eyebrow reveal">Ritualer &middot; uses &amp; rituals</p>
+      <h1 class="reveal">The small machinery<br><em>of ordinary days.</em></h1>
+      <p class="lead reveal">
+        Not productivity. The opposite, mostly &mdash; small repeated acts that give
+        the day a shape and the mind somewhere to sit.
+      </p>
+    </section>
+
+    <section class="section" aria-label="Rituals">
+      <div class="shelf">
+
+        <div class="shelf-item reveal">
+          <span class="mono">morning</span>
+          <h3>Matcha, first</h3>
+          <p>Bowl, whisk, eighty seconds. The day's first measurement, taken in green.</p>
+        </div>
+
+        <div class="shelf-item reveal">
+          <span class="mono">late</span>
+          <h3>The night walk</h3>
+          <p>A fixed route past the harbor. Thinking happens at walking speed; rain is
+             optional but recommended.</p>
+        </div>
+
+        <div class="shelf-item reveal">
+          <span class="mono">always</span>
+          <h3>Paper first</h3>
+          <p>Notebooks before screens. This site is mostly a transcription.</p>
+        </div>
+
+        <div class="shelf-item reveal">
+          <span class="mono">rooms</span>
+          <h3>Playlists as furniture</h3>
+          <p>One for rain, one for writing, one for cleaning up after events. Music
+             that holds a room rather than performs in it.</p>
+        </div>
+
+        <div class="shelf-item reveal">
+          <span class="mono">weekly</span>
+          <h3>Caf&eacute;s of Aarhus</h3>
+          <p>Third places and corner seats. Field research, faithfully reported to
+             <a href="https://matchabladet.dk/" target="_blank" rel="noopener">Matchabladet</a>.</p>
+        </div>
+
+        <div class="shelf-item reveal">
+          <span class="mono">after</span>
+          <h3>The kettle rule</h3>
+          <p>Anyone who stays to help clean up gets tea. Non-negotiable; the kettle
+             is communal law.</p>
+        </div>
+
+      </div>
+
+      <p class="afterword reveal">None of this is optimized. That is what it is for.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <p class="mono">&copy; 2026 Kasper Krog &middot; Aarhus, Denmark</p>
+    <p class="mono">In Aarhus it is <span id="aarhus-time">&mdash;:&mdash;</span>. It is probably raining.</p>
+    <p class="mono">Built by hand. No trackers, no cookies &mdash; just HTML, CSS and rain.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
