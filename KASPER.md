@@ -103,9 +103,13 @@ late cafés, cultural venues after closing, bookshelves, ferries and lamplight.
 
 ### Ritual
 
-Small repeated acts help give a day its shape. Matcha, notebooks, playlists,
+Small repeated acts help give a day its shape. Matcha, shared meals, playlists,
 night walks and the kettle after an event are already part of the site's
 language.
+
+Correction (June 10, 2026): Kasper does not really use paper for anything.
+Notebooks and "paper first" were removed from the rituals page and the rooms
+map, and should not be reintroduced as personal facts.
 
 Other examples Kasper has named include sharing meals, walking through a rainy
 city at night and staying after an event to help clean up. These small actions
@@ -117,7 +121,7 @@ the body. The cold drops, getting drenched, finding shelter, laughing, kissing
 and dancing all belong to it. The freedom of being outside is tied to having a
 safe, warm place to return to.
 
-The ritual should remain physical and specific. Bowl, whisk, route, page,
+The ritual should remain physical and specific. Bowl, whisk, route, pot,
 kettle. Avoid turning it into self-improvement advice.
 
 ### Stories and worlds
