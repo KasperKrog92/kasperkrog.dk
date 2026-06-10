@@ -111,6 +111,12 @@ Other examples Kasper has named include sharing meals, walking through a rainy
 city at night and staying after an event to help clean up. These small actions
 help shape the emotional architecture of life.
 
+Kasper loves walking outside in the rain. Rain feels like permission in both
+directions: to stay home and rest, or to go out and feel the weather through
+the body. The cold drops, getting drenched, finding shelter, laughing, kissing
+and dancing all belong to it. The freedom of being outside is tied to having a
+safe, warm place to return to.
+
 The ritual should remain physical and specific. Bowl, whisk, route, page,
 kettle. Avoid turning it into self-improvement advice.
 
