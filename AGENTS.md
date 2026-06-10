@@ -35,9 +35,54 @@ Quiet, literary, warm inside melancholy. Late-night café, not LinkedIn.
 - The keeper page speaks in first person; elsewhere the site speaks about
   the place, not the person.
 - Never use: brand, content, engagement, audience, leverage, productivity.
-- Sentences may be fragments. Em dashes welcome. Exclamation marks are not.
+- Sentences may be fragments. Exclamation marks are not welcome.
 - Contrast is the recurring image: lanterns, harbors, rain, tea, small
   lights against large darkness.
+
+## Copy guidelines — don't sound like a machine
+
+The site's voice is literary, which sits dangerously close to the house
+style of language models. Every line of copy must pass this filter before
+it ships.
+
+**Words that never appear** (the classic LLM vocabulary): delve, tapestry,
+vibrant, intricate, pivotal, testament, meticulous, robust, seamless,
+leverage, foster, showcase, elevate, boasts, nestled, evolving, journey,
+landscape (figurative), realm, unlock, transformative, "serves as",
+"stands as". If a plain word exists, use it: *has*, *is*, *use*, *make*.
+
+**Patterns to ration** — these are statistical fingerprints of generated
+text, and they multiply when nobody is watching:
+
+- *Negative parallelism* ("not X, but Y" / "it isn't X, it's Y"): at most
+  one per page, and only when the contrast is the actual point. Two
+  headlines already own this device ("Fragments, not essays", "Not what I
+  made — what we gather around") — don't add more.
+- *Rule of three*: only for literal lists of three real things, never for
+  rhythm ("warm, alive and intergenerational" was cut for this reason).
+- *Em dashes*: a couple per page. Prefer the period, the colon, the
+  semicolon, the comma — in that order.
+- *Trailing participles* ("…, highlighting the importance of…"): never.
+- *Symmetrical clause stacks* (three parallel phrases in a row): break the
+  rhythm — turn one into its own short sentence.
+
+**What to do instead:**
+
+- Concrete beats abstract. "Rooms where shared experience can happen" is
+  machine fog; "rooms with other people in them, and something good on the
+  table" is a sentence a person wrote. Name objects, places, times.
+- Let some sentences be plain. A paragraph where every line lands a poetic
+  image is a tell in itself. One image per paragraph is plenty.
+- Use contractions sometimes. Repeat a word rather than reach for a fancy
+  synonym.
+- First person on the keeper page may admit things ("I help where help is
+  needed", "I finished the last page and wanted the first one back").
+  Small confessions read human; grand claims read generated.
+- Each metaphor lives in exactly one place on the site. Before reusing
+  "walking speed", "furniture", "doors ajar" or similar, grep for it —
+  duplicated imagery across pages is how generated copy gives itself away.
+- Read it aloud. If a sentence sounds like it ends with an implied
+  "— and that's beautiful", cut the ending.
 
 ## Design system
 
