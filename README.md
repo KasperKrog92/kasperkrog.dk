@@ -5,8 +5,7 @@
 The personal site of Kasper Krog — a quiet cultural archive at the intersection
 of culture, stories, atmosphere, technology and human connection. Not a
 portfolio, not a personal brand. More like a late-night café conversation:
-a shelf of projects, rituals and worlds, built by a human being rather than
-a company.
+a shelf of projects, rituals and worlds.
 
 The identity revolves around contrast — light and darkness intensifying each
 other. Warmth inside melancholy. Drawing on Disco Elysium, Malazan, Nordic
@@ -38,7 +37,7 @@ The site is a house with rooms:
 - `rituals/index.html` — *Ritualer*, served at `/rituals/`
 - `keeper/index.html` — *Værten*, served at `/keeper/`
 - `404.html` — for pages the rain washed away
-- `css/style.css` — two themes: **dusk** (rainy night) and **dawn** (warm paper), chosen by local time with a three-hour lantern override
+- `css/style.css` — two themes: **dusk** (rainy night) and **dawn** (warm paper), chosen by local time with a three-hour lantern override; each archival image cross-fades between a dusk and a dawn version with the theme
 - `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, and canvas rain (all respecting `prefers-reduced-motion`)
 
 Conventions for working on the site (voice, design tokens, components) live
@@ -71,4 +70,4 @@ CNAME www  kasperkrog92.github.io
 
 ---
 
-Built by hand in Aarhus. It is probably raining.
+Kept in Aarhus. It is probably raining.

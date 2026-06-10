@@ -119,9 +119,14 @@
     (function frame() {
       ctx.clearRect(0, 0, w, h);
       ctx.lineWidth = 1;
+      /* pale drops against the night, ink drops against the paper;
+         dark-on-light needs roughly double the alpha to read the same */
+      var dawn = root.dataset.theme === "dawn";
+      var rgb = dawn ? "50, 44, 36" : "213, 205, 186";
       for (var i = 0; i < drops.length; i++) {
         var d = drops[i];
-        ctx.strokeStyle = "rgba(213, 205, 186, " + d.alpha + ")";
+        var a = dawn ? Math.min(d.alpha * 2, 0.3) : d.alpha;
+        ctx.strokeStyle = "rgba(" + rgb + ", " + a + ")";
         ctx.beginPath();
         ctx.moveTo(d.x, d.y);
         ctx.lineTo(d.x - d.len * DRIFT, d.y + d.len);

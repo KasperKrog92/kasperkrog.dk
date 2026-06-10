@@ -68,6 +68,9 @@ Quiet, literary, warm inside melancholy. Late-night café, not LinkedIn.
 - The keeper page speaks in first person; elsewhere the site speaks about
   the place, not the person.
 - Never use: brand, content, engagement, audience, leverage, productivity.
+- Never announce human authorship ("built by a human", "a human reads it",
+  "built by hand"). Kasper dislikes that kind of talk; let the care show in
+  the thing itself.
 - Sentences may be fragments. Exclamation marks are not welcome.
 - Contrast is the recurring image: lanterns, harbors, rain, tea, small
   lights against large darkness.
@@ -140,11 +143,15 @@ fragments), `.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card
 `.plate` (archival images: `<figure>` with thin border and a mono
 roman-numeral caption, one per page at most — see `assets/img/README.md`),
 `.section-head` + `.mono` labels, `.reveal` (scroll arrival). Atmosphere
-layers: `#rain` canvas (dusk only) and `.grain` film-grain overlay.
+layers: `#rain` canvas (both themes: pale drops at dusk, ink drops slightly
+softened at dawn) and `.grain` film-grain overlay.
 
 Images: optimized JPGs only (~150–230 KB, raw PNGs are gitignored), always
-with `width`/`height` attributes and `loading="lazy"`, muted/grainy so they
-sit well on both themes.
+with `width`/`height` attributes and `loading="lazy"`. Every plate has a
+dusk version (base name) and a dawn twin (`-dawn.jpg` suffix, same scene in
+muted morning light); both live in the figure as stacked `<img>` elements
+(`.plate-dusk` / `.plate-dawn`) and CSS cross-fades the dawn one in with
+the theme, no JS. Details in `assets/img/README.md`.
 
 ## Structure
 
