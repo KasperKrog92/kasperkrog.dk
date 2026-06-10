@@ -149,13 +149,13 @@ sit well on both themes.
 ## Structure
 
 ```
-index.html        the harbor — hero, feltnotater, Kartoteket (projects), the rooms map
-journal.html      Notesbogen — dated fragments, not essays
-shelf.html        Hylden — current inspirations
-gatherings.html   Forsamlingshuset — community & events
-worlds.html       Baglokalet — worldbuilding, cozy horror, unfinished experiments
-rituals.html      Ritualer — uses & rituals of ordinary days
-keeper.html       Værten — about, philosophy, send a signal (contact)
+index.html              the harbor — hero, feltnotater, Kartoteket (projects), the rooms map
+journal/index.html      Notesbogen — dated fragments, not essays
+shelf/index.html        Hylden — current inspirations
+gatherings/index.html   Forsamlingshuset — community & events
+worlds/index.html       Baglokalet — worldbuilding, cozy horror, unfinished experiments
+rituals/index.html      Ritualer — uses & rituals of ordinary days
+keeper/index.html       Værten — about, philosophy, send a signal (contact)
 404.html          lost in the rain (absolute asset paths — it serves anywhere)
 css/style.css     everything visual, both themes
 js/main.js        lantern, Aarhus clock, reveal, rain — no dependencies
@@ -164,7 +164,9 @@ assets/           lantern.svg favicon
 
 The header nav is duplicated on every page (no build step). When adding a
 page: copy an existing header, move `aria-current="page"` to the new link,
-add the page to the rooms map on index.html and to this file.
+add the page to the rooms map on index.html and to this file. Room pages live
+in named directories so their public URLs end with a slash, for example
+`journal/index.html` is served at `/journal/`.
 
 ## Adding things
 

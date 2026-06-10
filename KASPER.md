@@ -179,12 +179,12 @@ This list should change as Kasper changes. The shelf is current, not canonical.
 | File | Room | Present purpose | Material that may belong here |
 |---|---|---|---|
 | `index.html` | The harbor | First arrival, field notes, public projects and the map of the house | A defining shift in the whole site, a new major project, or a field note broad enough to greet everyone |
-| `journal.html` | Notesbogen, the journal | Dated fragments and observations | A moment, memory, small realization or scene that can stand in two to five sentences |
-| `shelf.html` | Hylden, the shelf | What is feeding Kasper's attention now | Books, games, records, films, places, objects or ideas with one specific reason for being present |
-| `gatherings.html` | Forsamlingshuset, the gathering house | Clubs, tables, venues, volunteering and shared events | Stories about hosting, community, people meeting, practical care or cultural work |
-| `worlds.html` | Baglokalet, the back room | Fiction, worldbuilding, cozy horror and unfinished experiments | Characters, settings, strange systems, game ideas, fictional scraps or work that should remain half-lit |
-| `rituals.html` | Ritualer, rituals | Repeated acts that shape ordinary days | Habits with physical detail, seasonal practices, routes, meals, tools or small household laws |
-| `keeper.html` | Værten, the keeper | First-person account of Kasper, his outlook and ways to reach him | Durable personal facts, honest admissions, philosophy and details that help a visitor understand who keeps the house |
+| `journal/index.html` | Notesbogen, the journal | Dated fragments and observations | A moment, memory, small realization or scene that can stand in two to five sentences |
+| `shelf/index.html` | Hylden, the shelf | What is feeding Kasper's attention now | Books, games, records, films, places, objects or ideas with one specific reason for being present |
+| `gatherings/index.html` | Forsamlingshuset, the gathering house | Clubs, tables, venues, volunteering and shared events | Stories about hosting, community, people meeting, practical care or cultural work |
+| `worlds/index.html` | Baglokalet, the back room | Fiction, worldbuilding, cozy horror and unfinished experiments | Characters, settings, strange systems, game ideas, fictional scraps or work that should remain half-lit |
+| `rituals/index.html` | Ritualer, rituals | Repeated acts that shape ordinary days | Habits with physical detail, seasonal practices, routes, meals, tools or small household laws |
+| `keeper/index.html` | Værten, the keeper | First-person account of Kasper, his outlook and ways to reach him | Durable personal facts, honest admissions, philosophy and details that help a visitor understand who keeps the house |
 | `404.html` | Off the map | A lost path that still feels part of the house | Usually no personal archive material |
 
 ## Routing new material

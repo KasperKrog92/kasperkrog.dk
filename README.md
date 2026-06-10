@@ -30,13 +30,13 @@ framework, no build step, no trackers, no cookies, no analytics.
 
 The site is a house with rooms:
 
-- `index.html` — the harbor: hero, feltnotater, the project archive, and a map of the rooms
-- `journal.html` — *Notesbogen*: fragments and margin notes, not essays
-- `shelf.html` — *Hylden*: current inspirations, presented as a living shelf
-- `gatherings.html` — *Forsamlingshuset*: community, clubs, tables and festivals
-- `worlds.html` — *Baglokalet*: worldbuilding, cozy horror and unfinished experiments
-- `rituals.html` — *Ritualer*: the small machinery of ordinary days
-- `keeper.html` — *Værten*: about, philosophy, and how to send a signal
+- `index.html` — the harbor, served at `/`
+- `journal/index.html` — *Notesbogen*, served at `/journal/`
+- `shelf/index.html` — *Hylden*, served at `/shelf/`
+- `gatherings/index.html` — *Forsamlingshuset*, served at `/gatherings/`
+- `worlds/index.html` — *Baglokalet*, served at `/worlds/`
+- `rituals/index.html` — *Ritualer*, served at `/rituals/`
+- `keeper/index.html` — *Værten*, served at `/keeper/`
 - `404.html` — for pages the rain washed away
 - `css/style.css` — two themes: **dusk** (rainy night) and **dawn** (warm paper), chosen by local time with a three-hour lantern override
 - `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, and canvas rain (all respecting `prefers-reduced-motion`)
@@ -45,7 +45,10 @@ Conventions for working on the site (voice, design tokens, components) live
 in [AGENTS.md](AGENTS.md). Personal and editorial context lives in
 [KASPER.md](KASPER.md).
 
-Run it locally by opening `index.html`, or:
+On Windows, double-click `start-local-site.bat`. It starts the server and
+opens the site in the default browser. Close the server window when done.
+
+Or run it from a terminal:
 
 ```sh
 python -m http.server 8741
