@@ -43,6 +43,11 @@ Outside work he builds communities, digital spaces and small cultural projects
 centered on atmosphere, meaning and human connection. His projects draw from
 games, culture, music, volunteering and storytelling.
 
+Kasper sees his paid work in public transportation as part of the ecology that
+lets him help elsewhere. The job pays fairly, is not stressful, and gives him
+room to volunteer, support cultural projects and keep growing in his free time.
+When a project speaks to him, he is glad to help for free.
+
 Much of what he makes sits between technology and atmosphere. He is interested
 in digital systems that feel more human, communities that feel warmer and more
 intentional, and the ways aesthetics, rituals and stories shape ordinary life.
@@ -79,6 +84,12 @@ Meaningful things are often built through small acts of care: organizing an
 event, making tea, sharing a story, staying curious, helping with the cleanup
 and helping someone feel seen. These acts are not background decoration. They
 are part of what makes a gathering real.
+
+He wants people with kind, serious projects to feel they can reach out. That
+may mean help arranging cultural events, thinking through volunteers, improving
+a website or giving a project a clearer home online. The practical form matters
+less than whether he can be useful, and whether the project is kind to the
+people around it.
 
 ### Humane technology
 

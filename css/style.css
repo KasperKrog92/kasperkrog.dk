@@ -443,6 +443,18 @@ h1 em {
   line-height: 1.6;
 }
 
+.harbor-invite {
+  max-width: var(--measure);
+  margin: 2rem 0 0;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--accent);
+  color: var(--ink);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+.harbor-invite a { white-space: nowrap; }
+
 .hint { margin: 3.2rem 0 0; }
 .hint a { color: var(--muted); text-decoration: none; }
 .hint a:hover { color: var(--accent); }
