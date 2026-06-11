@@ -27,6 +27,15 @@
   --table-grain-soft: rgba(217, 210, 194, 0.05);
   --table-leg: rgba(216, 164, 90, 0.32);
   --book-shadow: rgba(0, 0, 0, 0.24);
+  --book-ink: var(--muted);
+  --book-accent: var(--accent);
+  --book-harbor: #172027;
+  --book-journal: #211d1b;
+  --book-shelf: #1a211d;
+  --book-gatherings: #241d20;
+  --book-worlds: #1c1d25;
+  --book-rituals: #222118;
+  --book-keeper: #201e19;
   --rain-opacity: 1;
   --sea-line: rgba(213, 205, 186, 0.16);
   --sea-body: #0b0f13;
@@ -48,6 +57,15 @@
   --table-grain-soft: rgba(50, 44, 36, 0.07);
   --table-leg: rgba(138, 90, 40, 0.28);
   --book-shadow: rgba(80, 58, 30, 0.2);
+  --book-ink: #5f5649;
+  --book-accent: #78481f;
+  --book-harbor: #d8d9d2;
+  --book-journal: #ded0c6;
+  --book-shelf: #d4d9ca;
+  --book-gatherings: #ddccd0;
+  --book-worlds: #d2d1da;
+  --book-rituals: #ddd8bd;
+  --book-keeper: #ddd2c0;
   --rain-opacity: 0.85;
   --sea-line: rgba(50, 44, 36, 0.22);
   --sea-body: #e0d7c3;
@@ -395,8 +413,8 @@ a.head-label:hover { color: var(--accent); }
   border-radius: 2px 4px 4px 2px;
   background:
     linear-gradient(to right, var(--accent-soft), transparent 0.28rem),
-    var(--bg-raised);
-  color: var(--muted);
+    var(--book-cover, var(--bg-raised));
+  color: var(--book-ink);
   box-shadow:
     inset -0.4rem 0 0 rgba(255, 255, 255, 0.012),
     0 0.18rem 0.38rem rgba(0, 0, 0, 0.06);
@@ -420,42 +438,49 @@ a.head-label:hover { color: var(--accent); }
 }
 
 .site-nav a:nth-child(1) {
+  --book-cover: var(--book-harbor);
   grid-column: 2 / span 4;
   grid-row: 3;
   transform: translateY(-0.06rem);
 }
 
 .site-nav a:nth-child(2) {
+  --book-cover: var(--book-journal);
   grid-column: 6 / span 4;
   grid-row: 3;
   transform: translateY(0.1rem);
 }
 
 .site-nav a:nth-child(3) {
+  --book-cover: var(--book-shelf);
   grid-column: 10 / span 3;
   grid-row: 3;
   transform: translateY(-0.02rem);
 }
 
 .site-nav a:nth-child(4) {
+  --book-cover: var(--book-gatherings);
   grid-column: 8 / span 5;
   grid-row: 2;
   transform: translateY(0.08rem);
 }
 
 .site-nav a:nth-child(5) {
+  --book-cover: var(--book-worlds);
   grid-column: 13 / span 4;
   grid-row: 2;
   transform: translateY(0.12rem);
 }
 
 .site-nav a:nth-child(6) {
+  --book-cover: var(--book-rituals);
   grid-column: 13 / span 4;
   grid-row: 3;
   transform: translateY(0.08rem);
 }
 
 .site-nav a:nth-child(7) {
+  --book-cover: var(--book-keeper);
   grid-column: 13 / span 4;
   grid-row: 1;
   transform: translateY(0.18rem);
@@ -463,8 +488,8 @@ a.head-label:hover { color: var(--accent); }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
-  color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+  color: var(--book-accent);
+  border-color: color-mix(in srgb, var(--book-accent) 48%, var(--line));
   box-shadow:
     inset -0.4rem 0 0 rgba(255, 255, 255, 0.016),
     0 0.28rem 0.62rem var(--glow);
@@ -472,9 +497,9 @@ a.head-label:hover { color: var(--accent); }
 }
 
 .site-nav a[aria-current="page"] {
-  color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 54%, var(--line));
-  border-left-color: var(--accent);
+  color: var(--book-accent);
+  border-color: color-mix(in srgb, var(--book-accent) 54%, var(--line));
+  border-left-color: var(--book-accent);
   box-shadow:
     inset 0.22rem 0 0 var(--accent-soft),
     inset -0.4rem 0 0 rgba(255, 255, 255, 0.016),
@@ -590,7 +615,39 @@ a.head-label:hover { color: var(--accent); }
   flex: 0 0 2.6rem;
   width: 2.6rem;
   height: 2.6rem;
+  color: color-mix(in srgb, var(--muted) 72%, var(--accent));
   pointer-events: none;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    color 0.7s ease;
+}
+
+.lantern-rig {
+  position: absolute;
+  top: -1.85rem;
+  left: 50%;
+  width: 3.55rem;
+  height: auto;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.72;
+  filter: drop-shadow(0 0.14rem 0.18rem var(--book-shadow));
+  transform: translateX(-50%);
+}
+
+.lantern-chain {
+  stroke-width: 1;
+  opacity: 0.78;
+}
+
+.lantern-dock.is-empty {
+  opacity: 0;
+  transform: translateY(-0.3rem);
 }
 
 #lantern.is-carried {
@@ -810,7 +867,7 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  body, #rain, .skip-link, #lantern { transition: none; }
+  body, #rain, .skip-link, #lantern, .lantern-dock { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   #rain { display: none; }
   .sea,
@@ -1154,7 +1211,7 @@ section .plate {
 
   #lantern {
     top: 1.2rem;
-    right: 1.5rem;
+    right: 1.35rem;
   }
 
   .lantern-dock {
@@ -1162,6 +1219,10 @@ section .plate {
     grid-row: 1;
     width: 2.6rem;
     height: 2.6rem;
+  }
+
+  .lantern-rig {
+    top: -2.2rem;
   }
 
   .hero { padding-top: 4rem; }

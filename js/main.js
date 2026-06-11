@@ -46,10 +46,23 @@
     var lanternDock = document.createElement("span");
     lanternDock.className = "lantern-dock";
     lanternDock.setAttribute("aria-hidden", "true");
+    lanternDock.innerHTML =
+      '<svg class="lantern-rig" viewBox="0 0 56 84" aria-hidden="true">' +
+        '<g class="lantern-chain">' +
+          '<ellipse cx="28" cy="4" rx="2.5" ry="4"/>' +
+          '<ellipse cx="28" cy="12" rx="4" ry="2.5"/>' +
+          '<ellipse cx="28" cy="20" rx="2.5" ry="4"/>' +
+          '<path d="M28 24v7"/>' +
+        '</g>' +
+        '<path d="M28 30C14.5 30 5 39 5 52v20h7"/>' +
+        '<path d="M28 30c13.5 0 23 9 23 22v20h-7"/>' +
+        '<path d="M12 68v7M44 68v7"/>' +
+      '</svg>';
     lantern.parentNode.insertBefore(lanternDock, lantern);
 
     var carryLantern = function (carried) {
       lantern.classList.toggle("is-carried", carried);
+      lanternDock.classList.toggle("is-empty", carried);
     };
 
     var checkLanternDock = function () {
