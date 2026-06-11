@@ -137,8 +137,10 @@ Fonts: **Cormorant Garamond** (display), **EB Garamond** (body),
 **IBM Plex Mono** (labels, tags, dates), **Caveat** (`.annotation` —
 handwritten marginalia, use sparingly: at most one or two per page).
 
-Reusable components: `.entry` (catalogue rows), `.journal-entry` (dated
-fragments), `.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card`
+Reusable components: `.site-head`/`.site-nav` (the table-book room nav; normal
+links styled as book spines, with the lantern resting on the same surface),
+`.entry` (catalogue rows), `.journal-entry` (dated fragments),
+`.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card`
 (the house map), `.pull` (pull quotes / poems), `.signal` (contact rows),
 `.plate` (archival images: `<figure>` with thin border and a mono
 roman-numeral caption, one per page at most — see `assets/img/README.md`),
