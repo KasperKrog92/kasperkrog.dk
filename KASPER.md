@@ -144,6 +144,18 @@ of darkness is not darkness itself. It makes tenderness easier to see.
 Worldbuilding is allowed to stay unfinished. Some ideas do useful work without
 becoming projects.
 
+Kasper loves Akira Kurosawa's idea of *ma*, the patient pause. In his words
+(June 12, 2026): "If I don't let you watch the rain fall on this peaceful
+village, how will you know what violence is? All the horror of the battle
+comes from the rain." The pause is where contrast is built: the quiet gives
+the violence its meaning. Published as the journal fragment "The rain before
+the battle".
+
+Five titles Kasper loves, each still waiting for its story (June 12, 2026):
+*The City by the Sea*, *This is the Greatest Fear*, *Shivers in the Void*,
+*The Silent Primordial Scream*, *Fated, Heaven-sent*. They sit in Baglokalet
+as "Five titles, no stories yet".
+
 ## Philosophical ground
 
 Kasper names process philosophy, Daoism, existential reflection and other
@@ -165,6 +177,11 @@ scale and uncertainty of the world.
 At the center of most of Kasper's projects is the impulse to make small
 refuges for culture, reflection, creativity and human connection.
 
+A conviction in his own words (June 12, 2026): "This is the whole point: do
+what you want to do and see who sticks around to put wind in your sails."
+Making comes before audience; the people who stay are the point. The keeper
+page closes its philosophy section with this line.
+
 ## Cultural shelf
 
 These works and forms currently help describe Kasper's taste:
@@ -179,6 +196,7 @@ These works and forms currently help describe Kasper's taste:
 - Folk music: voices in a room, tradition carried by people.
 - Trip hop and long ambient records: slow sound, weather for rooms.
 - Slow cinema: patience and attention.
+- Kurosawa and *ma*: the long pause that teaches what the violence costs.
 - Rainy city photography: reflected light, wet streets and inhabited darkness.
 - Tea culture: attention made physical through a bowl and a repeated act.
 - Late-night conversation and quiet cultural spaces: company without spectacle.
