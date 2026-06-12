@@ -23,20 +23,26 @@
   --accent: #d8a45a;
   --accent-soft: rgba(216, 164, 90, 0.14);
   --glow: rgba(216, 164, 90, 0.06);
-  --table-wash: rgba(216, 164, 90, 0.045);
+  --table-wash: rgba(216, 164, 90, 0.07);
   --table-grain: rgba(216, 164, 90, 0.12);
   --table-grain-soft: rgba(217, 210, 194, 0.05);
+  --table-rim: rgba(216, 164, 90, 0.28);
   --table-leg: rgba(216, 164, 90, 0.32);
   --book-shadow: rgba(0, 0, 0, 0.24);
-  --book-ink: var(--muted);
+  --book-ink: #a39b88;
   --book-accent: var(--accent);
-  --book-harbor: #172027;
-  --book-journal: #211d1b;
-  --book-shelf: #1a211d;
-  --book-gatherings: #241d20;
-  --book-worlds: #1c1d25;
-  --book-rituals: #222118;
-  --book-keeper: #201e19;
+  --book-sheen: rgba(255, 243, 196, 0.06);
+  --book-under: rgba(0, 0, 0, 0.34);
+  --book-pages: rgba(201, 189, 158, 0.38);
+  --book-board-shade: #05070b;
+  --book-board-line: rgba(217, 210, 194, 0.24);
+  --book-harbor: #1d2a36;
+  --book-journal: #2c211d;
+  --book-shelf: #1f2b20;
+  --book-gatherings: #2e2128;
+  --book-worlds: #232233;
+  --book-rituals: #2a281a;
+  --book-keeper: #2b2418;
   --rain-opacity: 1;
   --sea-line: rgba(213, 205, 186, 0.16);
   --sea-body: #0b0f13;
@@ -54,20 +60,26 @@
   --accent: #8a5a28;
   --accent-soft: rgba(138, 90, 40, 0.12);
   --glow: rgba(138, 90, 40, 0.05);
-  --table-wash: rgba(138, 90, 40, 0.06);
+  --table-wash: rgba(138, 90, 40, 0.08);
   --table-grain: rgba(138, 90, 40, 0.18);
   --table-grain-soft: rgba(50, 44, 36, 0.07);
+  --table-rim: rgba(255, 252, 240, 0.7);
   --table-leg: rgba(138, 90, 40, 0.28);
   --book-shadow: rgba(80, 58, 30, 0.2);
-  --book-ink: #5f5649;
+  --book-ink: #564f40;
   --book-accent: #78481f;
-  --book-harbor: #d8d9d2;
-  --book-journal: #ded0c6;
-  --book-shelf: #d4d9ca;
-  --book-gatherings: #ddccd0;
-  --book-worlds: #d2d1da;
-  --book-rituals: #ddd8bd;
-  --book-keeper: #ddd2c0;
+  --book-sheen: rgba(255, 255, 255, 0.45);
+  --book-under: rgba(80, 58, 30, 0.16);
+  --book-pages: rgba(80, 58, 30, 0.16);
+  --book-board-shade: #6e5d45;
+  --book-board-line: rgba(80, 58, 30, 0.4);
+  --book-harbor: #d4d7cf;
+  --book-journal: #ddccbf;
+  --book-shelf: #cfd7c3;
+  --book-gatherings: #dcc7cd;
+  --book-worlds: #cfcedd;
+  --book-rituals: #d9d3b2;
+  --book-keeper: #dccfb8;
   --rain-opacity: 0.85;
   --sea-line: rgba(50, 44, 36, 0.22);
   --sea-body: #e0d7c3;
@@ -324,22 +336,19 @@ a:hover { color: var(--ink-strong); }
   padding: 1.25rem 1.5rem 1.45rem;
 }
 
-.site-head::before,
-.site-head::after {
+/* the lantern's light pooling over the table, dusk only */
+[data-theme="dusk"] .site-head::before {
   content: "";
   position: absolute;
   z-index: 0;
-  left: 1.5rem;
-  right: 1.5rem;
+  inset: -0.4rem 1rem -2.6rem;
   pointer-events: none;
-}
-
-.site-head::before {
-  display: none;
-}
-
-.site-head::after {
-  display: none;
+  background: radial-gradient(
+    ellipse 44% 80% at 85% 30%,
+    rgba(216, 164, 90, 0.13),
+    rgba(216, 164, 90, 0.04) 52%,
+    transparent 76%
+  );
 }
 
 .head-label {
@@ -360,7 +369,7 @@ a.head-label:hover { color: var(--accent); }
   display: grid;
   grid-template-columns: repeat(16, minmax(0, 1fr));
   grid-template-rows: repeat(3, 1.45rem);
-  gap: 0.18rem 0.14rem;
+  gap: 0.12rem 0.14rem;
   min-height: 4.75rem;
   max-width: 42rem;
   justify-self: end;
@@ -397,7 +406,9 @@ a.head-label:hover { color: var(--accent); }
       var(--table-grain) 82.2% 82.45%,
       transparent 82.8% 100%
     );
-  box-shadow: 0 0.7rem 1.45rem rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 1px 0 var(--table-rim),
+    0 0.7rem 1.45rem rgba(0, 0, 0, 0.12);
 }
 
 .site-nav::after {
@@ -416,6 +427,16 @@ a.head-label:hover { color: var(--accent); }
 }
 
 .site-nav a {
+  /* cloth sheen along the top, shaded under-edge along the bottom */
+  --book-depth:
+    inset 0 1px 0 var(--book-sheen),
+    inset 0 -2px 3px -2px var(--book-under);
+  /* the body of the book, seen when it slides out of the pile */
+  --book-board: color-mix(
+    in srgb,
+    var(--book-cover, var(--bg-raised)) 74%,
+    var(--book-board-shade)
+  );
   position: relative;
   z-index: 1;
   display: flex;
@@ -428,10 +449,11 @@ a.head-label:hover { color: var(--accent); }
   border-radius: 2px 4px 4px 2px;
   background:
     linear-gradient(to right, var(--accent-soft), transparent 0.28rem),
+    linear-gradient(to left, var(--book-pages), transparent 0.24rem),
     var(--book-cover, var(--bg-raised));
   color: var(--book-ink);
   box-shadow:
-    inset -0.4rem 0 0 rgba(255, 255, 255, 0.012),
+    var(--book-depth),
     0 0.18rem 0.38rem rgba(0, 0, 0, 0.06);
   overflow: hidden;
   text-decoration: none;
@@ -506,7 +528,9 @@ a.head-label:hover { color: var(--accent); }
   color: var(--book-accent);
   border-color: color-mix(in srgb, var(--book-accent) 48%, var(--line));
   box-shadow:
-    inset -0.4rem 0 0 rgba(255, 255, 255, 0.016),
+    var(--book-depth),
+    -0.16rem 0.18rem 0 var(--book-board),
+    -0.16rem 0.18rem 0 1px var(--book-board-line),
     0 0.28rem 0.62rem var(--glow);
   transform: translateY(-0.08rem);
 }
@@ -517,8 +541,10 @@ a.head-label:hover { color: var(--accent); }
   border-left-color: var(--book-accent);
   box-shadow:
     inset 0.22rem 0 0 var(--accent-soft),
-    inset -0.4rem 0 0 rgba(255, 255, 255, 0.016),
-    -0.22rem 0.34rem 0.08rem var(--book-shadow),
+    var(--book-depth),
+    -0.3rem 0.34rem 0 var(--book-board),
+    -0.3rem 0.34rem 0 1px var(--book-board-line),
+    -0.46rem 0.6rem 0.6rem var(--book-shadow),
     0 0.58rem 0.95rem var(--glow);
 }
 
@@ -534,8 +560,10 @@ a.head-label:hover { color: var(--accent); }
 .site-nav a[aria-current="page"]:focus-visible {
   box-shadow:
     inset 0.22rem 0 0 var(--accent-soft),
-    inset -0.4rem 0 0 rgba(255, 255, 255, 0.016),
-    -0.3rem 0.42rem 0.12rem var(--book-shadow),
+    var(--book-depth),
+    -0.4rem 0.44rem 0 var(--book-board),
+    -0.4rem 0.44rem 0 1px var(--book-board-line),
+    -0.58rem 0.74rem 0.7rem var(--book-shadow),
     0 0.72rem 1.1rem var(--glow);
   transform: translate(0.44rem, -0.08rem);
 }
@@ -627,7 +655,6 @@ a.head-label:hover { color: var(--accent); }
   position: relative;
   z-index: 1;
   grid-column: 3;
-  flex: 0 0 2.6rem;
   width: 2.6rem;
   height: 2.6rem;
   color: color-mix(in srgb, var(--muted) 72%, var(--accent));
@@ -636,6 +663,11 @@ a.head-label:hover { color: var(--accent); }
     opacity 0.28s ease,
     transform 0.28s ease,
     color 0.7s ease;
+}
+
+/* the flame catches the rig at dusk */
+[data-theme="dusk"] .lantern-dock {
+  color: color-mix(in srgb, var(--muted) 46%, var(--accent));
 }
 
 .lantern-rig {
@@ -1166,15 +1198,8 @@ section .plate {
     padding: 1.2rem 1.35rem 1.35rem;
   }
 
-  .site-head::before,
-  .site-head::after {
-    left: 1.35rem;
-    right: 1.35rem;
-  }
-
-  .site-head::before {
-    bottom: 0.56rem;
-    height: 4.9rem;
+  [data-theme="dusk"] .site-head::before {
+    inset: -0.2rem 0.6rem -1.6rem;
   }
 
   .head-label {
@@ -1188,7 +1213,7 @@ section .plate {
     grid-row: 2;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     grid-template-rows: repeat(3, 1.32rem);
-    gap: 0.15rem 0.12rem;
+    gap: 0.1rem 0.12rem;
     min-height: 4.7rem;
     max-width: none;
     justify-self: stretch;

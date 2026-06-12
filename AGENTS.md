@@ -138,7 +138,10 @@ Fonts: **Cormorant Garamond** (display), **EB Garamond** (body),
 handwritten marginalia, use sparingly: at most one or two per page).
 
 Reusable components: `.site-head`/`.site-nav` (the table-book room nav; normal
-links styled as book spines, with the lantern resting on the same surface),
+links styled as book spines via the `--book-*` and `--table-*` tokens, the
+current room slid out with its board showing beneath the spine, and the
+lantern hanging in its rig on the same surface — at dusk it pools light over
+the table),
 `.entry` (catalogue rows), `.journal-entry` (dated fragments),
 `.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card`
 (the house map), `.pull` (pull quotes / poems), `.signal` (contact rows),
