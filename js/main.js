@@ -83,11 +83,15 @@
       syncLantern();
     });
   }
-  setInterval(function () {
+  function minuteTick() {
     applyTheme(storedTheme() || timeTheme());
     syncLantern();
     moor();
-  }, 60000);
+  }
+  setInterval(minuteTick, 60000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) minuteTick();
+  });
 
   /* --- the harbor clock --------------------------------------------- */
   var clock = document.getElementById("aarhus-time");
@@ -209,9 +213,16 @@
     return { sail: 1 - nightMinutes / (12 * 60), west: true };
   }
 
+  var lastSail = null;
+
   function moor() {
     if (!boat) return;
     var position = sailProgress(new Date());
+    /* a tab that slept through hours catches up by snapping, not by
+       speeding across the water — the 60s drift is for minutes only */
+    var leap = lastSail === null ||
+      Math.abs(position.sail - lastSail) > 2 / 720;
+    if (leap) boat.style.transition = "none";
     var percent = position.sail * 100;
     var boatOffset = position.sail * 44;
     boat.style.setProperty(
@@ -219,6 +230,11 @@
       "calc(" + percent.toFixed(4) + "% - " + boatOffset.toFixed(2) + "px)"
     );
     boat.classList.toggle("westward", position.west);
+    if (leap) {
+      void boat.offsetWidth;
+      boat.style.transition = "";
+    }
+    lastSail = position.sail;
   }
 
   moor();

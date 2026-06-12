@@ -9,7 +9,8 @@
   --font-mono: "IBM Plex Mono", "Consolas", monospace;
   --measure: 46rem;
   --wide: 62rem;
-  --sea-h: clamp(52px, 8vh, 84px);
+  --sea-h: clamp(52px, 6.5vh, 66px);
+  --sea-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='768' height='84' viewBox='0 0 768 84' preserveAspectRatio='none'%3E%3Cpath d='M0 13C10.7 12.3 25.3 6.3 38 7C50.7 7.7 64 16.7 76 17C88 17.3 97.7 9.3 110 9C122.3 8.7 136.7 15.5 150 15C163.3 14.5 177.5 5.5 190 6C202.5 6.5 213 17.2 225 18C237 18.8 249.5 11.3 262 11C274.5 10.7 288.3 16.5 300 16C311.7 15.5 320.3 7.5 332 8C343.7 8.5 357.8 18.3 370 19C382.2 19.7 393.3 12.5 405 12C416.7 11.5 429.2 16.8 440 16C450.8 15.2 459.2 6.8 470 7C480.8 7.2 493.3 16.5 505 17C516.7 17.5 528.3 9.5 540 10C551.7 10.5 563.3 20.2 575 20C586.7 19.8 598.3 9.8 610 9C621.7 8.2 633.3 15.5 645 15C656.7 14.5 668.3 5.7 680 6C691.7 6.3 704.7 16.2 715 17C725.3 17.8 733.2 11.7 742 11C750.8 10.3 757.3 13.7 768 13V84H0Z' fill='white'/%3E%3C/svg%3E");
 }
 
 [data-theme="dusk"] {
@@ -39,7 +40,8 @@
   --rain-opacity: 1;
   --sea-line: rgba(213, 205, 186, 0.16);
   --sea-body: #0b0f13;
-  --sea-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='384' height='84' viewBox='0 0 384 84' preserveAspectRatio='none'%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13V84H0Z' fill='%230b0f13'/%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13' fill='none' stroke='%23d5cdba' stroke-opacity='.05' stroke-width='5'/%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13' fill='none' stroke='%23d5cdba' stroke-opacity='.16' stroke-width='1'/%3E%3C/svg%3E");
+  --sea-glass: rgba(11, 15, 19, 0.55);
+  --sea-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='768' height='84' viewBox='0 0 768 84' preserveAspectRatio='none'%3E%3Cpath d='M0 13C10.7 12.3 25.3 6.3 38 7C50.7 7.7 64 16.7 76 17C88 17.3 97.7 9.3 110 9C122.3 8.7 136.7 15.5 150 15C163.3 14.5 177.5 5.5 190 6C202.5 6.5 213 17.2 225 18C237 18.8 249.5 11.3 262 11C274.5 10.7 288.3 16.5 300 16C311.7 15.5 320.3 7.5 332 8C343.7 8.5 357.8 18.3 370 19C382.2 19.7 393.3 12.5 405 12C416.7 11.5 429.2 16.8 440 16C450.8 15.2 459.2 6.8 470 7C480.8 7.2 493.3 16.5 505 17C516.7 17.5 528.3 9.5 540 10C551.7 10.5 563.3 20.2 575 20C586.7 19.8 598.3 9.8 610 9C621.7 8.2 633.3 15.5 645 15C656.7 14.5 668.3 5.7 680 6C691.7 6.3 704.7 16.2 715 17C725.3 17.8 733.2 11.7 742 11C750.8 10.3 757.3 13.7 768 13' fill='none' stroke='%23d5cdba' stroke-opacity='.05' stroke-width='5' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M0 13C10.7 12.3 25.3 6.3 38 7C50.7 7.7 64 16.7 76 17C88 17.3 97.7 9.3 110 9C122.3 8.7 136.7 15.5 150 15C163.3 14.5 177.5 5.5 190 6C202.5 6.5 213 17.2 225 18C237 18.8 249.5 11.3 262 11C274.5 10.7 288.3 16.5 300 16C311.7 15.5 320.3 7.5 332 8C343.7 8.5 357.8 18.3 370 19C382.2 19.7 393.3 12.5 405 12C416.7 11.5 429.2 16.8 440 16C450.8 15.2 459.2 6.8 470 7C480.8 7.2 493.3 16.5 505 17C516.7 17.5 528.3 9.5 540 10C551.7 10.5 563.3 20.2 575 20C586.7 19.8 598.3 9.8 610 9C621.7 8.2 633.3 15.5 645 15C656.7 14.5 668.3 5.7 680 6C691.7 6.3 704.7 16.2 715 17C725.3 17.8 733.2 11.7 742 11C750.8 10.3 757.3 13.7 768 13' fill='none' stroke='%23d5cdba' stroke-opacity='.16' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 [data-theme="dawn"] {
@@ -69,7 +71,8 @@
   --rain-opacity: 0.85;
   --sea-line: rgba(50, 44, 36, 0.22);
   --sea-body: #e0d7c3;
-  --sea-fill: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='384' height='84' viewBox='0 0 384 84' preserveAspectRatio='none'%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13V84H0Z' fill='%23e0d7c3'/%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13' fill='none' stroke='%23322c24' stroke-opacity='.06' stroke-width='5'/%3E%3Cpath d='M0 13C10 6 20 7 31 12C43 18 55 20 68 14C80 8 88 5 101 10C116 17 127 19 141 12C153 6 167 8 180 15C193 21 207 17 219 11C233 4 245 7 258 13C272 20 286 19 300 12C313 6 324 8 337 14C349 19 361 18 372 12C377 9 381 10 384 13' fill='none' stroke='%23322c24' stroke-opacity='.22' stroke-width='1'/%3E%3C/svg%3E");
+  --sea-glass: rgba(224, 215, 195, 0.6);
+  --sea-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='768' height='84' viewBox='0 0 768 84' preserveAspectRatio='none'%3E%3Cpath d='M0 13C10.7 12.3 25.3 6.3 38 7C50.7 7.7 64 16.7 76 17C88 17.3 97.7 9.3 110 9C122.3 8.7 136.7 15.5 150 15C163.3 14.5 177.5 5.5 190 6C202.5 6.5 213 17.2 225 18C237 18.8 249.5 11.3 262 11C274.5 10.7 288.3 16.5 300 16C311.7 15.5 320.3 7.5 332 8C343.7 8.5 357.8 18.3 370 19C382.2 19.7 393.3 12.5 405 12C416.7 11.5 429.2 16.8 440 16C450.8 15.2 459.2 6.8 470 7C480.8 7.2 493.3 16.5 505 17C516.7 17.5 528.3 9.5 540 10C551.7 10.5 563.3 20.2 575 20C586.7 19.8 598.3 9.8 610 9C621.7 8.2 633.3 15.5 645 15C656.7 14.5 668.3 5.7 680 6C691.7 6.3 704.7 16.2 715 17C725.3 17.8 733.2 11.7 742 11C750.8 10.3 757.3 13.7 768 13' fill='none' stroke='%23322c24' stroke-opacity='.06' stroke-width='5' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M0 13C10.7 12.3 25.3 6.3 38 7C50.7 7.7 64 16.7 76 17C88 17.3 97.7 9.3 110 9C122.3 8.7 136.7 15.5 150 15C163.3 14.5 177.5 5.5 190 6C202.5 6.5 213 17.2 225 18C237 18.8 249.5 11.3 262 11C274.5 10.7 288.3 16.5 300 16C311.7 15.5 320.3 7.5 332 8C343.7 8.5 357.8 18.3 370 19C382.2 19.7 393.3 12.5 405 12C416.7 11.5 429.2 16.8 440 16C450.8 15.2 459.2 6.8 470 7C480.8 7.2 493.3 16.5 505 17C516.7 17.5 528.3 9.5 540 10C551.7 10.5 563.3 20.2 575 20C586.7 19.8 598.3 9.8 610 9C621.7 8.2 633.3 15.5 645 15C656.7 14.5 668.3 5.7 680 6C691.7 6.3 704.7 16.2 715 17C725.3 17.8 733.2 11.7 742 11C750.8 10.3 757.3 13.7 768 13' fill='none' stroke='%23322c24' stroke-opacity='.22' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 * { box-sizing: border-box; }
@@ -171,39 +174,51 @@ a:hover { color: var(--ink-strong); }
 
 .sea-water {
   position: absolute;
-  inset: 0;
-  background-image: var(--sea-fill);
-  background-repeat: repeat-x;
-  background-size: 384px 100%;
+  inset: 0 -768px;
+  animation: tide-surface 840s linear infinite;
 }
 
-.sea::before,
+.sea-water::before,
+.sea-water::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;
+  background-size: 768px 100%;
+}
+
+/* the body of the water: glass at the lip, opaque a little down,
+   so sinking text dims under the surface before it is gone */
+.sea-water::before {
+  background-image: linear-gradient(to bottom, var(--sea-glass), var(--sea-body) 40%);
+  -webkit-mask-image: var(--sea-mask);
+  mask-image: var(--sea-mask);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 768px 100%;
+  mask-size: 768px 100%;
+}
+
+.sea-water::after {
+  background-image: var(--sea-edge);
+}
+
+/* one drifting strand of swell; it passes in front of the hull */
 .sea::after {
   content: "";
   position: absolute;
-  inset: 0 -96px;
-  opacity: 0.72;
+  inset: 0 -288px;
+  top: 53%;
+  z-index: 2;
+  opacity: 0.45;
   background-color: var(--sea-line);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='288' height='18' viewBox='0 0 288 18'%3E%3Cpath d='M0 9C9.5 10.5 23.3 14.7 35 14C46.7 13.3 59.2 5.3 70 5C80.8 4.7 88.7 11.8 100 12C111.3 12.2 126.3 5.8 138 6C149.7 6.2 158.8 12.7 170 13C181.2 13.3 193.3 7.8 205 8C216.7 8.2 229.8 14.5 240 14C250.2 13.5 258 5.8 266 5C274 4.2 278.5 7.5 288 9' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='288' height='18' viewBox='0 0 288 18'%3E%3Cpath d='M0 9C9.5 10.5 23.3 14.7 35 14C46.7 13.3 59.2 5.3 70 5C80.8 4.7 88.7 11.8 100 12C111.3 12.2 126.3 5.8 138 6C149.7 6.2 158.8 12.7 170 13C181.2 13.3 193.3 7.8 205 8C216.7 8.2 229.8 14.5 240 14C250.2 13.5 258 5.8 266 5C274 4.2 278.5 7.5 288 9' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
   -webkit-mask-repeat: repeat-x;
   mask-repeat: repeat-x;
-  -webkit-mask-size: 96px 18px;
-  mask-size: 96px 18px;
-  animation: tide-east 90s linear infinite;
-}
-
-.sea::before {
-  top: 20%;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='18' viewBox='0 0 96 18'%3E%3Cpath d='M0 9C12 3 20 3 32 9s20 6 32 0 20-6 32 0' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='18' viewBox='0 0 96 18'%3E%3Cpath d='M0 9C12 3 20 3 32 9s20 6 32 0 20-6 32 0' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
-}
-
-.sea::after {
-  top: 53%;
-  opacity: 0.45;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='18' viewBox='0 0 96 18'%3E%3Cpath d='M0 9C10 14 22 14 32 9s22-5 32 0 22 5 32 0' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='18' viewBox='0 0 96 18'%3E%3Cpath d='M0 9C10 14 22 14 32 9s22-5 32 0 22 5 32 0' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
-  animation-name: tide-west;
-  animation-duration: 140s;
+  -webkit-mask-size: 288px 18px;
+  mask-size: 288px 18px;
+  animation: tide-west 420s linear infinite;
 }
 
 .boat {
@@ -282,12 +297,12 @@ a:hover { color: var(--ink-strong); }
   82% { filter: drop-shadow(0 0 3px #fff3c4) drop-shadow(0 0 7px var(--accent)) drop-shadow(0 0 12px var(--accent)); }
 }
 
-@keyframes tide-east {
-  to { transform: translateX(96px); }
+@keyframes tide-surface {
+  to { transform: translateX(768px); }
 }
 
 @keyframes tide-west {
-  to { transform: translateX(-96px); }
+  to { transform: translateX(-288px); }
 }
 
 @keyframes boat-bob {
@@ -876,8 +891,8 @@ h2 {
   .boat svg,
   .boat-lamp,
   .boat-lamp-glow { transition: none; }
-  .sea::before,
   .sea::after,
+  .sea-water,
   .boat-bob { animation: none; }
   [data-theme="dusk"] #lantern,
   [data-theme="dusk"] #lantern svg,
