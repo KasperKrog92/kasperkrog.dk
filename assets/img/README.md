@@ -28,6 +28,11 @@ No JavaScript is involved.
 | `keeper.jpg` | keeper/index.html | pl. vii — after the hero |
 | `og.jpg` | index.html `og:image` | social share card, exactly 1200×630, no dawn twin |
 
+Project-card backgrounds live in `assets/img/projects/`. They use the same
+base-name / `-dawn` pairing, but are decorative wide crops rather than
+numbered plates. Keep the subject toward the right, leave quiet space on the
+left for copy, and let the card CSS provide the final fade.
+
 House style for any new image: analog 35mm film photography (worlds.jpg is
 the painterly exception), heavy grain, muted deep ink-blue-black with warm
 amber, melancholic but warm, no text in the image. Dawn twins stay muted

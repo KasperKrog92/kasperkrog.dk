@@ -8,4 +8,4 @@ Thumbs.db
 .claude/
 
 # raw generator output — only the optimized .jpg versions are committed
-assets/img/*.png
+assets/img/**/*.png

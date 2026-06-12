@@ -785,10 +785,13 @@ h2 {
 }
 
 .entry {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: 5rem 1fr 2.5rem;
   gap: 1.2rem;
   align-items: baseline;
+  overflow: hidden;
   padding: 2rem 0.8rem;
   border-top: 1px solid var(--line);
   text-decoration: none;
@@ -798,10 +801,42 @@ h2 {
 
 .entry:last-of-type { border-bottom: 1px solid var(--line); }
 
-.entry:hover {
+.entry:hover,
+.entry:focus-visible {
   background:
     radial-gradient(ellipse 75% 120% at 20% 50%, var(--glow), transparent 70%),
     var(--bg-raised);
+}
+
+.entry-with-image::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: var(--entry-image) center / cover no-repeat;
+  opacity: 0.32;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 6%, rgba(0, 0, 0, 0.12) 34%, #000 62%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 6%, rgba(0, 0, 0, 0.12) 34%, #000 62%, transparent 100%);
+  transition: opacity 0.6s ease;
+}
+
+.entry-with-image > * {
+  position: relative;
+  z-index: 1;
+}
+
+.entry-with-image:hover::before,
+.entry-with-image:focus-visible::before {
+  opacity: 0.48;
+}
+
+.entry-gamestormers {
+  --entry-image: url("../assets/img/projects/gamestormers.jpg");
+}
+
+[data-theme="dawn"] .entry-gamestormers {
+  --entry-image: url("../assets/img/projects/gamestormers-dawn.jpg");
 }
 
 .idx { color: var(--accent); }
@@ -832,7 +867,8 @@ h2 {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.entry:hover .arrow {
+.entry:hover .arrow,
+.entry:focus-visible .arrow {
   color: var(--accent);
   transform: translate(3px, -3px);
 }
@@ -884,6 +920,7 @@ h2 {
   html { scroll-behavior: auto; }
   body, #rain, .skip-link, #lantern, .lantern-dock { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
+  .entry-with-image::before { transition: none; }
   #rain { display: none; }
   .sea,
   .sea-water,
@@ -1244,6 +1281,7 @@ section .plate {
   .page-hero { padding-top: 3rem; }
   .lost { padding-top: 4rem; }
   .entry { grid-template-columns: 1fr 2rem; }
+  .entry-with-image::before { display: none; }
   .idx { grid-column: 1 / -1; }
   .host { display: block; margin: 0.3rem 0 0; }
   .fragments { grid-template-columns: 1fr; }
