@@ -38,11 +38,12 @@ The site is a house with rooms:
 - `keeper/index.html` — *Værten*, served at `/keeper/`
 - `404.html` — for pages the rain washed away
 - `css/style.css` — two themes: **dusk** (rainy night) and **dawn** (warm paper), chosen by local time with a three-hour lantern override; each archival image cross-fades between a dusk and a dawn version with the theme
-- `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, and canvas rain (all respecting `prefers-reduced-motion`)
+- `js/main.js` — the lantern, an Aarhus clock, reveal-on-scroll, canvas rain,
+  and the local-time sea and boat (all respecting `prefers-reduced-motion`)
 
-Conventions for working on the site (voice, design tokens, components) live
-in [AGENTS.md](AGENTS.md). Personal and editorial context lives in
-[KASPER.md](KASPER.md).
+Start with [AGENTS.md](AGENTS.md), the project-wide index and hard constraints.
+It routes work to the focused guides in [`docs/`](docs/). Personal context
+lives in [KASPER.md](KASPER.md).
 
 On Windows, double-click `start-local-site.bat`. It starts the server and
 opens the site in the default browser. Close the server window when done.

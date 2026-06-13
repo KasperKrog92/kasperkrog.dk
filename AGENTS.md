@@ -1,237 +1,79 @@
 # AGENTS.md
 
-Working guide for anyone — human or agent — changing kasper-krog.dk.
-This is the single source of truth; `CLAUDE.md` only points here.
-Read [KASPER.md](KASPER.md) for the living personal and editorial context
-behind the site.
+Project-wide index for anyone changing kasper-krog.dk.
 
-## What this is
+Read this file before making changes. Then follow the documentation route that
+matches the work. `CLAUDE.md` points here and contains no separate rules.
 
-The personal site of Kasper Krog: a quiet cultural archive, not a portfolio
-and not a brand. The governing metaphor is **a small harbor / a house with
-rooms** — warmth kept lit against darkness. Every change should make the site
-feel more like *a real place someone inhabits*, never like a product.
+## The place
 
-## How the site grows
+This is Kasper Krog's personal site: a quiet cultural archive, not a portfolio
+or a product. Its governing image is a small harbor and a house with rooms,
+with warmth kept lit against darkness.
 
-This site is also Kasper's personal playground. He may bring unfinished
-thoughts, memories, stories, interests, projects, habits, convictions, passing
-observations or odd scraps that matter to him. They do not need to arrive as
-finished website copy or with a page already chosen.
+Every change should make the site feel more like a real place someone
+inhabits. Preserve its restraint, specificity and accumulated history.
 
-Add durable personal context to [KASPER.md](KASPER.md). Keep implementation
-rules and visitor-facing voice guidance in this file.
+## Non-negotiable rules
 
-The agent's job is to listen for what the material is really about, decide
-where it belongs in the house, and give it a form that feels native to the
-site. That may mean a journal fragment, a shelf item, a new archive entry, a
-small detail on the keeper page, a ritual, a fictional seed, or something the
-current structure does not yet have.
-
-Do not incorporate every fact literally or immediately. Find the detail that
-has life in it. Preserve Kasper's specificity, uncertainty and contradictions;
-do not flatten them into a tidy personal profile. Some material should become
-one plain sentence. Some should wait until it has company. When several scraps
-point toward a new room, the structure may grow.
-
-The aim is accumulation with judgment: over time, the site should know more
-about the person who keeps it, while still feeling like a house rather than a
-database, résumé or biography.
-
-## Hard rules
-
-- **No frameworks, no build step.** Hand-written HTML, CSS and vanilla JS only.
-- **No trackers, no cookies, no analytics, no embeds that phone home.**
-  The Google Fonts stylesheet is the single tolerated external request.
-- **No engagement patterns.** No newsletter prompts, popups, share buttons,
-  view counters, infinite feeds or calls to action. "There is no feed."
-- **Both themes must keep working.** Dusk (rainy night) and dawn (warm paper)
-  follow the visitor's local time: dawn from 07:00 to 18:59, dusk otherwise.
-  The lantern button overrides this for three hours, stored as `kk-theme` in
-  localStorage with an expiry timestamp. The inline script in each page's
-  head applies the theme pre-paint.
-- **Respect `prefers-reduced-motion`** — rain, smooth scroll and reveal
-  animations are all disabled under it. Keep it that way for anything new.
-- Plain accessible HTML: landmarks, logical heading levels, `aria-current`
-  on nav, a skip link to `<main>`, visible focus and WCAG AA text contrast in
+- Use hand-written HTML, CSS and vanilla JavaScript. No framework or build
+  step.
+- Add no trackers, cookies, analytics or remote embeds. The Google Fonts
+  stylesheet is the only tolerated external request.
+- Add no engagement machinery: no newsletter prompts, popups, share buttons,
+  counters, infinite feeds or calls to action. There is no feed.
+- Keep dusk and dawn working. The theme follows the visitor's local time and
+  the lantern override lasts three hours in `localStorage` under `kk-theme`.
+- Respect `prefers-reduced-motion`. Rain, smooth scrolling, reveals and other
+  decorative movement must stop.
+- Keep the HTML accessible: landmarks, logical headings, a skip link, visible
+  focus, `aria-current` in the room navigation and WCAG AA text contrast in
   both themes.
-- External links use HTTPS wherever the destination supports it.
+- Use HTTPS for external links when the destination supports it.
+- Treat the repository as public. Do not store secrets, private contact
+  details, other people's personal information or workplace-sensitive
+  material.
+- Do not erase or rewrite existing work outside the requested change.
 
-## Voice & tone
+## Read by task
 
-Quiet, literary, warm inside melancholy. Late-night café, not LinkedIn.
+| Work | Read |
+|---|---|
+| Any visitor-facing copy, new personal material or room decision | [Editorial guide](docs/editorial.md) and [KASPER.md](KASPER.md) |
+| Pages, navigation, URLs, metadata, themes or JavaScript | [Site architecture](docs/site-architecture.md) |
+| CSS, layout, components, typography, atmosphere or images | [Design system](docs/design-system.md) and, for images, [the picture drawer](assets/img/README.md) |
+| Adding content, adding a page, local testing, deployment or documentation upkeep | [Working on the site](docs/working-on-the-site.md) |
 
-- Rooms have Danish names with English glosses: *Kartoteket* (archive),
-  *Notesbogen* (journal), *Hylden* (shelf), *Forsamlingshuset* (gatherings),
-  *Baglokalet* (worlds), *Ritualer* (rituals), *Værten* (the keeper).
-- Mono labels are short and lowercase-feeling (CSS uppercases them).
-- The keeper page speaks in first person; elsewhere the site speaks about
-  the place, not the person.
-- Never use: brand, content, engagement, audience, leverage, productivity.
-- Never announce human authorship ("built by a human", "a human reads it",
-  "built by hand"). Kasper dislikes that kind of talk; let the care show in
-  the thing itself.
-- Sentences may be fragments. Exclamation marks are not welcome.
-- Contrast is the recurring image: lanterns, harbors, rain, tea, small
-  lights against large darkness.
+`KASPER.md` is the living personal sourcebook. It informs editorial choices but
+is not a backlog of facts that must be published.
 
-## Copy guidelines — don't sound like a machine
+Plans and todo files record unfinished or historical work. They are not
+project-wide rules unless a durable guide says so.
 
-The site's voice is literary, which sits dangerously close to the house
-style of language models. Every line of copy must pass this filter before
-it ships.
+## Source-of-truth boundaries
 
-**Words that never appear** (the classic LLM vocabulary): delve, tapestry,
-vibrant, intricate, pivotal, testament, meticulous, robust, seamless,
-leverage, foster, showcase, elevate, boasts, nestled, evolving, journey,
-landscape (figurative), realm, unlock, transformative, "serves as",
-"stands as". If a plain word exists, use it: *has*, *is*, *use*, *make*.
+- `AGENTS.md`: project identity, hard constraints and the documentation map.
+- `KASPER.md`: durable personal and editorial context about Kasper.
+- `docs/editorial.md`: visitor-facing voice and how new material finds a room.
+- `docs/site-architecture.md`: file structure, shared page shell and runtime
+  contracts.
+- `docs/design-system.md`: visual tokens, components, motion and image use.
+- `docs/working-on-the-site.md`: repeatable editing, verification and
+  deployment practice.
+- `docs/image-todos.md`: active image work that has not yet shipped.
+- `assets/img/README.md`: image inventory and production details.
+- `README.md`: a public introduction for people arriving at the repository.
 
-**Patterns to ration** — these are statistical fingerprints of generated
-text, and they multiply when nobody is watching:
+Put new guidance in the narrowest durable source. Link to it instead of
+copying it into several files.
 
-- *Negative parallelism* ("not X, but Y" / "it isn't X, it's Y"): at most
-  one per page, and only when the contrast is the actual point. One
-  headline already owns this device ("Not what I made. What we gather
-  around") — don't add more.
-- *Rule of three*: only for literal lists of three real things, never for
-  rhythm ("warm, alive and intergenerational" was cut for this reason).
-- *Em dashes*: never use them in visitor-facing copy, including page titles,
-  metadata, captions, labels, annotations and footers. Prefer the period,
-  the colon, the semicolon, the comma, or a middle dot for short labels.
-- *Trailing participles* ("…, highlighting the importance of…"): never.
-- *Symmetrical clause stacks* (three parallel phrases in a row): break the
-  rhythm — turn one into its own short sentence.
+## Before finishing
 
-**What to do instead:**
+Review the relevant guides again, inspect the diff and verify the change in
+both themes, at mobile width and with reduced motion where the change can
+affect presentation or interaction.
 
-- Concrete beats abstract. "Rooms where shared experience can happen" is
-  machine fog; "rooms with other people in them, and something good on the
-  table" is a sentence a person wrote. Name objects, places, times.
-- Let some sentences be plain. A paragraph where every line lands a poetic
-  image is a tell in itself. One image per paragraph is plenty.
-- Use contractions sometimes. Repeat a word rather than reach for a fancy
-  synonym.
-- First person on the keeper page may admit things ("I help where help is
-  needed", "I stayed to stack the chairs"). Small confessions read human;
-  grand claims read generated.
-- Each metaphor lives in exactly one place on the site. Before reusing
-  "walking speed", "furniture", "doors ajar" or similar, grep for it —
-  duplicated imagery across pages is how generated copy gives itself away.
-- Read it aloud. If a sentence sounds like it ends with an implied
-  "— and that's beautiful", cut the ending.
-
-## Design system
-
-Tokens live in [css/style.css](css/style.css) under `[data-theme="dusk"]` and
-`[data-theme="dawn"]`. Never hard-code colors; use the variables.
-
-| Token | Dusk | Dawn |
-|---|---|---|
-| `--bg` | `#0e1216` ink night | `#ece5d6` warm paper |
-| `--ink` / `--ink-strong` | warm grey / parchment | dark umber |
-| `--accent` | `#d8a45a` lantern amber | `#8a5a28` deep amber |
-| `--line` | `#232b33` | `#d2c7b2` |
-
-Fonts: **Cormorant Garamond** (display), **EB Garamond** (body),
-**IBM Plex Mono** (labels, tags, dates), **Caveat** (`.annotation` —
-handwritten marginalia, use sparingly: at most one or two per page).
-
-Reusable components: `.site-head`/`.site-nav` (the table-book room nav; the
-`.head-label` is a brass nameplate hung by its chains from the top-left edge of
-the page, the home link in place of a wordmark; normal
-links styled as book spines via the `--book-*` and `--table-*` tokens, the
-current room slid out with its board showing beneath the spine, and the
-lantern hanging in its rig on the same surface — at dusk it pools light over
-the table),
-`.entry` (catalogue rows), `.journal-entry` (dated fragments),
-`.shelf`/`.shelf-item` (grid of curated items), `.rooms`/`.room-card`
-(the house map), `.pull` (pull quotes / poems), `.signal` (contact rows),
-`.plate` (archival images: `<figure>` with thin border and a mono
-roman-numeral caption, one per page at most — see `assets/img/README.md`),
-`.section-head` + `.mono` labels, `.reveal` (scroll arrival). Atmosphere
-layers: `#rain` canvas (both themes: pale drops at dusk, ink drops slightly
-softened at dawn), `.grain` film-grain overlay, and a fixed `.sea` whose small
-boat crosses the viewport twice a day by the visitor's local clock.
-
-Images: optimized JPGs only (~150–230 KB, raw PNGs are gitignored), always
-with `width`/`height` attributes and `loading="lazy"`. Every plate has a
-dusk version (base name) and a dawn twin (`-dawn.jpg` suffix, same scene in
-muted morning light); both live in the figure as stacked `<img>` elements
-(`.plate-dusk` / `.plate-dawn`) and CSS cross-fades the dawn one in with
-the theme, no JS. Details in `assets/img/README.md`.
-
-## Structure
-
-```
-index.html              the harbor — hero, feltnotater, Kartoteket (projects), the rooms map
-journal/index.html      Notesbogen — dated fragments
-shelf/index.html        Hylden — current inspirations
-gatherings/index.html   Forsamlingshuset — community & events
-worlds/index.html       Baglokalet — worldbuilding, cozy horror, unfinished experiments
-rituals/index.html      Ritualer — uses & rituals of ordinary days
-keeper/index.html       Værten — about, philosophy, send a signal (contact)
-404.html          lost in the rain (absolute asset paths — it serves anywhere)
-css/style.css     everything visual, both themes
-js/main.js        lantern, Aarhus clock, reveal, rain — no dependencies
-assets/           lantern.svg favicon
-```
-
-The header nav is duplicated on every page (no build step). When adding a
-page: copy an existing header, move `aria-current="page"` to the new link,
-add the page to the rooms map on index.html and to this file. Room pages live
-in named directories so their public URLs end with a slash, for example
-`journal/index.html` is served at `/journal/`.
-
-## Adding things
-
-**A journal entry** (newest first, month-level dates only — it is an archive,
-not a feed):
-
-```html
-<article class="journal-entry reveal">
-  <span class="mono date">06 · 2026</span>
-  <div>
-    <h3>Title, lowercase mood</h3>
-    <p>Two to five sentences. Observation first, meaning second, no moral.</p>
-  </div>
-</article>
-```
-
-**A shelf item:**
-
-```html
-<div class="shelf-item reveal">
-  <span class="mono">sound</span>
-  <h3>Name of the thing</h3>
-  <p>One italic line about why it is on the shelf. Never "recommended".</p>
-</div>
-```
-
-## Deployment
-
-GitHub Pages from `main` branch root at
-[github.com/KasperKrog92/kasperkrog.dk](https://github.com/KasperKrog92/kasperkrog.dk),
-custom domain `kasper-krog.dk` via the `CNAME` file; `.nojekyll` disables
-Jekyll. As of June 10, 2026, the domain uses GitHub's four Pages A records,
-`www` points to `kasperkrog92.github.io`, and HTTPS is live.
-
-## Before committing and pushing
-
-When Kasper says "commit and push", first review the completed work for durable
-changes that should be reflected in `AGENTS.md`, `KASPER.md`, `README.md`,
-`assets/img/README.md` or another relevant documentation file. Update those
-files when it helps future agents understand the site, Kasper or the current
-structure. Do not manufacture documentation changes when the existing guidance
-is still accurate.
-
-## Checking your work
-
-```sh
-python -m http.server 8741
-```
-
-Then verify: both themes (click the lantern), mobile width (~380px), keyboard
-focus order, skip-link behavior, logical heading order, and that nothing moves
-when the OS asks for reduced motion. Muted text must retain at least 4.5:1
-contrast against the page background in both themes.
+When asked to commit and push, first check whether the completed work changed a
+durable fact about the site, Kasper, its structure or its working conventions.
+Update the appropriate source of truth when it did. Do not manufacture a
+documentation change when the current guidance is still accurate.
