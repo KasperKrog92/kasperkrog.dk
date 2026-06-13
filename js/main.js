@@ -183,16 +183,7 @@
     '<div class="sea-water"></div>' +
     '<div class="boat">' +
       '<span class="boat-bob">' +
-        '<svg viewBox="0 0 44 36" width="44" height="36" aria-hidden="true">' +
-          '<path d="M4 24.5h35l-5 7H10Z" fill="currentColor" opacity=".9"/>' +
-          '<path d="M21.5 5v20" fill="none" stroke="currentColor" stroke-width="1.4"/>' +
-          '<path d="M20.5 7 9 22h11.5Z" fill="currentColor" opacity=".68"/>' +
-          '<path d="m23 8 10.5 14H23Z" fill="currentColor" opacity=".42"/>' +
-          '<path d="M7 31.5c8 1.4 22 1.4 30 0" fill="none" stroke="currentColor" stroke-width="1" opacity=".42"/>' +
-          '<circle class="boat-lamp-glow" cx="32.5" cy="23.2" r="7"/>' +
-          '<path class="boat-lantern-frame" d="M30.7 21.3h3.6v4.2h-3.6Zm.7 0c0-1.4 2.2-1.4 2.2 0" fill="none" stroke="currentColor" stroke-width=".8"/>' +
-          '<circle class="boat-lamp" cx="32.5" cy="23.2" r="1.15"/>' +
-        '</svg>' +
+        '<span class="boat-ship"></span>' +
       '</span>' +
     '</div>';
   document.body.classList.add("has-sea");
@@ -224,7 +215,7 @@
       Math.abs(position.sail - lastSail) > 2 / 720;
     if (leap) boat.style.transition = "none";
     var percent = position.sail * 100;
-    var boatOffset = position.sail * 44;
+    var boatOffset = position.sail * 60;
     boat.style.setProperty(
       "--sail-x",
       "calc(" + percent.toFixed(4) + "% - " + boatOffset.toFixed(2) + "px)"

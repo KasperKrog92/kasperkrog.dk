@@ -245,76 +245,53 @@ a:hover { color: var(--ink-strong); }
   z-index: 1;
   bottom: 25%;
   left: var(--sail-x, 0%);
-  width: 44px;
-  height: 36px;
+  width: 60px;
+  height: 48px;
   color: var(--ink);
   transition: left 60s linear, color 0.7s ease;
 }
 
 .boat-bob {
   display: block;
-  width: 44px;
-  height: 36px;
+  width: 60px;
+  height: 48px;
   transform-origin: 50% 75%;
   animation: boat-bob 7s ease-in-out infinite alternate;
 }
 
-.boat svg {
+.boat-ship {
+  position: relative;
   display: block;
-  overflow: visible;
+  width: 60px;
+  height: 48px;
+  transform: scaleX(-1);
   transition: transform 0.7s ease;
 }
 
-.boat.westward svg { transform: scaleX(-1); }
+.boat-ship::before,
+.boat-ship::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/ship.svg");
+  background-repeat: no-repeat;
+  background-size: 120px 48px;
+  transition: opacity 0.7s ease;
+}
 
-.boat-lamp,
-.boat-lamp-glow {
-  fill: var(--accent);
+.boat-ship::before {
+  background-position: left top;
+}
+
+.boat-ship::after {
+  background-position: right top;
   opacity: 0;
-  transition: opacity 1.2s ease;
 }
 
-[data-theme="dusk"] .boat-lamp-glow {
-  opacity: 0.45;
-  filter: blur(3px) drop-shadow(0 0 7px var(--accent));
-  animation: boat-lantern-glow 4.8s ease-in-out infinite;
-}
+[data-theme="dawn"] .boat-ship::before { opacity: 0; }
+[data-theme="dawn"] .boat-ship::after { opacity: 1; }
 
-[data-theme="dusk"] .boat-lamp {
-  opacity: 1;
-  fill: #fff3c4;
-  filter:
-    drop-shadow(0 0 2px #fff3c4)
-    drop-shadow(0 0 5px var(--accent))
-    drop-shadow(0 0 10px var(--accent));
-  animation: boat-lantern-flame 3.1s ease-in-out infinite;
-}
-
-@keyframes boat-lantern-glow {
-  0%, 100% {
-    opacity: 0.38;
-    filter: blur(3px) drop-shadow(0 0 6px var(--accent));
-  }
-  28% {
-    opacity: 0.5;
-    filter: blur(3.2px) drop-shadow(0 0 8px var(--accent));
-  }
-  54% {
-    opacity: 0.34;
-    filter: blur(2.8px) drop-shadow(0 0 5px var(--accent));
-  }
-  76% {
-    opacity: 0.54;
-    filter: blur(3.3px) drop-shadow(0 0 9px var(--accent));
-  }
-}
-
-@keyframes boat-lantern-flame {
-  0%, 100% { filter: drop-shadow(0 0 2px #fff3c4) drop-shadow(0 0 5px var(--accent)) drop-shadow(0 0 9px var(--accent)); }
-  37% { filter: drop-shadow(0 0 3px #fff3c4) drop-shadow(0 0 6px var(--accent)) drop-shadow(0 0 11px var(--accent)); }
-  63% { filter: drop-shadow(0 0 2px #fff3c4) drop-shadow(0 0 4px var(--accent)) drop-shadow(0 0 8px var(--accent)); }
-  82% { filter: drop-shadow(0 0 3px #fff3c4) drop-shadow(0 0 7px var(--accent)) drop-shadow(0 0 12px var(--accent)); }
-}
+.boat.westward .boat-ship { transform: none; }
 
 @keyframes tide-surface {
   to { transform: translateX(768px); }
@@ -1035,16 +1012,14 @@ h2 {
   .sea,
   .sea-water,
   .boat,
-  .boat svg,
-  .boat-lamp,
-  .boat-lamp-glow { transition: none; }
+  .boat-ship,
+  .boat-ship::before,
+  .boat-ship::after { transition: none; }
   .sea::after,
   .sea-water,
   .boat-bob { animation: none; }
   [data-theme="dusk"] #lantern,
-  [data-theme="dusk"] #lantern svg,
-  [data-theme="dusk"] .boat-lamp,
-  [data-theme="dusk"] .boat-lamp-glow { animation: none; }
+  [data-theme="dusk"] #lantern svg { animation: none; }
 }
 
 /* --- subpages ------------------------------------------------------------ */

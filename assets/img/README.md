@@ -41,6 +41,14 @@ left for copy, and let the card CSS provide the final fade.
 | `projects/solis.jpg` | Solis Lantern Chronicles |
 | `projects/folk-festival.jpg` | Aarhus Folk Festival |
 
+## The sailing ship
+
+`ship.svg` is the decorative ship crossing the fixed waterline. It contains
+aligned dusk and dawn frames so the hull, brick-red sails, rigging, portholes
+and ripple can carry their own theme-specific colors. CSS selects the matching
+frame, while JavaScript positions and turns the ship according to the visitor's
+local time. Keep both frames aligned when editing its artwork or palette.
+
 ## The nameplate (the one committed PNG)
 
 `kasper-krog-plate.png` is the brass placard that hangs by its chains from the
