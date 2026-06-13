@@ -19,14 +19,25 @@ No JavaScript is involved.
 
 | File (+ `-dawn` twin) | Wired into | As |
 |---|---|---|
-| `harbor.jpg` | index.html | pl. i — between the field notes and the archive |
-| `journal.jpg` | journal/index.html | pl. ii — after the hero |
-| `shelf.jpg` | shelf/index.html | pl. iii — after the hero |
-| `gatherings.jpg` | gatherings/index.html | pl. iv — after the hero |
+| `harbor.jpg` | index.html | pl. i — full-bleed homepage hero, above the field notes |
+| `journal.jpg` | journal/index.html | pl. ii — room hero (integrated with the copy) |
+| `shelf.jpg` | shelf/index.html | pl. iii — room hero (integrated with the copy) |
+| `gatherings.jpg` | gatherings/index.html | pl. iv — room hero (integrated with the copy) |
 | `worlds.jpg` | worlds/index.html | pl. v — directly under the Night Ferry fragment |
-| `rituals.jpg` | rituals/index.html | pl. vi — after the hero |
-| `keeper.jpg` | keeper/index.html | pl. vii — after the hero |
+| `rituals.jpg` | rituals/index.html | pl. vi — room hero (integrated with the copy) |
+| `keeper.jpg` | keeper/index.html | pl. vii — room hero (integrated with the copy) |
 | `og.jpg` | index.html `og:image` | social share card, exactly 1200×630, no dawn twin |
+
+Every room plate (Shelf, Gatherings, Rituals, Journal and Keeper) is also the
+integrated room hero (see
+[room heroes](../../docs/design-system.md#room-heroes)). On wide screens CSS
+crops them to the right/lower part of the hero with a per-room
+`object-position`, and the frame's left edge sits under the copy veil, so keep
+the subject toward the right and survivable at both a full plate and a hero
+crop. Because they are above the fold there, those `<img>`s omit
+`loading="lazy"`. The mobile layout shows the same file at its natural ratio,
+so one source pair per room should serve both; only regenerate with more
+breathing room if a plate cannot survive both treatments.
 
 Project-card backgrounds live in `assets/img/projects/`. They use the same
 base-name / `-dawn` pairing, but are decorative wide crops rather than

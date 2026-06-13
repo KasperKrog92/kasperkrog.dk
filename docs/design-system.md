@@ -79,11 +79,60 @@ transforms and transitions while keeping the current room visually clear.
 - `.signal`: contact rows.
 - `.section-head` with `.mono`: section introductions.
 - `.plate`: one archival image figure with a mono roman-numeral caption.
+- `.room-hero`: a room opening that integrates the copy and its `.plate`.
 - `.reveal`: quiet scroll arrival, disabled for reduced motion.
 - `.visually-hidden`: accessible section labels without visible headings.
 
 Reuse an existing component when its meaning fits. Do not force unrelated
 material into a component merely to avoid a small, clear addition.
+
+## Room heroes
+
+`.room-hero` joins a room's opening copy and its numbered plate into one
+composed hero, so a visitor sees farther into the room rather than meeting a
+hard break between heading and image. It is not a full-bleed background: the
+copy keeps a stable, opaque page-coloured field and the photograph only shows
+through past the outer edge of the text.
+
+The markup keeps copy and figure as separate semantic objects inside one
+section:
+
+- `<section class="hero page-hero room-hero room-hero-<room>">`
+- `.room-hero-copy` wraps the eyebrow, `h1` and lead.
+- `.room-hero-plate` is the same `.plate` figure (two stacked `<img>`s and the
+  roman-numeral `figcaption`), so the dusk/dawn cross-fade and archival caption
+  are unchanged.
+
+On wide screens it is a two-column grid within `--wide`: copy on the left
+within `--measure`, the plate filling the right and lower part with
+`object-fit: cover`. A per-room class sets the focal point, e.g.
+`.room-hero-shelf { --hero-image-position: 60% 50%; }`; the frame's left edge
+sits under the veil, so keep the subject toward the right of the position. The
+copy field dissolves into the image through the paired `--hero-veil` token (the
+page colour at zero alpha) rather than a scrim over the text. At the `640px`
+breakpoint it returns to normal flow: copy first, then the plate at its natural
+aspect ratio, with no overlap or gradient.
+
+Because the plate is now above the fold, room-hero images omit `loading="lazy"`.
+No new motion is introduced — the cross-fade and reveals reuse `.plate` and
+`.reveal`, which already stop under reduced motion. In use on every room page:
+Shelf, Gatherings, Rituals, Journal and Keeper. Worlds keeps its inline Night
+Ferry plate (an entry illustration, not a room image), and the 404 stays
+image-free.
+
+### The homepage harbor
+
+The landing page is allowed to feel like a world of its own while the rooms
+stay muted, so the harbor uses a separate `.harbor-hero` treatment rather than
+the side-by-side grid. The welcome copy keeps its readable field on the page,
+then the harbor opens **full-bleed** (the figure spans the full width of `main`,
+not `--wide`, so no `100vw` scrollbar overflow) and rises out of the page
+through a top gradient built from `--bg` and `--hero-veil`. It drops the plate
+border, uses `object-fit: cover` with a shared `object-position`, and keeps the
+roman-numeral caption below the water within `--measure`. The harbor moved up
+into the hero, so the field notes now follow it. Same restraint rules apply:
+copy never sits on the raw image, dusk and dawn both read, and no new motion is
+added.
 
 ## Atmosphere layers
 

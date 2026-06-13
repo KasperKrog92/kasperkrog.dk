@@ -23,6 +23,7 @@
   --accent: #d8a45a;
   --accent-soft: rgba(216, 164, 90, 0.14);
   --glow: rgba(216, 164, 90, 0.06);
+  --hero-veil: rgba(14, 18, 22, 0);
   --entry-copy-shadow: rgba(5, 7, 10, 0.96);
   --table-wash: rgba(216, 164, 90, 0.07);
   --table-grain: rgba(216, 164, 90, 0.12);
@@ -61,6 +62,7 @@
   --accent: #8a5a28;
   --accent-soft: rgba(138, 90, 40, 0.12);
   --glow: rgba(138, 90, 40, 0.05);
+  --hero-veil: rgba(236, 229, 214, 0);
   --entry-copy-shadow: rgba(247, 241, 227, 0.96);
   --table-wash: rgba(138, 90, 40, 0.08);
   --table-grain: rgba(138, 90, 40, 0.18);
@@ -1242,6 +1244,126 @@ section .plate {
 
 .plate figcaption { margin-top: 0.85rem; }
 
+/* --- room heroes: copy and plate as one opening --------------------------- */
+
+/* A composed hero: the copy keeps a stable page-colored field, and the plate
+   fills the right and lower part of the component, passing a short distance
+   behind the copy edge through a theme veil. Not a full-bleed background. */
+.room-hero {
+  position: relative;
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: stretch;
+  min-height: clamp(31rem, 60vh, 35rem);
+}
+
+.room-hero .room-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--measure);
+  padding: clamp(2.5rem, 6vh, 4rem) 2rem clamp(2.5rem, 6vh, 4rem) 0;
+}
+
+/* the copy field: opaque page colour under the text, dissolving into the
+   plate only past the outer edge of the measure */
+.room-hero .room-hero-copy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  right: -4rem;
+  z-index: -1;
+  background: linear-gradient(to right, var(--bg) 78%, var(--hero-veil));
+}
+
+.room-hero .room-hero-plate {
+  position: relative;
+  z-index: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.room-hero .room-hero-plate .plate-dusk,
+.room-hero .room-hero-plate .plate-dawn {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--hero-image-position, 50% 50%);
+}
+
+.room-hero .room-hero-plate figcaption {
+  grid-row: 2;
+}
+
+/* per-room focal positions; the left edge of the frame sits under the veil */
+.room-hero-shelf { --hero-image-position: 60% 50%; }
+.room-hero-gatherings { --hero-image-position: 58% 42%; }
+.room-hero-rituals { --hero-image-position: 50% 52%; }
+.room-hero-journal { --hero-image-position: 56% 54%; }
+.room-hero-keeper { --hero-image-position: 50% 50%; }
+
+/* --- homepage: the harbor as an immersive threshold ---------------------- */
+
+/* The landing may feel like a world of its own. Unlike the muted, side-by-side
+   room heroes, the harbor opens full-bleed beneath the welcome and rises out of
+   the page; the copy still keeps its own readable field above the water. */
+.harbor-hero {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.harbor-hero-copy {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: clamp(2.4rem, 6vh, 4.4rem) 1.5rem 2.2rem;
+}
+
+.harbor-hero .harbor-hero-plate {
+  position: relative;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* the page colour dissolving down into the top of the harbor */
+.harbor-hero .harbor-hero-plate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--bg), var(--hero-veil));
+}
+
+.harbor-hero .harbor-hero-plate .plate-dusk,
+.harbor-hero .harbor-hero-plate .plate-dawn {
+  width: 100%;
+  height: clamp(22rem, 58vh, 38rem);
+  object-fit: cover;
+  object-position: 50% 54%;
+  border: none;
+}
+
+.harbor-hero .harbor-hero-plate figcaption {
+  max-width: var(--wide);
+  margin: 0.85rem auto 0;
+  padding: 0 1.5rem;
+}
+
 /* --- small screens ------------------------------------------------------- */
 
 @media (max-width: 640px) {
@@ -1360,6 +1482,35 @@ section .plate {
   .hero { padding-top: 4rem; }
   .page-hero { padding-top: 3rem; }
   .lost { padding-top: 4rem; }
+
+  /* room heroes fall back to normal flow: copy first, plate second */
+  .room-hero {
+    display: block;
+    min-height: 0;
+    padding: 3rem 1.5rem 0;
+  }
+  .room-hero .room-hero-copy {
+    display: block;
+    max-width: none;
+    padding: 0;
+  }
+  .room-hero .room-hero-copy::after { display: none; }
+  .room-hero .room-hero-plate {
+    grid-template-rows: auto auto;
+    margin-top: 1.7rem;
+  }
+  .room-hero .room-hero-plate .plate-dusk,
+  .room-hero .room-hero-plate .plate-dawn {
+    height: auto;
+  }
+
+  /* the harbor stays full-bleed and cinematic, just shorter */
+  .harbor-hero { padding: 0; }
+  .harbor-hero .harbor-hero-plate .plate-dusk,
+  .harbor-hero .harbor-hero-plate .plate-dawn {
+    height: clamp(18rem, 46vh, 26rem);
+  }
+
   .entry { grid-template-columns: 1fr 2rem; }
   .entry-with-image::before { display: none; }
   .idx { grid-column: 1 / -1; }
