@@ -23,6 +23,7 @@
   --accent: #d8a45a;
   --accent-soft: rgba(216, 164, 90, 0.14);
   --glow: rgba(216, 164, 90, 0.06);
+  --entry-copy-shadow: rgba(5, 7, 10, 0.96);
   --table-wash: rgba(216, 164, 90, 0.07);
   --table-grain: rgba(216, 164, 90, 0.12);
   --table-grain-soft: rgba(217, 210, 194, 0.05);
@@ -60,6 +61,7 @@
   --accent: #8a5a28;
   --accent-soft: rgba(138, 90, 40, 0.12);
   --glow: rgba(138, 90, 40, 0.05);
+  --entry-copy-shadow: rgba(247, 241, 227, 0.96);
   --table-wash: rgba(138, 90, 40, 0.08);
   --table-grain: rgba(138, 90, 40, 0.18);
   --table-grain-soft: rgba(50, 44, 36, 0.07);
@@ -881,10 +883,11 @@ h2 {
   inset: 0;
   background: var(--entry-image) center / cover no-repeat;
   opacity: 0.32;
+  filter: brightness(0.92) saturate(0.9);
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to right, transparent 6%, rgba(0, 0, 0, 0.12) 34%, #000 62%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 6%, rgba(0, 0, 0, 0.12) 34%, #000 62%, transparent 100%);
-  transition: opacity 0.6s ease;
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
 
 .entry-with-image > * {
@@ -894,7 +897,16 @@ h2 {
 
 .entry-with-image:hover::before,
 .entry-with-image:focus-visible::before {
-  opacity: 0.48;
+  opacity: 0.78;
+  filter: brightness(1.12) saturate(1.06);
+}
+
+.entry-with-image:hover > *,
+.entry-with-image:focus-visible > * {
+  text-shadow:
+    0 1px 2px var(--entry-copy-shadow),
+    0 0 10px var(--entry-copy-shadow),
+    0 0 20px var(--entry-copy-shadow);
 }
 
 .entry-gamestormers {
@@ -903,6 +915,38 @@ h2 {
 
 [data-theme="dawn"] .entry-gamestormers {
   --entry-image: url("../assets/img/projects/gamestormers-dawn.jpg");
+}
+
+.entry-turkis {
+  --entry-image: url("../assets/img/projects/turkis.jpg");
+}
+
+[data-theme="dawn"] .entry-turkis {
+  --entry-image: url("../assets/img/projects/turkis-dawn.jpg");
+}
+
+.entry-matchabladet {
+  --entry-image: url("../assets/img/projects/matchabladet.jpg");
+}
+
+[data-theme="dawn"] .entry-matchabladet {
+  --entry-image: url("../assets/img/projects/matchabladet-dawn.jpg");
+}
+
+.entry-solis {
+  --entry-image: url("../assets/img/projects/solis.jpg");
+}
+
+[data-theme="dawn"] .entry-solis {
+  --entry-image: url("../assets/img/projects/solis-dawn.jpg");
+}
+
+.entry-folk-festival {
+  --entry-image: url("../assets/img/projects/folk-festival.jpg");
+}
+
+[data-theme="dawn"] .entry-folk-festival {
+  --entry-image: url("../assets/img/projects/folk-festival-dawn.jpg");
 }
 
 .idx { color: var(--accent); }

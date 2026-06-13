@@ -33,6 +33,14 @@ base-name / `-dawn` pairing, but are decorative wide crops rather than
 numbered plates. Keep the subject toward the right, leave quiet space on the
 left for copy, and let the card CSS provide the final fade.
 
+| File (+ `-dawn` twin) | Project card |
+|---|---|
+| `projects/gamestormers.jpg` | Aarhus Gamestormers |
+| `projects/turkis.jpg` | Turkis Crew |
+| `projects/matchabladet.jpg` | Matchabladet |
+| `projects/solis.jpg` | Solis Lantern Chronicles |
+| `projects/folk-festival.jpg` | Aarhus Folk Festival |
+
 ## The nameplate (the one committed PNG)
 
 `kasper-krog-plate.png` is the brass placard that hangs by its chains from the
