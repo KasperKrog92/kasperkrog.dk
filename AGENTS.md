@@ -91,9 +91,9 @@ landscape (figurative), realm, unlock, transformative, "serves as",
 text, and they multiply when nobody is watching:
 
 - *Negative parallelism* ("not X, but Y" / "it isn't X, it's Y"): at most
-  one per page, and only when the contrast is the actual point. Two
-  headlines already own this device ("Fragments, not essays", "Not what I
-  made. What we gather around") — don't add more.
+  one per page, and only when the contrast is the actual point. One
+  headline already owns this device ("Not what I made. What we gather
+  around") — don't add more.
 - *Rule of three*: only for literal lists of three real things, never for
   rhythm ("warm, alive and intergenerational" was cut for this reason).
 - *Em dashes*: never use them in visitor-facing copy, including page titles,
@@ -113,8 +113,8 @@ text, and they multiply when nobody is watching:
 - Use contractions sometimes. Repeat a word rather than reach for a fancy
   synonym.
 - First person on the keeper page may admit things ("I help where help is
-  needed", "I finished the last page and wanted the first one back").
-  Small confessions read human; grand claims read generated.
+  needed", "I stayed to stack the chairs"). Small confessions read human;
+  grand claims read generated.
 - Each metaphor lives in exactly one place on the site. Before reusing
   "walking speed", "furniture", "doors ajar" or similar, grep for it —
   duplicated imagery across pages is how generated copy gives itself away.
@@ -163,7 +163,7 @@ the theme, no JS. Details in `assets/img/README.md`.
 
 ```
 index.html              the harbor — hero, feltnotater, Kartoteket (projects), the rooms map
-journal/index.html      Notesbogen — dated fragments, not essays
+journal/index.html      Notesbogen — dated fragments
 shelf/index.html        Hylden — current inspirations
 gatherings/index.html   Forsamlingshuset — community & events
 worlds/index.html       Baglokalet — worldbuilding, cozy horror, unfinished experiments

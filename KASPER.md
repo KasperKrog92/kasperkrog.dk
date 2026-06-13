@@ -135,6 +135,12 @@ safe, warm place to return to.
 The ritual should remain physical and specific. Bowl, whisk, route, pot,
 kettle. Avoid turning it into self-improvement advice.
 
+Correction (June 13, 2026): for matcha specifically, the powder matters more
+than the bowl. It is more than a habit or a way to hold off tiredness. Good
+powder sharpens focus and cognition and widens how much of the world Kasper can
+feel. Keep the physical detail, but do not fetishize the vessel, and do not let
+the cognitive effect read like supplement or productivity copy.
+
 ### Stories and worlds
 
 Kasper is drawn to fantasy worldbuilding and stories where people continue
@@ -150,6 +156,14 @@ village, how will you know what violence is? All the horror of the battle
 comes from the rain." The pause is where contrast is built: the quiet gives
 the violence its meaning. Published as the journal fragment "The rain before
 the battle".
+
+Solis Lantern Chronicles is a tabletop RPG campaign played by a GM and five
+players who meet regularly. Each session is written up as a narrative artefact.
+The setting is reshaped considerably from Robert Jackson Bennett's *Shadow of
+the Leviathan* series into a D&D game with new factions and rules, and the story
+now belongs to the people playing it. (Updated June 13, 2026; the earlier
+"mood, identity, systems" framing was too abstract and is corrected on the
+harbor and Baglokalet pages.)
 
 Five titles Kasper loves, each still waiting for its story (June 12, 2026):
 *The City by the Sea*, *This is the Greatest Fear*, *Shivers in the Void*,
@@ -189,12 +203,21 @@ These works and forms currently help describe Kasper's taste:
 - *Disco Elysium*: language, atmosphere, failure and the difficulty of being a
   person.
 - *Malazan Book of the Fallen*: grief and compassion at enormous scale.
+  Currently on the seventh book, *Reaper's Gale*; not yet finished (June 2026).
 - Cozy horror: unease held alongside companionship and shelter.
 - Nordic atmospheres: restraint, weather, stillness and inhabited quiet.
 - Fantasy worldbuilding: imagined systems, histories and places that can hold
   moral and emotional weight.
-- Folk music: voices in a room, tradition carried by people.
-- Trip hop and long ambient records: slow sound, weather for rooms.
+- Folk dancing: going to balls, turning with strangers, the laughter and group
+  consciousness of a room briefly of one mind. The dance matters more to Kasper
+  than folk music as something to listen to. He is a keen folk dancer; it now
+  appears both on the shelf and as a Forsamlingshuset (gatherings) entry.
+- Trip hop: a slow trance for focus, beautiful melancholy with determination
+  under it. Not especially "midnight" or Bristol-coded for him.
+- Current rotation (June 2026): electronic and indie songs built to move to,
+  with melancholy in the best of them (Otha, Jungle, Low Roar, Daphni and the
+  like). Correction: he does not particularly listen to long ambient records,
+  despite the earlier shelf and keeper copy; that has been removed.
 - Slow cinema: patience and attention.
 - Kurosawa and *ma*: the long pause that teaches what the violence costs.
 - Rainy city photography: reflected light, wet streets and inhabited darkness.
@@ -210,7 +233,7 @@ This list should change as Kasper changes. The shelf is current, not canonical.
 | Aarhus Gamestormers | Games as culture, conversation, welcome and belonging |
 | Turkis Crew | Trustworthy tools for volunteers and cultural spaces |
 | Matchabladet | Tea, ritual, cafés, slowness and attention |
-| Solis Lantern Chronicles | Identity, systems, mood and changing fictional forms |
+| Solis Lantern Chronicles | An ongoing tabletop RPG campaign, chronicled after each session, reshaped from Robert Jackson Bennett's *Shadow of the Leviathan* |
 | Aarhus Folk Festival concept | Folk culture, volunteering, tradition and shared rooms |
 
 ## Current map of the house

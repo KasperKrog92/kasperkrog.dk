@@ -19,7 +19,7 @@ libraries and backstage rooms, Japanese tea aesthetics.
 | N°01 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club |
 | N°02 | [Turkis Crew](https://turkis.gamestormers.dk/) | humane software for cultural volunteers |
 | N°03 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha journal on ritual and slowness |
-| N°04 | [Solis Lantern Chronicles](https://solis.gamestormers.dk/) | an evolving, slightly mythological space |
+| N°04 | [Solis Lantern Chronicles](https://solis.gamestormers.dk/) | an ongoing tabletop RPG campaign, chronicled session by session |
 | N°05 | [Aarhus Folk Festival](https://folk.gamestormers.dk/) | a redesign for a community folk festival |
 
 ## How it's built
@@ -70,4 +70,4 @@ CNAME www  kasperkrog92.github.io
 
 ---
 
-Kept in Aarhus. It is probably raining.
+Kept in Aarhus. It is raining.
