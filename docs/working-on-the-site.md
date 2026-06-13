@@ -132,7 +132,7 @@ Minimum pass:
 - Logical heading order and useful landmarks.
 - Visible focus without clipping.
 - Reduced motion: no rain, smooth scroll, reveal movement, book pull, water
-  drift, boat bob or lantern flicker.
+  drift, boat bob, verse writing or lantern flicker.
 - Muted and ordinary text retain WCAG AA contrast in both themes.
 - Images have dimensions, correct paths, appropriate lazy loading and useful
   alt text.

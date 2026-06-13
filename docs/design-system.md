@@ -144,7 +144,9 @@ small exception:
 - `.sea`: fixed waterline injected by JavaScript.
 - `.boat`: an accessible local-time clock crossing left to right by day and
   returning at night; its lamp follows the displayed theme. Activating it
-  shows one short sentence from its collection near the water.
+  writes out the next line of a short verse near the water, which fades on its
+  own; after the last line it falls quiet for a few presses before beginning
+  again.
 
 Rain and reveals stop under reduced motion. Sea drift, boat movement, bobbing
 and lantern flicker stop too; the static scene and boat interaction remain.

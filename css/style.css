@@ -318,16 +318,40 @@ a:hover { color: var(--ink-strong); }
   border: 1px solid var(--line);
   background: var(--bg-raised);
   color: var(--ink-strong);
-  font-size: 0.68rem;
-  line-height: 1.45;
-  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.4;
   opacity: 0;
   pointer-events: none;
-  transition: left 60s linear;
+  transition: left 60s linear, opacity 0.8s ease;
 }
 
 .boat-message.is-visible {
   opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* the ink caret, present only while a line is being written */
+.boat-ink::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: -0.1em;
+  background: var(--ink-strong);
+  opacity: 0;
+}
+
+.boat-message.is-writing .boat-ink::after {
+  opacity: 0.7;
+  animation: boat-caret 0.9s steps(1, end) infinite;
+}
+
+@keyframes boat-caret {
+  50% { opacity: 0; }
 }
 
 @keyframes tide-surface {
@@ -1055,7 +1079,8 @@ h2 {
   .boat-ship::after { transition: none; }
   .sea::after,
   .sea-water,
-  .boat-bob { animation: none; }
+  .boat-bob,
+  .boat-message.is-writing .boat-ink::after { animation: none; }
   [data-theme="dusk"] #lantern,
   [data-theme="dusk"] #lantern svg { animation: none; }
 }

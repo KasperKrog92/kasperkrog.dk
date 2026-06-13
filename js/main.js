@@ -187,39 +187,98 @@
     '</button>';
 
   var boatMessage = document.createElement("p");
-  boatMessage.className = "boat-message mono";
+  boatMessage.className = "boat-message";
   boatMessage.id = "boat-message";
   boatMessage.setAttribute("role", "status");
   boatMessage.setAttribute("aria-live", "polite");
   boatMessage.setAttribute("aria-atomic", "true");
+  /* The whole line lives in a hidden span so assistive tech hears it once,
+     while the visible "ink" span is written out a character at a time. */
+  boatMessage.innerHTML =
+    '<span class="visually-hidden boat-say"></span>' +
+    '<span class="boat-ink" aria-hidden="true"></span>';
 
   document.body.classList.add("has-sea");
   document.body.appendChild(sea);
   document.body.appendChild(boatMessage);
 
   var boat = sea.querySelector(".boat");
+  var boatSay = boatMessage.querySelector(".boat-say");
+  var boatInk = boatMessage.querySelector(".boat-ink");
+  /* The passing ship recites the opening verse of The Pale Beyond, one line
+     each time it is asked. The lines are borrowed from the game. */
   var boatMessages = [
-    "The tide is in no hurry.",
-    "Someone ashore has left the kettle on.",
-    "The far shore can wait until morning.",
-    "The rain sounds different from the deck.",
-    "Nothing aboard is quite finished.",
-    "Today, the harbor is enough.",
-    "Evening cargo: tea, wet wool, one good story.",
-    "The boat knows the long way home."
+    "O' the air be's cold, of flake and white, as a sailor begs their pledge…",
+    "That in the dark they'll brace themselves, for horrors still ahead.",
+    "To the souls around them, shielding fear, dividing up their dread.",
+    "A hunger draws the desperate here…",
+    "Such lonely souls need led.",
+    "What will ye do, when steel hearts break and courage does abscond?",
+    "I'll learn to live a life out here, out in The Pale Beyond."
   ];
-  var lastBoatMessage = -1;
+  /* After the last line the ship falls quiet for a few presses before the
+     verse comes round again. */
+  var SILENT_PRESSES = 3;
+  var TYPE_MS = 45;   /* pace of the writing, per character */
+  var HOLD_MS = 4500; /* how long a finished line lingers before it fades */
+  var boatStep = -1;
+  var boatHideTimer = null;
+  var boatTypeTimer = null;
+
+  function clearBoatTimers() {
+    if (boatHideTimer) {
+      clearTimeout(boatHideTimer);
+      boatHideTimer = null;
+    }
+    if (boatTypeTimer) {
+      clearInterval(boatTypeTimer);
+      boatTypeTimer = null;
+    }
+  }
+
+  function hideBoatMessage() {
+    clearBoatTimers();
+    boatMessage.classList.remove("is-writing");
+    boatMessage.classList.remove("is-visible");
+  }
+
+  function writeBoatLine(text) {
+    boatSay.textContent = text;
+    boatInk.textContent = "";
+    boatMessage.classList.add("is-visible");
+
+    if (reduced) {
+      boatInk.textContent = text;
+      boatHideTimer = setTimeout(hideBoatMessage, HOLD_MS);
+      return;
+    }
+
+    boatMessage.classList.add("is-writing");
+    var i = 0;
+    boatTypeTimer = setInterval(function () {
+      i += 1;
+      boatInk.textContent = text.slice(0, i);
+      if (i >= text.length) {
+        clearInterval(boatTypeTimer);
+        boatTypeTimer = null;
+        boatMessage.classList.remove("is-writing");
+        boatHideTimer = setTimeout(hideBoatMessage, HOLD_MS);
+      }
+    }, TYPE_MS);
+  }
 
   if (boat) {
+    /* Each press writes out the next line, which fades on its own once the
+       hand lifts, or sooner if the card itself is clicked. Presses past the
+       last line do nothing until the verse begins again. */
     boat.addEventListener("click", function () {
-      var next = Math.floor(Math.random() * boatMessages.length);
-      if (next === lastBoatMessage) {
-        next = (next + 1) % boatMessages.length;
+      boatStep = (boatStep + 1) % (boatMessages.length + SILENT_PRESSES);
+      if (boatStep < boatMessages.length) {
+        clearBoatTimers();
+        writeBoatLine(boatMessages[boatStep]);
       }
-      lastBoatMessage = next;
-      boatMessage.textContent = boatMessages[next];
-      boatMessage.classList.add("is-visible");
     });
+    boatMessage.addEventListener("click", hideBoatMessage);
   }
 
   function sailProgress(date) {

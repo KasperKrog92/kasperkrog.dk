@@ -113,8 +113,9 @@ different: it always formats the current time in `Europe/Copenhagen`.
 - JavaScript injects the decorative `.sea` and an accessible boat button into
   the body.
 - Boat position is derived from local time and updated by the minute.
-- Activating the boat chooses a short harbor sentence without immediately
-  repeating the previous one and announces it through a polite live region.
+- Activating the boat writes out the next line of a fixed verse, pausing for a
+  few presses after the last line before repeating, and announces each whole
+  line through a polite live region.
 - The water remains decorative. The boat and lantern are buttons.
 
 Keep new JavaScript optional where possible. Core copy, links and navigation
