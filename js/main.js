@@ -178,18 +178,49 @@
   /* --- the water ---------------------------------------------------- */
   var sea = document.createElement("div");
   sea.className = "sea";
-  sea.setAttribute("aria-hidden", "true");
   sea.innerHTML =
-    '<div class="sea-water"></div>' +
-    '<div class="boat">' +
+    '<div class="sea-water" aria-hidden="true"></div>' +
+    '<button class="boat" type="button" aria-label="Hear a word from the passing ship" aria-controls="boat-message">' +
       '<span class="boat-bob">' +
-        '<span class="boat-ship"></span>' +
+        '<span class="boat-ship" aria-hidden="true"></span>' +
       '</span>' +
-    '</div>';
+    '</button>';
+
+  var boatMessage = document.createElement("p");
+  boatMessage.className = "boat-message mono";
+  boatMessage.id = "boat-message";
+  boatMessage.setAttribute("role", "status");
+  boatMessage.setAttribute("aria-live", "polite");
+  boatMessage.setAttribute("aria-atomic", "true");
+
   document.body.classList.add("has-sea");
   document.body.appendChild(sea);
+  document.body.appendChild(boatMessage);
 
   var boat = sea.querySelector(".boat");
+  var boatMessages = [
+    "The tide is in no hurry.",
+    "Someone ashore has left the kettle on.",
+    "The far shore can wait until morning.",
+    "The rain sounds different from the deck.",
+    "Nothing aboard is quite finished.",
+    "Today, the harbor is enough.",
+    "Evening cargo: tea, wet wool, one good story.",
+    "The boat knows the long way home."
+  ];
+  var lastBoatMessage = -1;
+
+  if (boat) {
+    boat.addEventListener("click", function () {
+      var next = Math.floor(Math.random() * boatMessages.length);
+      if (next === lastBoatMessage) {
+        next = (next + 1) % boatMessages.length;
+      }
+      lastBoatMessage = next;
+      boatMessage.textContent = boatMessages[next];
+      boatMessage.classList.add("is-visible");
+    });
+  }
 
   function sailProgress(date) {
     var minutes = date.getHours() * 60 + date.getMinutes();
@@ -217,6 +248,10 @@
     var percent = position.sail * 100;
     var boatOffset = position.sail * 60;
     boat.style.setProperty(
+      "--sail-x",
+      "calc(" + percent.toFixed(4) + "% - " + boatOffset.toFixed(2) + "px)"
+    );
+    boatMessage.style.setProperty(
       "--sail-x",
       "calc(" + percent.toFixed(4) + "% - " + boatOffset.toFixed(2) + "px)"
     );

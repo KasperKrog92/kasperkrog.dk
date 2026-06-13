@@ -110,9 +110,12 @@ different: it always formats the current time in `Europe/Copenhagen`.
 - JavaScript inserts the lantern dock used by the carried-on-scroll behavior.
 - `IntersectionObserver` reveals `.reveal` elements once.
 - The rain canvas animates only when reduced motion is not requested.
-- JavaScript injects the decorative `.sea` and boat into the body.
+- JavaScript injects the decorative `.sea` and an accessible boat button into
+  the body.
 - Boat position is derived from local time and updated by the minute.
-- The sea and lantern are decorative except for the lantern button itself.
+- Activating the boat chooses a short harbor sentence without immediately
+  repeating the previous one and announces it through a polite live region.
+- The water remains decorative. The boat and lantern are buttons.
 
 Keep new JavaScript optional where possible. Core copy, links and navigation
 must remain useful if the script fails.
@@ -135,7 +138,7 @@ allowed external page request.
 - Preserve logical heading order; visually hidden headings may label sections.
 - Keep visible keyboard focus and sensible source-order navigation.
 - Keep `aria-current` accurate.
-- Decorative canvas, grain, sea and inline SVG details stay out of the
+- Decorative canvas, grain, water and inline SVG details stay out of the
   accessibility tree.
 - Images need useful alt text unless they are genuinely decorative.
 - Text, including muted text, must meet WCAG AA contrast in both themes.

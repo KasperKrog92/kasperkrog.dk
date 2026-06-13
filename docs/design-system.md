@@ -136,16 +136,18 @@ added.
 
 ## Atmosphere layers
 
-The atmosphere is decorative and pointer-transparent:
+Most atmosphere layers are decorative and pointer-transparent. The ship is the
+small exception:
 
 - `#rain`: full-viewport canvas, pale at dusk and darker on paper at dawn.
 - `.grain`: fixed film-grain overlay.
 - `.sea`: fixed waterline injected by JavaScript.
-- `.boat`: a local-time clock crossing left to right by day and returning at
-  night; its lamp follows the displayed theme.
+- `.boat`: an accessible local-time clock crossing left to right by day and
+  returning at night; its lamp follows the displayed theme. Activating it
+  shows one short sentence from its collection near the water.
 
 Rain and reveals stop under reduced motion. Sea drift, boat movement, bobbing
-and lantern flicker stop too; the static scene may remain.
+and lantern flicker stop too; the static scene and boat interaction remain.
 
 Keep the layer stack deliberate. New fixed decoration can easily cover focus,
 copy or the waterline.

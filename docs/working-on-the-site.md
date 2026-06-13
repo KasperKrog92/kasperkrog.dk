@@ -126,7 +126,7 @@ Minimum pass:
 - Mobile width around `380px`; use `320px` for navigation or narrow layouts.
 - A desktop width around `1280px`.
 - Keyboard order: skip link, home nameplate, seven room books, lantern, main
-  page controls and links.
+  page controls and links, then the passing ship.
 - Skip link visibly appears and moves focus to main.
 - Exactly one correct `aria-current`, except on the 404.
 - Logical heading order and useful landmarks.
