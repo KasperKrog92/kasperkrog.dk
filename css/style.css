@@ -115,6 +115,11 @@ a:hover { color: var(--ink-strong); }
   border-radius: 2px;
 }
 
+:focus:not(:focus-visible),
+#main-content:focus {
+  outline: none;
+}
+
 .skip-link {
   position: fixed;
   z-index: 10;
@@ -354,7 +359,7 @@ a:hover { color: var(--ink-strong); }
 
 /* the brass nameplate, hung by its chains from the very top of the page */
 .head-label {
-  --plate-w: 9.5rem;
+  --plate-w: 12rem;
   position: relative;
   z-index: 3;
   grid-column: 1;
@@ -366,21 +371,29 @@ a:hover { color: var(--ink-strong); }
   text-decoration: none;
 }
 
+.head-label,
+.site-nav a,
+#lantern {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
 .head-label img {
   display: block;
   width: 100%;
   height: auto;
+  -webkit-user-drag: none;
   /* brightness(1) is a no-op, but it keeps the filter list shape identical to
      the hover state so the change eases in rather than snapping */
   filter: brightness(1) drop-shadow(0 0.5rem 0.55rem var(--book-shadow));
   transition: filter 0.5s ease;
 }
 
-/* on hover the brass catches a little more light and sits a touch deeper;
-   no transform, so the raster stays crisp */
+/* on hover the brass catches a little more light; the shadow stays fixed so
+   the filtered raster does not appear to shift */
 a.head-label:hover img,
 a.head-label:focus-visible img {
-  filter: brightness(1.06) drop-shadow(0 0.66rem 0.72rem var(--book-shadow));
+  filter: brightness(1.06) drop-shadow(0 0.5rem 0.55rem var(--book-shadow));
 }
 
 .site-nav {
