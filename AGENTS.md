@@ -137,7 +137,9 @@ Fonts: **Cormorant Garamond** (display), **EB Garamond** (body),
 **IBM Plex Mono** (labels, tags, dates), **Caveat** (`.annotation` —
 handwritten marginalia, use sparingly: at most one or two per page).
 
-Reusable components: `.site-head`/`.site-nav` (the table-book room nav; normal
+Reusable components: `.site-head`/`.site-nav` (the table-book room nav; the
+`.head-label` is a brass nameplate hung by its chains from the top-left edge of
+the page, the home link in place of a wordmark; normal
 links styled as book spines via the `--book-*` and `--table-*` tokens, the
 current room slid out with its board showing beneath the spine, and the
 lantern hanging in its rig on the same surface — at dusk it pools light over

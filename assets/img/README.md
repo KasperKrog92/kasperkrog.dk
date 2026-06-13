@@ -33,6 +33,22 @@ base-name / `-dawn` pairing, but are decorative wide crops rather than
 numbered plates. Keep the subject toward the right, leave quiet space on the
 left for copy, and let the card CSS provide the final fade.
 
+## The nameplate (the one committed PNG)
+
+`kasper-krog-plate.png` is the brass placard that hangs by its chains from the
+top-left of every page's header, in place of a text wordmark. It is the single
+exception to the JPG rule: it needs transparency to sit over the page and show
+its chains, so it ships as a quantized RGBA PNG (~30 KB) and earns an explicit
+allow in `.gitignore` (`!assets/img/kasper-krog-plate.png`). It has no dawn
+twin; the brass reads in both themes, and CSS gives it a `drop-shadow`.
+
+It is wired in as `<a class="head-label"><img ...></a>` (no `loading="lazy"` —
+it is above the fold), and the `.head-label` rule lifts it by the header's top
+padding so the chains meet the very top edge of the page. If you regenerate it,
+keep the chains cut flat at the top, trim the transparent margins tight, keep
+it center-symmetric, and update the `aspect-ratio` baked into `width`/`height`
+and the `.head-label` CSS to match.
+
 House style for any new image: analog 35mm film photography (worlds.jpg is
 the painterly exception), heavy grain, muted deep ink-blue-black with warm
 amber, melancholic but warm, no text in the image. Dawn twins stay muted

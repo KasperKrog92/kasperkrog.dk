@@ -325,6 +325,7 @@ a:hover { color: var(--ink-strong); }
 /* --- header -------------------------------------------------------- */
 
 .site-head {
+  --head-pad-top: 1.25rem;
   position: relative;
   z-index: 2;
   display: grid;
@@ -333,7 +334,7 @@ a:hover { color: var(--ink-strong); }
   gap: 0.8rem 1.4rem;
   max-width: var(--wide);
   margin: 0 auto;
-  padding: 1.25rem 1.5rem 1.45rem;
+  padding: var(--head-pad-top) 1.5rem 1.45rem;
 }
 
 /* the lantern's light pooling over the table, dusk only */
@@ -351,16 +352,36 @@ a:hover { color: var(--ink-strong); }
   );
 }
 
+/* the brass nameplate, hung by its chains from the very top of the page */
 .head-label {
+  --plate-w: 9.5rem;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   grid-column: 1;
-  margin-top: 0.28rem;
-  white-space: nowrap;
+  align-self: start;
+  width: var(--plate-w);
+  /* lift so the chains meet the page's top edge, not the header's padding */
+  margin-top: calc(-1 * var(--head-pad-top));
+  line-height: 0;
   text-decoration: none;
 }
 
-a.head-label:hover { color: var(--accent); }
+.head-label img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* brightness(1) is a no-op, but it keeps the filter list shape identical to
+     the hover state so the change eases in rather than snapping */
+  filter: brightness(1) drop-shadow(0 0.5rem 0.55rem var(--book-shadow));
+  transition: filter 0.5s ease;
+}
+
+/* on hover the brass catches a little more light and sits a touch deeper;
+   no transform, so the raster stays crisp */
+a.head-label:hover img,
+a.head-label:focus-visible img {
+  filter: brightness(1.06) drop-shadow(0 0.66rem 0.72rem var(--book-shadow));
+}
 
 .site-nav {
   position: relative;
@@ -1193,9 +1214,10 @@ section .plate {
 
 @media (max-width: 640px) {
   .site-head {
+    --head-pad-top: 1.2rem;
     grid-template-columns: 1fr auto;
     gap: 0.7rem 1rem;
-    padding: 1.2rem 1.35rem 1.35rem;
+    padding: var(--head-pad-top) 1.35rem 1.35rem;
   }
 
   [data-theme="dusk"] .site-head::before {
@@ -1203,6 +1225,7 @@ section .plate {
   }
 
   .head-label {
+    --plate-w: 8rem;
     grid-column: 1;
     grid-row: 1;
     margin-right: 0;

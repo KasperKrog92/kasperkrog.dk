@@ -9,3 +9,5 @@ Thumbs.db
 
 # raw generator output — only the optimized .jpg versions are committed
 assets/img/**/*.png
+# the brass nameplate is UI chrome and needs transparency, so it ships as PNG
+!assets/img/kasper-krog-plate.png
