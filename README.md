@@ -20,7 +20,7 @@ libraries and backstage rooms, Japanese tea aesthetics.
 | N°02 | [Turkis Crew](https://turkis.gamestormers.dk/) | humane software for cultural volunteers |
 | N°03 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha journal on ritual and slowness |
 | N°04 | [Solis Lantern Chronicles](https://solis.gamestormers.dk/) | an ongoing tabletop RPG campaign, chronicled session by session |
-| N°05 | [Aarhus Folk Festival](https://folk.gamestormers.dk/) | a redesign for a community folk festival |
+| N°05 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
 
 ## How it's built
 

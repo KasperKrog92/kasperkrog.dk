@@ -234,7 +234,7 @@ This list should change as Kasper changes. The shelf is current, not canonical.
 | Turkis Crew | Trustworthy tools for volunteers and cultural spaces |
 | Matchabladet | Tea, ritual, cafés, slowness and attention |
 | Solis Lantern Chronicles | An ongoing tabletop RPG campaign, chronicled after each session, reshaped from Robert Jackson Bennett's *Shadow of the Leviathan* |
-| Aarhus Folk Festival concept | Folk culture, volunteering, tradition and shared rooms |
+| Aarhus Folk Festival | Folk culture, volunteering, tradition and shared rooms |
 
 ## Current map of the house
 
