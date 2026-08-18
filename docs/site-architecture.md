@@ -41,8 +41,10 @@ rather than word for word. Shared structure:
 4. One Google Fonts request: Cormorant Garamond, Schibsted Grotesk, IBM Plex
    Mono, Caveat.
 5. Skip link → `<main id="main-content" tabindex="-1">`.
-6. Sticky header: serif wordmark, mono anchor navigation, DA/EN switch,
-   lantern button.
+6. Sticky header: the KK monogram beside the serif wordmark (`.brand`),
+   mono anchor navigation, DA/EN switch, lantern button. The monogram ships
+   as two PNGs (`assets/kk-mark.png` dawn, `assets/kk-mark-dusk.png` dusk);
+   CSS shows the one matching the theme.
 7. Sections in order: hero, det jeg kan / what I do, projekter / projects,
    om mig / about (with timeline), kind projects (dark), mere personligt /
    more personal (room links), kontakt / contact, footer.
@@ -56,8 +58,8 @@ not add the front page's navigation to the rooms or vice versa.
 
 Front pages: the header links are in-page anchors in this order: Om mig /
 About, Det jeg kan / What I do, Projekter / Projects, Erfaring / Experience,
-Jeg kan hjælpe / I can help, Kontakt / Contact. The wordmark links to the
-page's own root (`./`).
+Jeg kan hjælpe / I can help, Kontakt / Contact. The brand (monogram +
+wordmark) links to the page's own root (`./`).
 
 Rooms: the original seven-link book-spine order (Harbor, Journal, Shelf,
 Gatherings, Worlds, Rituals, Keeper) is unchanged and still styled by

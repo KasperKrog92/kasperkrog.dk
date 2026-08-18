@@ -20,12 +20,27 @@ projects, real photographs, or an honest designed placeholder.
 | `cases/gamestormers.jpg` | case 02 | Real screenshot of gamestormers.dk |
 | `cases/amanda-barup.jpg` | case 04 | Real screenshot of Amanda Barup's portfolio (staging) |
 | `cases/tp.jpg` | unused spare | Real screenshot of tp.kasper-krog.dk (public page, no personal data) |
-| `portraet.jpg` | about section, both languages | Real photograph of Kasper (Aarhus, 2026), cropped 4:5 and gently graded toward the site's warm palette |
-| `og.jpg` | `og:image`, both languages | Real screenshot of the front page itself in the dawn theme, exactly 1200×630 |
+| `portraet.jpg` | hero, both languages | Real photograph of Kasper (Aarhus, 2026), cropped 4:5 and gently graded toward the site's warm palette |
+| `og.jpg` | `og:image`, both languages | Real screenshot of the front page itself in the dawn theme, exactly 1200×630 (recaptured 2026-08 after the logo/hero round) |
 
 Screenshots are captured at 1600×1000 (headless browser), saved with
 `-q:v 4`, and land around 100–250 KB. When a project's live site changes
 meaningfully, recapture rather than letting the case image drift out of date.
+
+## Identity assets (outside this folder)
+
+The KK monogram's source sheet is `icon.png` in the repository root. The web
+assets are derived from it (background removed, recolored to the theme
+tokens, plated for favicons) by a small Pillow script; they live in `assets/`
+because everything under `assets/img/**/*.png` is gitignored:
+
+| File | What it is |
+|---|---|
+| `assets/kk-mark.png` | transparent monogram, dawn colors (ink + brass) |
+| `assets/kk-mark-dusk.png` | transparent monogram, dusk colors (parchment + brass) |
+| `assets/favicon.ico` (+ root copy `favicon.ico`) | monogram on an ivory plate, 16/32/48 |
+| `assets/favicon.png` | 64×64 plate (also referenced by the rooms) |
+| `assets/apple-touch-icon.png` | 180×180 plate, square (iOS rounds it) |
 
 ## The old house (rooms + 404)
 

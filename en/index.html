@@ -18,7 +18,9 @@
   <link rel="alternate" hreflang="da" href="https://kasper-krog.dk/">
   <link rel="alternate" hreflang="en" href="https://kasper-krog.dk/en/">
   <link rel="alternate" hreflang="x-default" href="https://kasper-krog.dk/">
-  <link rel="icon" href="../assets/favicon.png">
+  <link rel="icon" href="../assets/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/png" href="../assets/favicon.png" sizes="64x64">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#12161c">
   <script>
     // A recent choice wins; otherwise the theme follows the clock. Before first paint.
@@ -61,7 +63,11 @@
 
   <header class="site-head">
     <div class="wrap site-head-inner">
-      <a class="wordmark" href="./">Kasper Krog</a>
+      <a class="brand" href="./">
+        <img class="brand-mark mark-dawn" src="../assets/kk-mark.png" alt="" width="240" height="320">
+        <img class="brand-mark mark-dusk" src="../assets/kk-mark-dusk.png" alt="" width="240" height="320">
+        <span class="wordmark">Kasper Krog</span>
+      </a>
       <nav class="site-nav" aria-label="Sections of the page">
         <a href="#about">About</a>
         <a href="#what-i-do">What I do</a>
@@ -110,14 +116,15 @@
           </div>
         </div>
         <div class="hero-shots reveal">
-          <figure class="shot shot-primary">
-            <img src="../assets/img/cases/folk-festival.jpg" alt="The front page of aarhusfolkfestival.dk: the headline reads Folkemusikken samler Aarhus over a photo of people dancing." width="1600" height="1000" fetchpriority="high">
-            <figcaption class="mono">aarhusfolkfestival.dk &middot; webmaster</figcaption>
+          <figure class="shot portrait-shot">
+            <img src="../assets/img/portraet.jpg" alt="Kasper Krog smiling at the camera in a blazer and burgundy tie, on a street in Aarhus." width="900" height="1125" fetchpriority="high">
+            <figcaption class="mono">Kasper Krog &middot; Aarhus</figcaption>
           </figure>
           <figure class="shot shot-secondary">
-            <img src="../assets/img/cases/matchabladet.jpg" alt="The front page of matchabladet.dk, a Danish matcha magazine." width="1600" height="1000">
-            <figcaption class="mono">matchabladet.dk &middot; my own magazine</figcaption>
+            <img src="../assets/img/cases/folk-festival.jpg" alt="The front page of aarhusfolkfestival.dk: the headline reads Folkemusikken samler Aarhus over a photo of people dancing." width="1600" height="1000">
+            <figcaption class="mono">aarhusfolkfestival.dk &middot; webmaster</figcaption>
           </figure>
+          <span class="hand hero-note" aria-hidden="true">Hi, that's me.</span>
         </div>
       </div>
     </section>
@@ -139,24 +146,28 @@
               <h3>Digital tools</h3>
               <p>Websites, internal tools and systems, built around a concrete
               need. Usability and accessibility before technology.</p>
+              <span class="skill-eg mono">E.g. Turkis Crew &middot; aarhusfolkfestival.dk</span>
             </li>
             <li>
               <span class="idx mono">02</span>
               <h3>Structure &amp; coordination</h3>
               <p>Overview in complex workflows: information, people and situations
               that have to fit together. Including when the plan changes underway.</p>
+              <span class="skill-eg mono">E.g. operational planning in live service</span>
             </li>
             <li>
               <span class="idx mono">03</span>
               <h3>Communication</h3>
               <p>Complex information made understandable and usable for the people
               who actually need it. In Danish and English.</p>
+              <span class="skill-eg mono">E.g. training new colleagues &middot; Matchabladet</span>
             </li>
             <li>
               <span class="idx mono">04</span>
               <h3>Communities &amp; culture</h3>
               <p>Volunteers, events, onboarding and hosting. Rooms where people
               can meet and contribute.</p>
+              <span class="skill-eg mono">E.g. Aarhus Gamestormers &middot; turkis</span>
             </li>
           </ul>
           <p class="tools-line mono reveal">Tools: HTML &middot; CSS &middot; JavaScript &middot; WordPress &amp; CMS &middot; GitHub &middot; Vercel &middot; Adobe &middot; Office &middot; AI-assisted development</p>
@@ -174,78 +185,48 @@
             someone missing something.
           </p>
 
-          <article class="case reveal">
+          <article class="case case-lead reveal">
             <div class="case-media">
               <figure class="shot">
                 <img src="../assets/img/cases/turkis-crew.jpg" alt="Turkis Crew: the volunteer platform's events page with upcoming concerts and shift staffing." width="1600" height="1000" loading="lazy">
                 <figcaption class="mono">The events page, seen as a volunteer</figcaption>
               </figure>
             </div>
-            <div class="case-body">
-              <span class="case-label mono">01 / Volunteer platform</span>
-              <h3>Turkis Crew</h3>
-              <span class="case-meta mono">turkis music venue, Aarhus &middot; Next.js &middot; Supabase</span>
-              <p>
-                turkis runs on volunteers, and volunteers need to find their
-                shifts, their information and each other. Turkis Crew gathers it
-                all: you apply to join, browse events, sign up for shifts, chat
-                with the team and keep your profile current. Admins handle
-                applications, events and broadcasts in the same place.
-              </p>
-              <p>
-                I work backstage at the venue myself, so the platform is built
-                for workflows I know from the inside.
-              </p>
-              <span class="case-role mono">My role: design, development and operations &middot; volunteer backstage manager</span>
-              <ul class="tag-row" aria-label="Topics">
-                <li class="tag">Web app</li>
-                <li class="tag">Volunteers</li>
-                <li class="tag">Culture</li>
-              </ul>
+            <div class="case-columns">
+              <div class="case-body">
+                <span class="case-label mono">01 / Volunteer platform</span>
+                <h3>Turkis Crew</h3>
+                <span class="case-meta mono">turkis music venue, Aarhus &middot; Next.js &middot; Supabase</span>
+                <p>
+                  turkis runs on volunteers, and volunteers need to find their
+                  shifts, their information and each other. Turkis Crew gathers it
+                  all: you apply to join, browse events, sign up for shifts, chat
+                  with the team and keep your profile current. Admins handle
+                  applications, events and broadcasts in the same place.
+                </p>
+                <p>
+                  I work backstage at the venue myself, so the platform is built
+                  for workflows I know from the inside.
+                </p>
+              </div>
+              <div class="case-aside">
+                <span class="case-role mono">My role: design, development and operations &middot; volunteer backstage manager</span>
+                <ul class="tag-row" aria-label="Topics">
+                  <li class="tag">Web app</li>
+                  <li class="tag">Volunteers</li>
+                  <li class="tag">Culture</li>
+                </ul>
+              </div>
             </div>
           </article>
 
-          <article class="case reveal">
-            <div class="case-media">
-              <figure class="shot">
-                <img src="../assets/img/cases/gamestormers.jpg" alt="The front page of gamestormers.dk: Play, experience, discuss. A video game club in Aarhus." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">gamestormers.dk</figcaption>
-              </figure>
-            </div>
-            <div class="case-body">
-              <span class="case-label mono">02 / Community</span>
-              <h3>Aarhus Gamestormers</h3>
-              <span class="case-meta mono">Founded February 2025 &middot; Folkehuset Møllestien</span>
-              <p>
-                A game club that works like a book club: we pick a game, play it
-                at home, and meet to discuss it as the cultural work it is. I
-                founded the club in 2025 and run the meetings, communication and
-                onboarding. Today we are 29 regulars around the meetings and 129
-                in the Discord community.
-              </p>
-              <p>
-                The website keeps track of events, history and votes on the next
-                game. But the product is not the website; the community is the
-                project.
-              </p>
-              <span class="case-role mono">My role: founder, host and developer</span>
-              <ul class="tag-row" aria-label="Topics">
-                <li class="tag">Community</li>
-                <li class="tag">Events</li>
-                <li class="tag">Games as culture</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="case reveal">
-            <div class="case-media">
+          <div class="case-duo">
+            <article class="case-compact reveal">
               <figure class="shot">
                 <img src="../assets/img/cases/folk-festival.jpg" alt="The front page of aarhusfolkfestival.dk with the festival programme and people dancing in a hall." width="1600" height="1000" loading="lazy">
                 <figcaption class="mono">aarhusfolkfestival.dk</figcaption>
               </figure>
-            </div>
-            <div class="case-body">
-              <span class="case-label mono">03 / Culture &amp; volunteering</span>
+              <span class="case-label mono">02 / Culture &amp; volunteering</span>
               <h3>Aarhus Folk Festival</h3>
               <span class="case-meta mono">Webmaster &middot; deputy board member</span>
               <p>
@@ -254,14 +235,35 @@
                 artists, workshops and practical information, and I help out
                 around the festival's volunteers.
               </p>
-              <span class="case-role mono">My role: webmaster, deputy board member, volunteer</span>
               <ul class="tag-row" aria-label="Topics">
                 <li class="tag">Festival</li>
                 <li class="tag">Web</li>
                 <li class="tag">Volunteers</li>
               </ul>
-            </div>
-          </article>
+            </article>
+
+            <article class="case-compact reveal">
+              <figure class="shot">
+                <img src="../assets/img/cases/gamestormers.jpg" alt="The front page of gamestormers.dk: Play, experience, discuss. A video game club in Aarhus." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">gamestormers.dk</figcaption>
+              </figure>
+              <span class="case-label mono">03 / Community</span>
+              <h3>Aarhus Gamestormers</h3>
+              <span class="case-meta mono">Founded February 2025 &middot; Folkehuset Møllestien</span>
+              <p>
+                A game club that works like a book club: we pick a game, play it
+                at home, and meet to discuss it as the cultural work it is. I
+                founded the club and run the meetings, communication and
+                onboarding. Today we are 29 regulars around the meetings and 129
+                in the Discord community.
+              </p>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Community</li>
+                <li class="tag">Events</li>
+                <li class="tag">Games as culture</li>
+              </ul>
+            </article>
+          </div>
 
           <article class="case reveal">
             <div class="case-media">
@@ -383,16 +385,12 @@
             <p class="hand about-note reveal" lang="en">Curious by nature. Structured in practice. People first.</p>
           </div>
           <aside class="about-aside">
-            <figure class="portrait reveal">
-              <img src="../assets/img/portraet.jpg" alt="Kasper Krog smiling at the camera in a blazer and burgundy tie, on a street in Aarhus." width="900" height="1125" loading="lazy">
-              <figcaption class="mono">Kasper Krog &middot; Aarhus</figcaption>
-            </figure>
             <h3 class="timeline-title mono" id="experience">Experience</h3>
             <ol class="timeline reveal">
               <li>
                 <span class="years mono">2022 &ndash; now</span>
                 <p><strong>Traffic controller and traction power controller</strong>
-                <span class="detail">Keolis &middot; Aarhus light rail. Operational decisions and safety-critical coordination in live service.</span></p>
+                <span class="detail">Keolis &middot; Aarhus light rail. Safety-critical coordination in live service.</span></p>
               </li>
               <li>
                 <span class="years mono">2025 &ndash; now</span>
@@ -402,12 +400,12 @@
               <li>
                 <span class="years mono">2018 &ndash; 2021</span>
                 <p><strong>MSc in Science Studies</strong>
-                <span class="detail">Aarhus University. Science communication with a focus on climate in modern media. Internship at ScienceAtHome, 2019 to 2020.</span></p>
+                <span class="detail">Aarhus University. Internship at ScienceAtHome, 2019 to 2020.</span></p>
               </li>
               <li>
                 <span class="years mono">2016 &ndash; 2018</span>
                 <p><strong>BA in Philosophy</strong>
-                <span class="detail">University of Southern Denmark. Philosophy of science, ethics and critical thinking. Student job in the research support unit, 2017 to 2018.</span></p>
+                <span class="detail">University of Southern Denmark. Student job in the research support unit, 2017 to 2018.</span></p>
               </li>
               <li>
                 <span class="years mono">2008 &ndash; 2010</span>
@@ -437,7 +435,8 @@
               real, and good things happen when people pull together.
             </p>
             <p class="kind-cta reveal">
-              <a href="mailto:kontakt@kasper-krog.dk?subject=Kind%20project">Have a project like that? Write and tell me what you're trying to build.</a>
+              <a class="btn btn-kind" href="mailto:kontakt@kasper-krog.dk?subject=Kind%20project">Write about your project &rarr;</a>
+              <span class="kind-cta-note">Tell me what you're trying to build. We'll figure out the rest together.</span>
             </p>
           </div>
           <div>
@@ -510,10 +509,17 @@
   </main>
 
   <footer class="site-foot">
-    <div class="wrap foot-inner mono">
-      <span>&copy; 2026 Kasper Krog &middot; Aarhus</span>
-      <span>CV available on request</span>
-      <span class="coords">56.1629&deg; N &middot; 10.2039&deg; E</span>
+    <div class="wrap foot-inner">
+      <div class="foot-brand">
+        <img class="mark-dawn" src="../assets/kk-mark.png" alt="" width="240" height="320">
+        <img class="mark-dusk" src="../assets/kk-mark-dusk.png" alt="" width="240" height="320">
+        <span class="foot-line">Built in Aarhus, usually while it rains.</span>
+      </div>
+      <div class="foot-meta mono">
+        <span>&copy; 2026 Kasper Krog &middot; Aarhus</span>
+        <span>CV available on request</span>
+        <span class="coords">56.1629&deg; N &middot; 10.2039&deg; E</span>
+      </div>
     </div>
   </footer>
 

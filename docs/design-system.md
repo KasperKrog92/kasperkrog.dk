@@ -51,19 +51,36 @@ muted text still needs 4.5:1 contrast.
 
 ## Front page: components
 
+- `.brand` + `.brand-mark`: the header identity, KK monogram beside the serif
+  wordmark. The monogram is derived from `icon.png` (root) into
+  `assets/kk-mark.png` (dawn) and `assets/kk-mark-dusk.png` (dusk); the
+  generic `.mark-dawn`/`.mark-dusk` classes swap them with the theme (also
+  used in the footer). Favicons (`assets/favicon.ico`, `assets/favicon.png`,
+  `assets/apple-touch-icon.png`, root `favicon.ico`) are the monogram on a
+  small ivory plate.
 - `.section-grid` + `.rail`: every section is a two-column grid with a sticky
   mono label rail on the left (stacks on mobile).
-- `.hero-grid` + `.hero-shots` + `.shot`: the hero copy beside two stacked,
-  slightly rotated screenshot frames. `.shot` is the standard frame for any
-  real screenshot: raised background, thin border, mono caption.
-- `.skills-list`: the four numbered competence areas.
+- `.hero-grid` + `.hero-shots`: the hero copy beside the real portrait
+  (`.portrait-shot`), one overlapping project screenshot (`.shot-secondary`)
+  and a single handwritten `.hero-note`. `.shot` is the standard frame for
+  any real screenshot or photograph: raised background, thin border, mono
+  caption.
+- `.skills-list`: the four competence areas in a two-column grid, each cell
+  opened by a short brass tick over the hairline, with an `.skill-eg` mono
+  example line.
 - `.case`: one project case; image and text columns alternate via
   `:nth-of-type(even)`. Contains `.case-label`, `.case-meta`, `.case-role`,
   `.tag-row`.
+- `.case-lead`: the full-width lead case (Turkis Crew): big image on top,
+  then `.case-columns` with the body beside a bordered `.case-aside` for role
+  and tags.
+- `.case-duo` + `.case-compact`: two related cases side by side in a tighter
+  format (image, label, title, one paragraph, tags).
 - `.more-list`: the small "andre ting" index.
-- `.about-grid` + `.portrait` + `.timeline`: narrative beside the real
-  portrait photograph and a compact experience timeline.
-- `.kind`: the dark Kind Projects band with `.kind-list` checklist.
+- `.about-grid` + `.timeline`: narrative beside a sticky aside with the
+  stacked experience timeline (the portrait lives in the hero).
+- `.kind`: the dark Kind Projects band with `.kind-list` checklist and the
+  brass `.btn-kind` CTA.
 - `.rooms-row`: the mono links into the old house.
 - `.contact-rows`: label/value contact rows.
 - `.reveal`: quiet scroll arrival; requires JavaScript, harmless without.
