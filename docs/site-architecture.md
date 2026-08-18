@@ -12,74 +12,57 @@ so their public URLs end with a slash.
 
 | File | Public URL | Role |
 |---|---|---|
-| `index.html` | `/` | The harbor: hero, field notes, archive and room map |
-| `journal/index.html` | `/journal/` | *Notesbogen* |
-| `shelf/index.html` | `/shelf/` | *Hylden* |
-| `gatherings/index.html` | `/gatherings/` | *Forsamlingshuset* |
-| `worlds/index.html` | `/worlds/` | *Baglokalet* |
-| `rituals/index.html` | `/rituals/` | *Ritualer* |
-| `keeper/index.html` | `/keeper/` | *Værten* |
-| `404.html` | any missing path | Lost in the rain |
-| `css/style.css` | `/css/style.css` | All visual rules and both themes |
-| `js/main.js` | `/js/main.js` | Theme controls, clock, reveals, rain and sea |
+| `index.html` | `/` | Professional front page, Danish (primary language) |
+| `en/index.html` | `/en/` | Professional front page, English mirror |
+| `journal/index.html` | `/journal/` | *Notesbogen* (old house) |
+| `shelf/index.html` | `/shelf/` | *Hylden* (old house) |
+| `gatherings/index.html` | `/gatherings/` | *Forsamlingshuset* (old house) |
+| `worlds/index.html` | `/worlds/` | *Baglokalet* (old house) |
+| `rituals/index.html` | `/rituals/` | *Ritualer* (old house) |
+| `keeper/index.html` | `/keeper/` | *Værten* (old house) |
+| `404.html` | any missing path | Lost in the rain (old house shell) |
+| `css/site.css` | `/css/site.css` | Front-page design system, both themes |
+| `js/site.js` | `/js/site.js` | Front-page runtime: lantern, language memory, reveals, rain easter egg |
+| `css/style.css` | `/css/style.css` | Old-house design system (rooms + 404 only) |
+| `js/main.js` | `/js/main.js` | Old-house runtime (rooms + 404 only) |
 
 `CNAME` holds the custom domain and `.nojekyll` disables Jekyll processing.
 
-## Shared page shell
+## The two front pages
 
-There is no include system. The head, atmosphere markup, header navigation and
-footer are duplicated by hand across pages. A shell change is therefore a
-multi-file change.
+`index.html` (Danish) and `en/index.html` (English) are hand-kept mirrors.
+Every content change on one must land on the other, idiomatically translated
+rather than word for word. Shared structure:
 
-Every ordinary page includes:
+1. `<html lang="da">` / `<html lang="en">` with `data-theme="dusk"` default.
+2. Unique title/description per language, Open Graph metadata, canonical URL
+   and a full `hreflang` pair (`da`, `en`, `x-default` → Danish).
+3. The inline pre-paint theme script (see theme contract).
+4. One Google Fonts request: Cormorant Garamond, Schibsted Grotesk, IBM Plex
+   Mono, Caveat.
+5. Skip link → `<main id="main-content" tabindex="-1">`.
+6. Sticky header: serif wordmark, mono anchor navigation, DA/EN switch,
+   lantern button.
+7. Sections in order: hero, det jeg kan / what I do, projekter / projects,
+   om mig / about (with timeline), kind projects (dark), mere personligt /
+   more personal (room links), kontakt / contact, footer.
+8. `js/site.js` at the end of `<body>`.
 
-1. `<!DOCTYPE html>` and `<html lang="en" data-theme="dusk">`.
-2. UTF-8 and responsive viewport metadata.
-3. A unique title, description and canonical URL.
-4. The lantern favicon and `theme-color`.
-5. The inline pre-paint theme script before CSS.
-6. Google Fonts preconnects and the shared font stylesheet.
-7. The correctly relative link to `css/style.css`.
-8. The skip link targeting `<main id="main-content" tabindex="-1">`.
-9. `#rain`, `.grain`, `.site-head`, the room navigation and `#lantern`.
-10. A single main landmark with logical heading order.
-11. The shared footer with `#aarhus-time`.
-12. The correctly relative script link to `js/main.js`.
+The old rooms keep their own shell (brass nameplate, seven book-spine room
+links, rain canvas). Their "Harbor" link now leads to the new front page. Do
+not add the front page's navigation to the rooms or vice versa.
 
-The homepage also carries Open Graph and Twitter card metadata. Add equivalent
-social metadata to another page only when there is a real sharing need and a
-suitable image.
+## Navigation contracts
 
-The 404 is a deliberate exception:
+Front pages: the header links are in-page anchors in this order: Om mig /
+About, Det jeg kan / What I do, Projekter / Projects, Erfaring / Experience,
+Jeg kan hjælpe / I can help, Kontakt / Contact. The wordmark links to the
+page's own root (`./`).
 
-- It uses root-absolute asset and room URLs because it may be served from any
-  path.
-- It has `noindex`.
-- It omits the canonical URL and shared footer.
-- Its Google Fonts request is smaller because it does not use Caveat or every
-  display weight.
-
-## Navigation contract
-
-The seven room links must remain in this order everywhere:
-
-1. Harbor
-2. Journal
-3. Shelf
-4. Gatherings
-5. Worlds
-6. Rituals
-7. Keeper
-
-`css/style.css` assigns book size, position and color with `:nth-child()`.
-Changing the order, adding a room or removing one requires coordinated CSS and
-mobile layout changes, not only an HTML edit.
-
-Each ordinary page marks exactly one room link with `aria-current="page"`.
-The 404 marks none. The brass `.head-label` always links home.
-
-When adding a room, update every page header, the homepage room map, this file,
-[KASPER.md](../KASPER.md) and any navigation CSS tied to link count or order.
+Rooms: the original seven-link book-spine order (Harbor, Journal, Shelf,
+Gatherings, Worlds, Rituals, Keeper) is unchanged and still styled by
+`:nth-child()` in `css/style.css`. Each room marks itself with
+`aria-current="page"`.
 
 ## Theme contract
 
@@ -92,43 +75,46 @@ before first paint:
 - The saved object contains `theme` and `expiresAt`.
 - The override expires after three hours.
 - Invalid or expired data is removed.
-- The script updates both `data-theme` and the browser `theme-color`.
+- The script updates both `data-theme` and the browser `theme-color`
+  (front: `#f2ecdf` dawn / `#12161c` dusk; rooms keep their own colors).
 
-`js/main.js` repeats this logic after load, checks once a minute and checks
-again when a hidden tab becomes visible. If the boundaries, key, stored shape
-or colors change, update every inline script and `main.js` together.
+The logic is repeated after load and re-checked every minute and on tab
+visibility, by `js/site.js` on the front pages and `js/main.js` in the rooms.
+If the boundaries, key, stored shape or colors change, update every inline
+script and both runtime files together.
 
-The visitor's clock controls theme and boat position. The footer clock is
-different: it always formats the current time in `Europe/Copenhagen`.
+## Language contract
 
-## Runtime behavior
+- Danish is the default and lives at `/`. English lives at `/en/`.
+- The DA/EN switch is a plain link pair; JavaScript stores the last explicit
+  choice in `localStorage` under `kk-lang` but never redirects automatically.
+- `hreflang` pairs and `og:locale` are set on both pages; `x-default` points
+  to the Danish page.
 
-`js/main.js` is one dependency-free IIFE using browser APIs directly.
+## Front-page runtime (`js/site.js`)
+
+One dependency-free IIFE:
 
 - The lantern toggles dawn and dusk, stores the three-hour override and keeps
   `aria-pressed` in sync.
-- JavaScript inserts the lantern dock used by the carried-on-scroll behavior.
-- `IntersectionObserver` reveals `.reveal` elements once.
-- The rain canvas animates only when reduced motion is not requested.
-- JavaScript injects the decorative `.sea` and an accessible boat button into
-  the body.
-- Boat position is derived from local time and updated by the minute.
-- Activating the boat writes out the next line of a fixed verse, pausing for a
-  few presses after the last line before repeating, and announces each whole
-  line through a polite live region.
-- The water remains decorative. The boat and lantern are buttons.
+- Language links write `kk-lang` on click.
+- `IntersectionObserver` reveals `.reveal` elements once; without JavaScript
+  or with reduced motion everything is visible from the start (the observer
+  adds the `js-reveal` class before hiding anything).
+- Easter egg: three lantern presses within 1.6 seconds summon a light canvas
+  rain for about half a minute. It never runs under reduced motion.
 
-Keep new JavaScript optional where possible. Core copy, links and navigation
-must remain useful if the script fails.
+Core copy, links and navigation must remain useful if the script fails.
 
 ## Paths and links
 
-- Ordinary room pages use relative local paths such as `../css/style.css`.
-- The homepage uses root-level relative paths such as `css/style.css`.
-- The 404 uses root-absolute paths such as `/css/style.css`.
-- Canonical URLs use `https://kasper-krog.dk/` and trailing slashes for rooms.
-- External links use HTTPS where supported.
-- External links that use `target="_blank"` also use `rel="noopener"`.
+- The Danish front page uses root-level relative paths (`css/site.css`).
+- The English front page uses `../` paths (`../css/site.css`).
+- Room pages use relative local paths such as `../css/style.css`.
+- The 404 uses root-absolute paths.
+- Canonical URLs use `https://kasper-krog.dk/` with trailing slashes.
+- External links use HTTPS; `target="_blank"` always pairs with
+  `rel="noopener"`.
 
 Do not add remote scripts, tracking pixels or embeds. Google Fonts is the sole
 allowed external page request.
@@ -136,18 +122,19 @@ allowed external page request.
 ## Accessibility contract
 
 - Keep one `<main>` landmark with the skip-link target.
-- Preserve logical heading order; visually hidden headings may label sections.
+- Preserve logical heading order; each front-page section is labelled by its
+  own heading via `aria-labelledby`.
 - Keep visible keyboard focus and sensible source-order navigation.
-- Keep `aria-current` accurate.
-- Decorative canvas, grain, water and inline SVG details stay out of the
+- Decorative canvas, grain and inline SVG details stay out of the
   accessibility tree.
-- Images need useful alt text unless they are genuinely decorative.
+- Images need useful alt text in the page's own language unless genuinely
+  decorative.
 - Text, including muted text, must meet WCAG AA contrast in both themes.
 - New motion must stop under `prefers-reduced-motion`.
 
 ## Public repository boundary
 
 Assume tracked files can be read publicly. That includes `docs/`, planning
-notes and personal context in `KASPER.md`, whether or not a browser renders the
-Markdown as a site page. Store only material that is appropriate for the
-public repository.
+notes and personal context in `KASPER.md`. Store only material that is
+appropriate for the public repository. Employer-internal tooling and data
+(vagtplan/OCC, driver names, workplace screenshots) never enter this repo.

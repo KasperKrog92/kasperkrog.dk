@@ -5,84 +5,76 @@ How kasper-krog.dk speaks, grows and decides what belongs.
 Read [KASPER.md](../KASPER.md) alongside this guide whenever work involves
 visitor-facing copy or new personal material.
 
-## What the site is
+## Two layers, two voices
 
-The site is a quiet cultural archive. The governing metaphor is a small harbor
-and a house with rooms: warmth kept lit against darkness.
+**The professional front** (`/` dansk, `/en/` English) is an editorial
+portfolio. Its voice is direct, warm, concrete, curious, understated and
+human. Danish is written first; the English mirror is idiomatic, not word for
+word.
 
-It is also Kasper's personal playground. He may bring unfinished thoughts,
-memories, stories, interests, projects, habits, convictions, passing
-observations or odd scraps that matter to him. They do not need to arrive as
-finished website copy or with a page already chosen.
+**The old house** (the rooms) keeps its original voice: quiet, literary,
+warmth inside melancholy. Late-night café, not LinkedIn. When editing a room,
+follow the old rules at the bottom of this guide.
 
-The aim is accumulation with judgment. Over time, the site should know more
-about the person who keeps it while still feeling like a house rather than a
-database, resume or biography.
+## Front-page copy rules
 
-## How new material finds a place
+- Write the decision, not the task. "Jeg afgør, hvornår anlægget er sikkert at
+  arbejde på" beats "jeg arbejder med driften". Kasper habitually understates
+  his work; the copy should not.
+- Concrete over abstract: numbers, names, things that happened. Every fact
+  must be verified before it ships; invent nothing. Membership counts, dates
+  and titles come from confirmed sources (see the jobsoegning repo's
+  `profile/facts.md` where applicable).
+- Never claim: personaleledelse, budgetansvar, formel
+  projektledercertificering, senior software engineer-erfaring.
+- Banned words: passioneret, dynamisk, resultatorienteret, innovativ,
+  visionær, digital native, brænder for, and any praise that cannot be backed
+  with an example. Also the old machine-language list below.
+- Em dashes never appear in visitor-facing copy, in either language. Use a
+  period, colon, semicolon, comma or middle dot. En dashes in ranges
+  (`2018–2021`) are fine.
+- Ration the AI tells: three-item lists sparingly, "ikke X, men Y" at most
+  once per page and only when the contrast is the point, no summary sentences
+  that restate the paragraph, no empty intensifiers.
+- The kind projects section must feel sincere, never like lead generation.
+  No "book a free call" language, ever.
+- Read it aloud. If it sounds like a brochure, cut. If it sounds like Kasper
+  at a kitchen table, keep.
 
-Listen for what the material is really about, then decide where it belongs and
-what form feels native to the site. It may become a journal fragment, shelf
-item, archive entry, keeper detail, ritual, fictional seed or something the
-current structure does not yet have.
+## Keeping the mirrors in sync
 
-Do not incorporate every fact literally or immediately. Find the detail that
-has life in it. Preserve Kasper's specificity, uncertainty and contradictions.
-Some material should become one plain sentence. Some should wait until it has
-company. When several scraps point toward a new room, the structure may grow.
+A content change on one front page is a change on both. Translate meaning,
+not syntax; each language should read as if written in it. Alt texts follow
+the page's language.
 
-Add durable personal context to [KASPER.md](../KASPER.md). Do not turn that
-sourcebook into a publishing queue.
+## The old house: what it is
 
-When routing new material, ask:
+The rooms are a quiet cultural archive: a small harbor and a house with
+rooms, warmth kept lit against darkness. They are also Kasper's personal
+playground for unfinished thoughts, memories, stories, interests, rituals and
+odd scraps. Accumulation with judgment.
 
-1. Is this a durable fact, passing observation, story, taste, ritual, project,
-   belief or fictional seed?
-2. What is the most alive detail?
-3. Does it deepen an existing room, revise the sourcebook or suggest a room
-   that does not exist yet?
-4. Is it meant to be public?
-5. What form fits: one sentence, dated fragment, shelf card, archive row,
-   first-person passage, image or no site change yet?
+Rooms have Danish names with English glosses: *Notesbogen* (journal),
+*Hylden* (shelf), *Forsamlingshuset* (gatherings), *Baglokalet* (worlds),
+*Ritualer* (rituals), *Værten* (the keeper). The keeper page speaks in first
+person; other rooms speak about the place or the work.
 
-Do not publish a summary merely because one can be written. Wait for a form
-that earns its place.
+New personal material routes through the questions in
+[KASPER.md](../KASPER.md): what is it, what is the most alive detail, which
+room does it deepen, is it meant to be public, what form fits. Do not publish
+a summary merely because one can be written.
 
-## Rooms and point of view
+## The old house: voice rules
 
-Rooms have Danish names with English glosses:
-
-| Danish name | English room | Purpose |
-|---|---|---|
-| *Kartoteket* | archive | Public projects and work gathered at the harbor |
-| *Notesbogen* | journal | Dated fragments, memories and observations |
-| *Hylden* | shelf | What is feeding Kasper's attention now |
-| *Forsamlingshuset* | gatherings | Clubs, tables, venues, volunteering and shared events |
-| *Baglokalet* | worlds | Fiction, worldbuilding, cozy horror and unfinished experiments |
-| *Ritualer* | rituals | Repeated acts that shape ordinary days |
-| *Værten* | the keeper | First-person account, philosophy and ways to reach Kasper |
-
-The keeper page speaks in first person. Elsewhere the site speaks about the
-place, the work or the room rather than presenting a personal profile.
-
-## Voice
-
-Quiet, literary, warm inside melancholy. Late-night cafe, not LinkedIn.
-
-- Mono labels are short and lowercase-feeling; CSS makes them uppercase.
-- Sentences may be fragments.
-- Exclamation marks are not welcome.
-- Contrast is a recurring image: lanterns, harbors, rain, tea and small lights
+- Mono labels are short; CSS makes them uppercase.
+- Sentences may be fragments. Exclamation marks are not welcome.
+- Contrast is the recurring image: lanterns, harbors, rain, tea, small lights
   against large darkness.
-- Never announce human authorship with lines such as "built by a human" or
-  "built by hand." Let the care show in the thing itself.
-- Never use these product words: brand, content, engagement, audience,
-  leverage, productivity.
+- Never announce human authorship ("built by hand"); let the care show.
+- Never these product words: brand, content, engagement, audience, leverage,
+  productivity.
 
-## Keep machine language out
-
-Literary copy can easily sound generated. Every visitor-facing line should
-pass this filter before it ships.
+### Machine language filter (both layers)
 
 These words never appear:
 
@@ -91,42 +83,23 @@ These words never appear:
 > journey, landscape used figuratively, realm, unlock, transformative, "serves
 > as", "stands as"
 
-Use plain words such as *has*, *is*, *use* and *make*.
+Use plain words such as *has*, *is*, *use* and *make*. No trailing
+participles ("highlighting the importance of"). Break up three parallel
+clauses in a row.
 
-Ration these patterns:
+### Write concretely (both layers)
 
-- Negative parallelism such as "not X, but Y": at most once per page and only
-  when the contrast is the point. "Not what I made. What we gather around"
-  already owns this device.
-- Rule of three: only for literal lists of three real things, never as a
-  rhythm trick.
-- Em dashes: never in visitor-facing copy, including titles, metadata,
-  captions, labels, annotations and footers. Use a period, colon, semicolon,
-  comma or middle dot.
-- Trailing participles such as "highlighting the importance of": never.
-- Three parallel clauses in a row: break the rhythm and make one plain.
-
-## Write concretely
-
-- Concrete beats abstract. Name objects, places and times.
-- Let some sentences be plain. One strong image per paragraph is enough.
-- Use contractions sometimes.
-- Repeat a word rather than reaching for a decorative synonym.
-- First person on the keeper page may admit small things. Honest admissions
-  read better than grand claims.
-- A metaphor lives in one place. Search the site before reusing images such as
-  "walking speed," "furniture" or "doors ajar."
-- Read the sentence aloud. If it sounds as if it ends with an implied
-  sentimental flourish, cut the ending.
+- Name objects, places and times. One strong image per paragraph is enough.
+- Use contractions sometimes. Repeat a word rather than reaching for a
+  decorative synonym.
+- A metaphor lives in one place; search the site before reusing an image.
+- Read the sentence aloud. If it ends with an implied sentimental flourish,
+  cut the ending.
 
 ## Editorial hygiene
 
-- Keep month-level dates in the journal. It is an archive, not a live feed.
-- The shelf is current rather than canonical. Let it change.
-- Preserve uncertainty around unfinished worlds.
-- Keep rituals physical and specific. Do not turn them into
-  self-improvement advice.
+- Keep month-level dates in the journal. The shelf is current, not canonical.
+- Keep rituals physical and specific; no self-improvement advice.
 - Verify names, links and claims before publishing them.
-- External links open in a new tab only when that is already the local pattern;
-  when they do, keep `rel="noopener"`.
-- Search existing copy before introducing a new recurring image or phrase.
+- External links open in a new tab only where that is already the local
+  pattern; when they do, keep `rel="noopener"`.

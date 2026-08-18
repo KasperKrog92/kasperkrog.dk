@@ -61,17 +61,21 @@ corrects durable personal context.
 Never frame a shelf item as a recommendation. The shelf records current
 attention and may rotate.
 
-## Adding a project or gathering
+## Adding or changing a front-page project case
 
-Use the existing `.entry` structure and keep labels short. For external links,
-use HTTPS and preserve the local `target="_blank" rel="noopener"` pattern.
+Front-page cases live in the `#projekter` / `#projects` sections and use the
+`.case` structure (label, title, meta, body, role, tags). Rules:
 
-If a homepage project receives a background image:
-
-- Add dusk and dawn JPGs under `assets/img/projects/`.
-- Add paired theme CSS variables or selectors.
-- Leave copy readable without the image.
+- Every case ships in both languages; edit `index.html` and `en/index.html`
+  together.
+- The case image is a real screenshot under `assets/img/cases/`, captured
+  from the live project (1600×1000, `ffmpeg -q:v 4`). No generated imagery.
+- Facts, numbers and roles must be verified before publishing.
 - Update [the image inventory](../assets/img/README.md).
+
+For gatherings and rooms, use the existing `.entry` structure and keep labels
+short. For external links, use HTTPS and preserve the local
+`target="_blank" rel="noopener"` pattern.
 
 ## Adding a page or room
 
@@ -99,10 +103,14 @@ update all affected copies.
 
 For theme changes:
 
-- Keep both theme token blocks complete.
-- Keep the inline head scripts and `js/main.js` in sync.
-- Check `theme-color`.
+- Keep both theme token blocks complete, in `css/site.css` (front) and
+  `css/style.css` (rooms).
+- Keep the inline head scripts, `js/site.js` and `js/main.js` in sync.
+- Check `theme-color` per layer.
 - Test an expired or malformed `kk-theme` value.
+
+For front-page copy changes: Danish and English mirrors must both be updated
+before the work is complete.
 
 For JavaScript changes:
 
@@ -153,10 +161,10 @@ GitHub Pages publishes the `main` branch from the repository root.
 - `.nojekyll` keeps the repository as plain static files.
 - The apex domain uses GitHub Pages A records.
 - `www` points to `kasperkrog92.github.io`.
+- DNS is managed in Cloudflare (as of August 2026).
 
-As documented on June 10, 2026, HTTPS is live. DNS and platform state can
-change, so verify the live service before diagnosing or documenting a new
-deployment problem.
+HTTPS is live. DNS and platform state can change, so verify the live service
+before diagnosing or documenting a new deployment problem.
 
 ## Documentation upkeep
 

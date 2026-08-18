@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dusk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasper Krog · Digital maker, traffic controller and culture organiser in Aarhus</title>
+  <meta name="description" content="I build digital tools, communities, and better ways of working together. Projects, experience and kind projects from Aarhus, Denmark.">
+  <meta property="og:title" content="Kasper Krog · Digital maker, traffic controller and culture organiser in Aarhus">
+  <meta property="og:description" content="I build digital tools, communities, and better ways of working together.">
+  <meta property="og:url" content="https://kasper-krog.dk/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:image" content="https://kasper-krog.dk/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://kasper-krog.dk/en/">
+  <link rel="alternate" hreflang="da" href="https://kasper-krog.dk/">
+  <link rel="alternate" hreflang="en" href="https://kasper-krog.dk/en/">
+  <link rel="alternate" hreflang="x-default" href="https://kasper-krog.dk/">
+  <link rel="icon" href="../assets/favicon.png">
+  <meta name="theme-color" content="#12161c">
+  <script>
+    // A recent choice wins; otherwise the theme follows the clock. Before first paint.
+    var now = Date.now();
+    var hour = new Date(now).getHours();
+    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
+    try {
+      var saved = JSON.parse(localStorage.getItem('kk-theme'));
+      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
+        theme = saved.theme;
+      } else {
+        localStorage.removeItem('kk-theme');
+      }
+    } catch (e) {
+      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
+    }
+    document.documentElement.dataset.theme = theme;
+    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#f2ecdf' : '#12161c';
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kasper Krog",
+    "url": "https://kasper-krog.dk/",
+    "jobTitle": "Traffic controller and traction power controller",
+    "address": { "@type": "PostalAddress", "addressLocality": "Aarhus", "addressCountry": "DK" },
+    "sameAs": ["https://github.com/KasperKrog92"]
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link mono" href="#main-content">Skip to content</a>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="wrap site-head-inner">
+      <a class="wordmark" href="./">Kasper Krog</a>
+      <nav class="site-nav" aria-label="Sections of the page">
+        <a href="#about">About</a>
+        <a href="#what-i-do">What I do</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#kind-projects">I can help</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="head-tools">
+        <span class="lang-switch" aria-label="Language"><a href="../" hreflang="da" lang="da" data-lang-choice="da">DA</a> / <span aria-current="true" lang="en">EN</span></span>
+        <button id="lantern" type="button" aria-pressed="false" aria-label="Switch between day and night">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 3h4"/>
+            <path d="M12 3v3"/>
+            <path d="M8.5 6h7l1 2.5v7L15 18H9l-1.5-2.5v-7Z"/>
+            <path d="M12 9.5c1.4 1.8 1.4 3.2 0 4.2c-1.4-1-1.4-2.4 0-4.2Z" fill="currentColor" stroke="none"/>
+            <path d="M9 21h6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <ul class="hero-meta mono">
+            <li>Digital tools</li>
+            <li>Structure &amp; coordination</li>
+            <li>Culture &amp; community</li>
+            <li>Aarhus, Denmark</li>
+            <li class="coords">56.1629&deg; N &middot; 10.2039&deg; E</li>
+          </ul>
+          <h1 id="hero-heading" class="reveal">I build digital tools, communities, and <em>better ways of working together</em>.</h1>
+          <p class="lead reveal">
+            I'm a traffic controller, digital maker and culture organiser in
+            Aarhus, Denmark. I work where people, structure and technology meet,
+            and I build things that create overview and make everyday work easier
+            for the people who use them.
+          </p>
+          <div class="cta-row reveal">
+            <a class="btn btn-primary" href="#projects">See projects &rarr;</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-shots reveal">
+          <figure class="shot shot-primary">
+            <img src="../assets/img/cases/folk-festival.jpg" alt="The front page of aarhusfolkfestival.dk: the headline reads Folkemusikken samler Aarhus over a photo of people dancing." width="1600" height="1000" fetchpriority="high">
+            <figcaption class="mono">aarhusfolkfestival.dk &middot; webmaster</figcaption>
+          </figure>
+          <figure class="shot shot-secondary">
+            <img src="../assets/img/cases/matchabladet.jpg" alt="The front page of matchabladet.dk, a Danish matcha magazine." width="1600" height="1000">
+            <figcaption class="mono">matchabladet.dk &middot; my own magazine</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider wrap" aria-hidden="true">
+
+    <section id="what-i-do" aria-labelledby="skills-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">What I do</p>
+        <div>
+          <h2 id="skills-heading" class="reveal">Four things I keep coming back to.</h2>
+          <p class="section-sub reveal">
+            The job titles have changed along the way, but the work looks the same:
+            I find out where the overview is missing, and build what's missing.
+          </p>
+          <ul class="skills-list reveal">
+            <li>
+              <span class="idx mono">01</span>
+              <h3>Digital tools</h3>
+              <p>Websites, internal tools and systems, built around a concrete
+              need. Usability and accessibility before technology.</p>
+            </li>
+            <li>
+              <span class="idx mono">02</span>
+              <h3>Structure &amp; coordination</h3>
+              <p>Overview in complex workflows: information, people and situations
+              that have to fit together. Including when the plan changes underway.</p>
+            </li>
+            <li>
+              <span class="idx mono">03</span>
+              <h3>Communication</h3>
+              <p>Complex information made understandable and usable for the people
+              who actually need it. In Danish and English.</p>
+            </li>
+            <li>
+              <span class="idx mono">04</span>
+              <h3>Communities &amp; culture</h3>
+              <p>Volunteers, events, onboarding and hosting. Rooms where people
+              can meet and contribute.</p>
+            </li>
+          </ul>
+          <p class="tools-line mono reveal">Tools: HTML &middot; CSS &middot; JavaScript &middot; WordPress &amp; CMS &middot; GitHub &middot; Vercel &middot; Adobe &middot; Office &middot; AI-assisted development</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">Selected projects</p>
+        <div>
+          <h2 id="projects-heading" class="reveal">Real solutions for real people.</h2>
+          <p class="section-sub reveal">
+            None of these projects started with technology. They started with
+            someone missing something.
+          </p>
+
+          <article class="case reveal">
+            <div class="case-media">
+              <figure class="shot">
+                <img src="../assets/img/cases/turkis-crew.jpg" alt="Turkis Crew: the volunteer platform's events page with upcoming concerts and shift staffing." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">The events page, seen as a volunteer</figcaption>
+              </figure>
+            </div>
+            <div class="case-body">
+              <span class="case-label mono">01 / Volunteer platform</span>
+              <h3>Turkis Crew</h3>
+              <span class="case-meta mono">turkis music venue, Aarhus &middot; Next.js &middot; Supabase</span>
+              <p>
+                turkis runs on volunteers, and volunteers need to find their
+                shifts, their information and each other. Turkis Crew gathers it
+                all: you apply to join, browse events, sign up for shifts, chat
+                with the team and keep your profile current. Admins handle
+                applications, events and broadcasts in the same place.
+              </p>
+              <p>
+                I work backstage at the venue myself, so the platform is built
+                for workflows I know from the inside.
+              </p>
+              <span class="case-role mono">My role: design, development and operations &middot; volunteer backstage manager</span>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Web app</li>
+                <li class="tag">Volunteers</li>
+                <li class="tag">Culture</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case reveal">
+            <div class="case-media">
+              <figure class="shot">
+                <img src="../assets/img/cases/gamestormers.jpg" alt="The front page of gamestormers.dk: Play, experience, discuss. A video game club in Aarhus." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">gamestormers.dk</figcaption>
+              </figure>
+            </div>
+            <div class="case-body">
+              <span class="case-label mono">02 / Community</span>
+              <h3>Aarhus Gamestormers</h3>
+              <span class="case-meta mono">Founded February 2025 &middot; Folkehuset Møllestien</span>
+              <p>
+                A game club that works like a book club: we pick a game, play it
+                at home, and meet to discuss it as the cultural work it is. I
+                founded the club in 2025 and run the meetings, communication and
+                onboarding. Today we are 29 regulars around the meetings and 129
+                in the Discord community.
+              </p>
+              <p>
+                The website keeps track of events, history and votes on the next
+                game. But the product is not the website; the community is the
+                project.
+              </p>
+              <span class="case-role mono">My role: founder, host and developer</span>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Community</li>
+                <li class="tag">Events</li>
+                <li class="tag">Games as culture</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case reveal">
+            <div class="case-media">
+              <figure class="shot">
+                <img src="../assets/img/cases/folk-festival.jpg" alt="The front page of aarhusfolkfestival.dk with the festival programme and people dancing in a hall." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">aarhusfolkfestival.dk</figcaption>
+              </figure>
+            </div>
+            <div class="case-body">
+              <span class="case-label mono">03 / Culture &amp; volunteering</span>
+              <h3>Aarhus Folk Festival</h3>
+              <span class="case-meta mono">Webmaster &middot; deputy board member</span>
+              <p>
+                Four days of concerts, dance and workshops, carried by volunteers.
+                I'm the webmaster of the festival's bilingual site with programme,
+                artists, workshops and practical information, and I help out
+                around the festival's volunteers.
+              </p>
+              <span class="case-role mono">My role: webmaster, deputy board member, volunteer</span>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Festival</li>
+                <li class="tag">Web</li>
+                <li class="tag">Volunteers</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case reveal">
+            <div class="case-media">
+              <figure class="shot">
+                <img src="../assets/img/cases/amanda-barup.jpg" alt="Amanda Barup's portfolio: a large serif headline with her name and an introduction to her drawings." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">Portfolio with a built-in studio</figcaption>
+              </figure>
+            </div>
+            <div class="case-body">
+              <span class="case-label mono">04 / Portfolio for an artist</span>
+              <h3>Amanda Barup</h3>
+              <span class="case-meta mono">Illustrator &middot; Next.js &middot; Sanity CMS</span>
+              <p>
+                Amanda draws people, movement and everyday moments, and she needed
+                a place to show her work and sell postcards, without a web shop
+                and without hassle. We landed on one long page where the art gets
+                room to breathe, and a built-in studio where Amanda changes works,
+                texts and prices herself. Changes are live within a minute.
+              </p>
+              <p>
+                Postcards are ordered with a no-obligation email instead of a
+                cart. The art comes first.
+              </p>
+              <span class="case-role mono">My role: design, development and CMS setup</span>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Design</li>
+                <li class="tag">CMS</li>
+                <li class="tag">Portfolio</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="case reveal">
+            <div class="case-media">
+              <figure class="shot">
+                <img src="../assets/img/cases/matchabladet.jpg" alt="The front page of matchabladet.dk with the headline Matcha. Better when it's considered. and a glass of iced matcha." width="1600" height="1000" loading="lazy">
+                <figcaption class="mono">matchabladet.dk</figcaption>
+              </figure>
+            </div>
+            <div class="case-body">
+              <span class="case-label mono">05 / My own magazine</span>
+              <h3>Matchabladet</h3>
+              <span class="case-meta mono">matchabladet.dk &middot; Astro</span>
+              <p>
+                A Danish matcha magazine with honest café reviews, calm guides and
+                rankings. I visit the cafés, write the reviews and built the site:
+                static, fast and designed to be read in peace.
+              </p>
+              <span class="case-role mono">My role: editor, writer and developer</span>
+              <ul class="tag-row" aria-label="Topics">
+                <li class="tag">Magazine</li>
+                <li class="tag">Content</li>
+                <li class="tag">Design</li>
+              </ul>
+            </div>
+          </article>
+
+          <div class="more-things reveal">
+            <h3>Other things I've built</h3>
+            <ul class="more-list">
+              <li>
+                <span class="idx mono">+</span>
+                <p><strong><a href="https://tp.kasper-krog.dk" target="_blank" rel="noopener">TP car overview</a></strong> <span class="desc">&middot; a small live page showing where the light rail's service cars are right now. No personal data.</span></p>
+              </li>
+              <li>
+                <span class="idx mono">+</span>
+                <p><strong><a href="https://hygge.kasper-krog.dk" target="_blank" rel="noopener">Café Hygge</a></strong> <span class="desc">&middot; a pixel café that keeps you company while you read. Everything is drawn and sounded in code.</span></p>
+              </li>
+              <li>
+                <span class="idx mono">+</span>
+                <p><strong>Solis Lantern Chronicles</strong> <span class="desc">&middot; a chronicle site for a tabletop campaign with five players. Every session is written up as a chapter.</span></p>
+              </li>
+              <li>
+                <span class="idx mono">+</span>
+                <p><strong>Palefire</strong> <span class="desc">&middot; a desktop app for atmosphere, scenes and notes at the tabletop.</span></p>
+              </li>
+              <li>
+                <span class="idx mono">+</span>
+                <p><strong>XP Expression</strong> <span class="desc">&middot; a simple website for a street dance group.</span></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">About me</p>
+        <div class="about-grid">
+          <div class="about-copy">
+            <h2 id="about-heading" class="reveal">My path doesn't look linear on paper. The thread is the same all the way.</h2>
+            <p class="reveal">
+              Web integrator, philosophy, a master's in science studies, science
+              communication, and then the light rail. What ties it together is
+              people, systems and information, and how they work together.
+            </p>
+            <p class="reveal">
+              As a traffic controller I make the operational plans my colleagues
+              drive by, and as traction power controller I run the overhead power
+              and decide when the installation is safe to work on. It's
+              safety-critical work: overview, decisions and clear communication
+              while the service is running. I also train new colleagues in both
+              roles.
+            </p>
+            <blockquote class="pull reveal">
+              I notice where people are missing an overview,
+              and then I build what's missing.
+            </blockquote>
+            <p class="reveal">
+              When I started in the operations centre, shift handovers ran on
+              paper. Critical knowledge was copied out by hand, shift after shift.
+              I set up shared documents that the whole team of about 15 can edit
+              in real time. Today they are the team's shared memory, and
+              management has adopted them. The same pattern runs through
+              everything I do: training, volunteer platforms, the game club, the
+              festival. I want other people to succeed at what they're doing.
+            </p>
+            <p class="hand about-note reveal" lang="en">Curious by nature. Structured in practice. People first.</p>
+          </div>
+          <aside class="about-aside">
+            <figure class="portrait reveal">
+              <img src="../assets/img/portraet.jpg" alt="Kasper Krog smiling at the camera in a blazer and burgundy tie, on a street in Aarhus." width="900" height="1125" loading="lazy">
+              <figcaption class="mono">Kasper Krog &middot; Aarhus</figcaption>
+            </figure>
+            <h3 class="timeline-title mono" id="experience">Experience</h3>
+            <ol class="timeline reveal">
+              <li>
+                <span class="years mono">2022 &ndash; now</span>
+                <p><strong>Traffic controller and traction power controller</strong>
+                <span class="detail">Keolis &middot; Aarhus light rail. Operational decisions and safety-critical coordination in live service.</span></p>
+              </li>
+              <li>
+                <span class="years mono">2025 &ndash; now</span>
+                <p><strong>Volunteer in Aarhus' cultural life</strong>
+                <span class="detail">Backstage manager at turkis. Webmaster and deputy board member, Aarhus Folk Festival. Founder of Aarhus Gamestormers.</span></p>
+              </li>
+              <li>
+                <span class="years mono">2018 &ndash; 2021</span>
+                <p><strong>MSc in Science Studies</strong>
+                <span class="detail">Aarhus University. Science communication with a focus on climate in modern media. Internship at ScienceAtHome, 2019 to 2020.</span></p>
+              </li>
+              <li>
+                <span class="years mono">2016 &ndash; 2018</span>
+                <p><strong>BA in Philosophy</strong>
+                <span class="detail">University of Southern Denmark. Philosophy of science, ethics and critical thinking. Student job in the research support unit, 2017 to 2018.</span></p>
+              </li>
+              <li>
+                <span class="years mono">2008 &ndash; 2010</span>
+                <p><strong>Web integrator</strong>
+                <span class="detail">Viden Djurs. Web design and production, finished with the top grade.</span></p>
+              </li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="kind-projects" class="kind" aria-labelledby="kind-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">The Kind Project Rule</p>
+        <div class="kind-grid">
+          <div>
+            <h2 id="kind-heading" class="reveal">Some projects make the world a little better. <em>Those I'm happy to help, for free.</em></h2>
+            <p class="reveal">
+              When time allows, I help small cultural and volunteer-driven
+              projects without an invoice: a website, a digital tool, getting the
+              information under control, an onboarding flow for volunteers, or
+              simply thinking things through until the idea can stand on its own.
+            </p>
+            <p class="reveal">
+              It's not a business model. I just like it when good ideas become
+              real, and good things happen when people pull together.
+            </p>
+            <p class="kind-cta reveal">
+              <a href="mailto:kkandersen01@gmail.com?subject=Kind%20project">Have a project like that? Write and tell me what you're trying to build.</a>
+            </p>
+          </div>
+          <div>
+            <div class="kind-list reveal">
+              <span class="kind-list-title mono">Examples of kind projects</span>
+              <ul>
+              <li>Local associations and communities</li>
+              <li>Cultural initiatives and events</li>
+              <li>Volunteer-driven projects</li>
+              <li>Nonprofit and socially meaningful</li>
+              <li>Or simply a good idea that deserves a hand</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal" aria-labelledby="personal-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">More personal</p>
+        <div>
+          <h2 id="personal-heading" class="reveal">A little further in</h2>
+          <p class="reveal">
+            This site used to be a small harbor house with rooms, rain and a
+            lantern. The house still stands, as it was built: a journal, a shelf,
+            a gathering house, a back room, rituals and the keeper himself.
+            The lantern at the top of the page still works.
+          </p>
+          <ul class="rooms-row reveal">
+            <li><a href="../journal/">Journal</a></li>
+            <li><a href="../shelf/">Shelf</a></li>
+            <li><a href="../gatherings/">Gatherings</a></li>
+            <li><a href="../worlds/">Worlds</a></li>
+            <li><a href="../rituals/">Rituals</a></li>
+            <li><a href="../keeper/">Keeper</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <div class="wrap section-grid">
+        <p class="rail mono">Contact</p>
+        <div>
+          <h2 id="contact-heading" class="reveal">Write if you want to make something together.</h2>
+          <p class="lead reveal">
+            Projects, collaboration, cultural work, or a good idea that needs
+            hands. Danish or English. Tell me what you're trying to make.
+          </p>
+          <ul class="contact-rows reveal">
+            <li>
+              <span class="mono">Email</span>
+              <a href="mailto:kkandersen01@gmail.com">kkandersen01@gmail.com</a>
+            </li>
+            <li>
+              <span class="mono">GitHub</span>
+              <a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a>
+            </li>
+            <li>
+              <span class="mono">City</span>
+              <span>Aarhus, Denmark</span>
+            </li>
+          </ul>
+          <p class="hand contact-hand reveal">Let's make something good together.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap foot-inner mono">
+      <span>&copy; 2026 Kasper Krog &middot; Aarhus</span>
+      <span>CV available on request</span>
+      <span class="coords">56.1629&deg; N &middot; 10.2039&deg; E</span>
+    </div>
+  </footer>
+
+  <script src="../js/site.js"></script>
+</body>
+</html>
