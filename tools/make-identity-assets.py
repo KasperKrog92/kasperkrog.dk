@@ -115,8 +115,9 @@ def plate(size, pad_frac=0.18, radius_frac=0.0):
     canvas.alpha_composite(m, ((size - m.width)//2, (size - m.height)//2))
     return canvas
 
-plate(256, 0.16, 0.19).save('assets/favicon.ico',
+# Stram crop: monogrammet skal kunne læses i en 16 px fane.
+plate(256, 0.10, 0.16).save('assets/favicon.ico',
     sizes=[(16, 16), (32, 32), (48, 48)])
-plate(64, 0.14, 0.19).save('assets/favicon.png')
-plate(180, 0.17, 0.0).save('assets/apple-touch-icon.png')
+plate(64, 0.09, 0.16).save('assets/favicon.png')
+plate(180, 0.13, 0.0).save('assets/apple-touch-icon.png')
 print('done')

@@ -60,6 +60,9 @@ muted text still needs 4.5:1 contrast.
   small ivory plate.
 - `.section-grid` + `.rail`: every section is a two-column grid with a sticky
   mono label rail on the left (stacks on mobile).
+- `.kind-hint`: the quiet Kind Projects invitation under the hero CTAs, a
+  brass mono label over two muted lines and an anchor down to `#kind-projects`.
+  Deliberately not a third CTA; it shrinks further on mobile.
 - `.hero-grid` + `.hero-shots`: the hero copy beside the real portrait
   (`.portrait-shot`), one overlapping project screenshot (`.shot-secondary`)
   and a single handwritten `.hero-note`. `.shot` is the standard frame for
