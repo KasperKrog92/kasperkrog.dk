@@ -241,8 +241,8 @@ This list should change as Kasper changes. The shelf is current, not canonical.
 Since August 2026 the site's front door is a professional portfolio page
 (Danish at `/`, English at `/en/`): who Kasper is, what he can do, five real
 project cases, a timeline, the Kind Project Rule and contact. The old harbor
-page was retired; the rooms below survive unchanged as the personal layer,
-linked from "Mere personligt".
+page was retired; the rooms below survive unchanged at their existing URLs as
+a separate personal layer, no longer linked from the professional front.
 
 | File | Room | Present purpose | Material that may belong here |
 |---|---|---|---|

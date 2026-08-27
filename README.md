@@ -8,18 +8,19 @@ who Kasper is, what he can do, real projects with real screenshots, a short
 timeline, and the Kind Project Rule (small cultural and volunteer-driven
 projects get help for free when time allows).
 
-Behind it, the site's original identity lives on as a personal layer: a small
-harbor house with rooms, in English, linked from "Mere personligt".
+The site's original identity still lives at its existing URLs as a separate
+personal layer: a small harbor house with rooms in English. It is no longer
+linked from the professional front.
 
 ## Selected projects on the site
 
 | | | |
 |---|---|---|
-| 01 | [Turkis Crew](https://turkis.gamestormers.dk/) | volunteer platform for the Aarhus venue turkis |
+| 01 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
 | 02 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club, founded 2025 |
-| 03 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
-| 04 | [Amanda Barup](https://amanda.kasper-krog.dk/) | portfolio with a built-in studio for a real illustrator |
-| 05 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha magazine |
+| 03 | [Amanda Barup Pihlkjær](https://abp-tegning.dk/) | portfolio with a built-in studio for a real illustrator |
+| 04 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha magazine |
+| 05 | [Turkis Crew](https://turkis.gamestormers.dk/) | volunteer platform for the Aarhus venue turkis |
 
 ## How it's built
 
@@ -34,7 +35,7 @@ framework, no build step, no trackers, no cookies, no analytics.
 - `404.html` — for pages the rain washed away
 
 Both layers share the dawn/dusk theme: it follows the visitor's local time,
-and the lantern button overrides it for three hours. All images on the front
+and the theme control overrides it for three hours. All images on the front
 page are real screenshots or real photographs; nothing is generated.
 
 Start with [AGENTS.md](AGENTS.md), the project-wide index and hard

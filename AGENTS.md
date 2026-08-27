@@ -17,8 +17,9 @@ layers:
    personality as a strong layer on top. Professional but never corporate.
 2. **The old house** (`journal/`, `shelf/`, `gatherings/`, `worlds/`,
    `rituals/`, `keeper/`): the original quiet cultural archive, in English,
-   preserved as a secondary personal layer. The front page links to it under
-   "Mere personligt". Change the rooms only with the same care as before.
+   preserved at its existing URLs as a separate personal layer. It is not
+   linked from the professional front. Change the rooms only with the same
+   care as before.
 
 The two layers share the dawn/dusk theme contract and nothing else: the front
 uses `css/site.css` + `js/site.js`, the rooms keep `css/style.css` +

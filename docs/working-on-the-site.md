@@ -63,8 +63,8 @@ attention and may rotate.
 
 ## Adding or changing a front-page project case
 
-Front-page cases live in the `#projekter` / `#projects` sections and use the
-`.case` structure (label, title, meta, body, role, tags). Rules:
+Front-page cases live in `#arbejde` / `#work` and use the linked `.project`
+structure: full-width screenshot, title and one sentence. Rules:
 
 - Every case ships in both languages; edit `index.html` and `en/index.html`
   together.
@@ -105,7 +105,9 @@ For theme changes:
 
 - Keep both theme token blocks complete, in `css/site.css` (front) and
   `css/style.css` (rooms).
-- Keep the inline head scripts, `js/site.js` and `js/main.js` in sync.
+- Keep the shared time boundary, storage key and saved shape in every inline
+  head script, `js/site.js` and `js/main.js`. Front and room palettes stay
+  separate.
 - Check `theme-color` per layer.
 - Test an expired or malformed `kk-theme` value.
 
@@ -129,12 +131,14 @@ theme, CSS or JavaScript work, check all page types including the 404.
 
 Minimum pass:
 
-- Dusk and dawn through the lantern.
+- Dusk and dawn through the theme control.
 - Automatic theme logic around 07:00 and 19:00 when relevant.
 - Mobile width around `380px`; use `320px` for navigation or narrow layouts.
 - A desktop width around `1280px`.
-- Keyboard order: skip link, home nameplate, seven room books, lantern, main
-  page controls and links, then the passing ship.
+- Front-page keyboard order: skip link, brand, section links, language, theme
+  control, mobile menu when shown, then main links.
+- Room keyboard order: skip link, home nameplate, seven room books, lantern,
+  main links, then the passing ship.
 - Skip link visibly appears and moves focus to main.
 - Exactly one correct `aria-current`, except on the 404.
 - Logical heading order and useful landmarks.

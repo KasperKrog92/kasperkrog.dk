@@ -22,7 +22,7 @@ so their public URLs end with a slash.
 | `keeper/index.html` | `/keeper/` | *Værten* (old house) |
 | `404.html` | any missing path | Lost in the rain (old house shell) |
 | `css/site.css` | `/css/site.css` | Front-page design system, both themes |
-| `js/site.js` | `/js/site.js` | Front-page runtime: lantern, language memory, reveals, rain easter egg |
+| `js/site.js` | `/js/site.js` | Front-page runtime: theme, language memory, mobile menu, seam, rain easter egg |
 | `css/style.css` | `/css/style.css` | Old-house design system (rooms + 404 only) |
 | `js/main.js` | `/js/main.js` | Old-house runtime (rooms + 404 only) |
 
@@ -38,28 +38,24 @@ rather than word for word. Shared structure:
 2. Unique title/description per language, Open Graph metadata, canonical URL
    and a full `hreflang` pair (`da`, `en`, `x-default` → Danish).
 3. The inline pre-paint theme script (see theme contract).
-4. One Google Fonts request: Cormorant Garamond, Schibsted Grotesk, IBM Plex
-   Mono, Caveat.
+4. One Google Fonts request: Archivo 400/500 and Newsreader italic 300.
 5. Skip link → `<main id="main-content" tabindex="-1">`.
-6. Sticky header: the KK monogram beside the serif wordmark (`.brand`),
-   mono anchor navigation, DA/EN switch, lantern button. The monogram ships
-   as two PNGs (`assets/kk-mark.png` dawn, `assets/kk-mark-dusk.png` dusk);
-   CSS shows the one matching the theme.
-7. Sections in order: hero, det jeg kan / what I do, projekter / projects,
-   om mig / about (with timeline), kind projects (dark), mere personligt /
-   more personal (room links), kontakt / contact, footer.
+6. Non-sticky header: CSS-drawn KK ring, Archivo wordmark, four anchor links,
+   DA/EN switch, theme control and a full-screen mobile menu.
+7. Sections in order: hero, Build/Gather/Help strip, work, Kind Projects,
+   about (with timeline), contact, footer.
 8. `js/site.js` at the end of `<body>`.
 
 The old rooms keep their own shell (brass nameplate, seven book-spine room
 links, rain canvas). Their "Harbor" link now leads to the new front page. Do
-not add the front page's navigation to the rooms or vice versa.
+not add the front page's navigation to the rooms or vice versa. The
+professional front does not link back to the rooms.
 
 ## Navigation contracts
 
-Front pages: the header links are in-page anchors in this order: Om mig /
-About, Det jeg kan / What I do, Projekter / Projects, Erfaring / Experience,
-Jeg kan hjælpe / I can help, Kontakt / Contact. The brand (monogram +
-wordmark) links to the page's own root (`./`).
+Front pages: the header links are in-page anchors in this order: Arbejde /
+Work, Kind projects, Om mig / About, Skriv til mig / Write to me. The brand
+(ring + wordmark) links to the page's own root (`./`).
 
 Rooms: the original seven-link book-spine order (Harbor, Journal, Shelf,
 Gatherings, Worlds, Rituals, Keeper) is unchanged and still styled by
@@ -78,12 +74,13 @@ before first paint:
 - The override expires after three hours.
 - Invalid or expired data is removed.
 - The script updates both `data-theme` and the browser `theme-color`
-  (front: `#f2ecdf` dawn / `#12161c` dusk; rooms keep their own colors).
+  (front: `#f4f5f3` dawn / `#16181a` dusk; rooms keep their own colors).
 
 The logic is repeated after load and re-checked every minute and on tab
 visibility, by `js/site.js` on the front pages and `js/main.js` in the rooms.
-If the boundaries, key, stored shape or colors change, update every inline
-script and both runtime files together.
+If the boundaries, key or stored shape changes, update every inline script and
+both runtime files together. Front-page theme colors are repeated in its two
+inline scripts and `js/site.js`; room colors remain separate.
 
 ## Language contract
 
@@ -97,13 +94,14 @@ script and both runtime files together.
 
 One dependency-free IIFE:
 
-- The lantern toggles dawn and dusk, stores the three-hour override and keeps
-  `aria-pressed` in sync.
+- The theme control (historical id `lantern`) toggles dawn and dusk, stores the
+  three-hour override and keeps `aria-pressed` in sync.
 - Language links write `kk-lang` on click.
-- `IntersectionObserver` reveals `.reveal` elements once; without JavaScript
-  or with reduced motion everything is visible from the start (the observer
-  adds the `js-reveal` class before hiding anything).
-- Easter egg: three lantern presses within 1.6 seconds summon a light canvas
+- The mobile menu updates `aria-expanded`, closes on Escape or link selection,
+  and makes the page behind it inert where supported.
+- `IntersectionObserver` draws the Kind Projects seam once. The still seam is
+  present without the observer and under reduced motion.
+- Easter egg: three theme-control presses within 1.6 seconds summon a light canvas
   rain for about half a minute. It never runs under reduced motion.
 
 Core copy, links and navigation must remain useful if the script fails.
@@ -127,8 +125,7 @@ allowed external page request.
 - Preserve logical heading order; each front-page section is labelled by its
   own heading via `aria-labelledby`.
 - Keep visible keyboard focus and sensible source-order navigation.
-- Decorative canvas, grain and inline SVG details stay out of the
-  accessibility tree.
+- Decorative canvas, rings and seams stay out of the accessibility tree.
 - Images need useful alt text in the page's own language unless genuinely
   decorative.
 - Text, including muted text, must meet WCAG AA contrast in both themes.

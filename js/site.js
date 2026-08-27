@@ -1,6 +1,6 @@
-/* kasper-krog.dk: forsidens runtime. Ingen afhængigheder.
-   Temakontrakten (kk-theme, dawn/dusk, 3 timers tilsidesættelse) deles med
-   de gamle rum i js/main.js. Ændres den ét sted, skal den ændres begge steder. */
+/* kasper-krog.dk: front-page runtime, without dependencies.
+   The kk-theme key, time boundary and three-hour override are shared with
+   the old rooms in js/main.js. */
 (function () {
   'use strict';
 
@@ -8,7 +8,7 @@
   var THEME_KEY = 'kk-theme';
   var LANG_KEY = 'kk-lang';
   var OVERRIDE_HOURS = 3;
-  var THEME_COLORS = { dawn: '#f2ecdf', dusk: '#12161c' };
+  var THEME_COLORS = { dawn: '#f4f5f3', dusk: '#16181a' };
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function timeTheme() {
@@ -29,23 +29,22 @@
     return null;
   }
 
-  function applyTheme(theme) {
-    doc.dataset.theme = theme;
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) { meta.content = THEME_COLORS[theme]; }
-    var lantern = document.getElementById('lantern');
-    if (lantern) { lantern.setAttribute('aria-pressed', theme === 'dusk' ? 'true' : 'false'); }
-  }
-
   function currentTheme() {
     return doc.dataset.theme === 'dusk' ? 'dusk' : 'dawn';
   }
 
-  /* Lanternen: skifter tema og husker valget i tre timer. */
-  var lantern = document.getElementById('lantern');
-  var lanternPresses = [];
-  if (lantern) {
-    lantern.addEventListener('click', function () {
+  function applyTheme(theme) {
+    doc.dataset.theme = theme;
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) { meta.content = THEME_COLORS[theme]; }
+    var toggle = document.getElementById('lantern');
+    if (toggle) { toggle.setAttribute('aria-pressed', theme === 'dusk' ? 'true' : 'false'); }
+  }
+
+  var themeToggle = document.getElementById('lantern');
+  var themePresses = [];
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
       var next = currentTheme() === 'dusk' ? 'dawn' : 'dusk';
       applyTheme(next);
       try {
@@ -54,103 +53,144 @@
           expiresAt: Date.now() + OVERRIDE_HOURS * 60 * 60 * 1000
         }));
       } catch (e) {}
-      /* Tre hurtige tryk kalder regnen frem et øjeblik. */
+
       var now = Date.now();
-      lanternPresses.push(now);
-      lanternPresses = lanternPresses.filter(function (t) { return now - t < 1600; });
-      if (lanternPresses.length >= 3) {
-        lanternPresses = [];
+      themePresses.push(now);
+      themePresses = themePresses.filter(function (time) { return now - time < 1600; });
+      if (themePresses.length >= 3) {
+        themePresses = [];
         summonRain();
       }
     });
   }
 
-  /* Følg tiden, når der ikke er en gyldig tilsidesættelse. */
   function syncTheme() {
     if (savedTheme() === null) { applyTheme(timeTheme()); }
   }
+
   applyTheme(savedTheme() || timeTheme());
   setInterval(syncTheme, 60000);
   document.addEventListener('visibilitychange', function () {
     if (!document.hidden) { syncTheme(); }
   });
 
-  /* Sprogvalget huskes, så et senere besøg kan vises i det valgte sprog. */
-  var langLinks = document.querySelectorAll('[data-lang-choice]');
-  Array.prototype.forEach.call(langLinks, function (link) {
+  Array.prototype.forEach.call(document.querySelectorAll('[data-lang-choice]'), function (link) {
     link.addEventListener('click', function () {
       try { localStorage.setItem(LANG_KEY, link.getAttribute('data-lang-choice')); } catch (e) {}
     });
   });
 
-  /* Stille ankomster. Uden JavaScript, eller med reduceret bevægelse,
-     står alt fremme fra start. */
-  if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    doc.classList.add('js-reveal');
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-    Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el) {
-      observer.observe(el);
+  var menuToggle = document.querySelector('.menu-toggle');
+  var menu = document.getElementById('primary-nav');
+  var main = document.querySelector('main');
+  var footer = document.querySelector('footer');
+
+  function setMenu(open) {
+    if (!menuToggle || !menu) { return; }
+    document.body.classList.toggle('menu-open', open);
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuToggle.textContent = open ? (doc.lang === 'da' ? 'Luk' : 'Close') : 'Menu';
+    if ('inert' in HTMLElement.prototype) {
+      if (main) { main.inert = open; }
+      if (footer) { footer.inert = open; }
+    }
+  }
+
+  if (menuToggle && menu) {
+    menuToggle.addEventListener('click', function () {
+      setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+    });
+    Array.prototype.forEach.call(menu.querySelectorAll('a'), function (link) {
+      link.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 700) { setMenu(false); }
     });
   }
 
-  /* Regnen fra det gamle hus. Kun på opfordring, kun et halvt minut,
-     og aldrig ved reduceret bevægelse. */
+  var seam = document.querySelector('.kind-seam');
+  if (seam) {
+    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
+      seam.classList.add('is-drawn');
+    } else {
+      var seamObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            seam.classList.add('is-drawn');
+            seamObserver.disconnect();
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: .1 });
+      seamObserver.observe(seam);
+    }
+  }
+
   var rainCanvas = null;
-  var rainStop = null;
   function summonRain() {
     if (reducedMotion.matches || rainCanvas) { return; }
+
     rainCanvas = document.createElement('canvas');
     rainCanvas.className = 'rain-visit';
     rainCanvas.setAttribute('aria-hidden', 'true');
     document.body.appendChild(rainCanvas);
-    var ctx = rainCanvas.getContext('2d');
+
+    var context = rainCanvas.getContext('2d');
     var drops = [];
     var running = true;
-    function size() {
+
+    function sizeRain() {
       rainCanvas.width = window.innerWidth;
       rainCanvas.height = window.innerHeight;
     }
-    size();
-    window.addEventListener('resize', size);
-    for (var i = 0; i < 110; i++) {
+
+    sizeRain();
+    window.addEventListener('resize', sizeRain);
+
+    for (var i = 0; i < 110; i += 1) {
       drops.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        len: 8 + Math.random() * 14,
+        length: 8 + Math.random() * 14,
         speed: 240 + Math.random() * 260
       });
     }
+
     var last = performance.now();
-    function frame(now) {
+    function drawRain(now) {
       if (!running) { return; }
-      var dt = Math.min((now - last) / 1000, 0.05);
+      var delta = Math.min((now - last) / 1000, .05);
       last = now;
-      ctx.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
-      ctx.strokeStyle = currentTheme() === 'dusk' ? 'rgba(200, 210, 225, 0.28)' : 'rgba(70, 80, 95, 0.22)';
-      ctx.lineWidth = 1;
-      drops.forEach(function (d) {
-        d.y += d.speed * dt;
-        if (d.y > rainCanvas.height) { d.y = -d.len; d.x = Math.random() * rainCanvas.width; }
-        ctx.beginPath();
-        ctx.moveTo(d.x, d.y);
-        ctx.lineTo(d.x - 1.5, d.y + d.len);
-        ctx.stroke();
+      context.clearRect(0, 0, rainCanvas.width, rainCanvas.height);
+      context.strokeStyle = currentTheme() === 'dusk' ? 'rgba(210, 218, 224, .25)' : 'rgba(70, 80, 90, .2)';
+      context.lineWidth = 1;
+
+      drops.forEach(function (drop) {
+        drop.y += drop.speed * delta;
+        if (drop.y > rainCanvas.height) {
+          drop.y = -drop.length;
+          drop.x = Math.random() * rainCanvas.width;
+        }
+        context.beginPath();
+        context.moveTo(drop.x, drop.y);
+        context.lineTo(drop.x - 1.5, drop.y + drop.length);
+        context.stroke();
       });
-      requestAnimationFrame(frame);
+      requestAnimationFrame(drawRain);
     }
-    requestAnimationFrame(frame);
+
+    requestAnimationFrame(drawRain);
     rainCanvas.classList.add('is-raining');
-    rainStop = setTimeout(function () {
+    setTimeout(function () {
       rainCanvas.classList.remove('is-raining');
       setTimeout(function () {
         running = false;
+        window.removeEventListener('resize', sizeRain);
         if (rainCanvas && rainCanvas.parentNode) { rainCanvas.parentNode.removeChild(rainCanvas); }
         rainCanvas = null;
       }, 1400);

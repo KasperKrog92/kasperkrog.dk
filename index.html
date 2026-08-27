@@ -3,46 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kasper Krog · Digital skaber, trafikleder og kulturmenneske i Aarhus</title>
-  <meta name="description" content="Jeg bygger digitale løsninger, fællesskaber og bedre måder at arbejde sammen på. Projekter, erfaring og kind projects fra Aarhus.">
-  <meta property="og:title" content="Kasper Krog · Digital skaber, trafikleder og kulturmenneske i Aarhus">
-  <meta property="og:description" content="Jeg bygger digitale løsninger, fællesskaber og bedre måder at arbejde sammen på.">
+  <title>Kasper Krog · Trafikleder, digital skaber og kulturmenneske i Aarhus</title>
+  <meta name="description" content="Kasper Krog bygger websites, værktøjer og fællesskaber i Aarhus. Se arbejdet, læs om Kind Projects, eller skriv med en idé.">
+  <meta property="og:title" content="Kasper Krog · Jeg bygger ting, der burde findes">
+  <meta property="og:description" content="Websites, værktøjer og fællesskaber. Aarhus.">
   <meta property="og:url" content="https://kasper-krog.dk/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="da_DK">
   <meta property="og:image" content="https://kasper-krog.dk/assets/img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#16181a">
   <link rel="canonical" href="https://kasper-krog.dk/">
   <link rel="alternate" hreflang="da" href="https://kasper-krog.dk/">
   <link rel="alternate" hreflang="en" href="https://kasper-krog.dk/en/">
   <link rel="alternate" hreflang="x-default" href="https://kasper-krog.dk/">
-  <link rel="icon" href="assets/favicon.ico" sizes="48x48">
-  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="64x64">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#12161c">
   <script>
-    // Nyligt valg vinder; ellers følger temaet klokken. Før første maling.
-    var now = Date.now();
-    var hour = new Date(now).getHours();
-    var theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
-    try {
-      var saved = JSON.parse(localStorage.getItem('kk-theme'));
-      if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > now) {
-        theme = saved.theme;
-      } else {
-        localStorage.removeItem('kk-theme');
+    (function () {
+      var key = 'kk-theme';
+      var theme;
+      try {
+        var saved = JSON.parse(localStorage.getItem(key));
+        if (saved && (saved.theme === 'dawn' || saved.theme === 'dusk') && saved.expiresAt > Date.now()) {
+          theme = saved.theme;
+        } else {
+          localStorage.removeItem(key);
+        }
+      } catch (e) {
+        try { localStorage.removeItem(key); } catch (e2) {}
       }
-    } catch (e) {
-      try { localStorage.removeItem('kk-theme'); } catch (storageError) {}
-    }
-    document.documentElement.dataset.theme = theme;
-    document.querySelector('meta[name="theme-color"]').content = theme === 'dawn' ? '#f2ecdf' : '#12161c';
+      if (!theme) {
+        var hour = new Date().getHours();
+        theme = hour >= 7 && hour < 19 ? 'dawn' : 'dusk';
+      }
+      document.documentElement.dataset.theme = theme;
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) { meta.content = theme === 'dawn' ? '#f4f5f3' : '#16181a'; }
+    })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
   {
@@ -51,477 +55,118 @@
     "name": "Kasper Krog",
     "url": "https://kasper-krog.dk/",
     "jobTitle": "Trafikleder og koblingsleder",
-    "address": { "@type": "PostalAddress", "addressLocality": "Aarhus", "addressCountry": "DK" },
+    "homeLocation": { "@type": "Place", "name": "Aarhus, Denmark" },
     "sameAs": ["https://github.com/KasperKrog92"]
   }
   </script>
 </head>
 <body>
-
-  <a class="skip-link mono" href="#main-content">Spring til indhold</a>
-  <div class="grain" aria-hidden="true"></div>
-
+  <a class="skip-link" href="#main-content">Spring til indhold</a>
   <header class="site-head">
-    <div class="wrap site-head-inner">
-      <a class="brand" href="./">
-        <img class="brand-mark mark-dawn" src="assets/kk-mark.png" alt="" width="240" height="320">
-        <img class="brand-mark mark-dusk" src="assets/kk-mark-dusk.png" alt="" width="240" height="320">
-        <span class="wordmark">Kasper Krog</span>
-      </a>
-      <nav class="site-nav" aria-label="Sidens sektioner">
-        <a href="#om-mig">Om mig</a>
-        <a href="#det-jeg-kan">Det jeg kan</a>
-        <a href="#projekter">Projekter</a>
-        <a href="#erfaring">Erfaring</a>
-        <a href="#kind-projects">Jeg kan hjælpe</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <div class="head-tools">
-        <span class="lang-switch" aria-label="Sprog"><span aria-current="true" lang="da">DA</span> / <a href="en/" hreflang="en" lang="en" data-lang-choice="en">EN</a></span>
-        <button id="lantern" type="button" aria-pressed="false" aria-label="Skift mellem dag og nat">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M10 3h4"/>
-            <path d="M12 3v3"/>
-            <path d="M8.5 6h7l1 2.5v7L15 18H9l-1.5-2.5v-7Z"/>
-            <path d="M12 9.5c1.4 1.8 1.4 3.2 0 4.2c-1.4-1-1.4-2.4 0-4.2Z" fill="currentColor" stroke="none"/>
-            <path d="M9 21h6"/>
-          </svg>
-        </button>
-      </div>
+    <a class="brand" href="./" aria-label="Kasper Krog, forside">
+      <span class="brand-mark" aria-hidden="true">KK</span><span>Kasper Krog</span>
+    </a>
+    <nav class="site-nav" id="primary-nav" aria-label="Sidens sektioner">
+      <a href="#arbejde">Arbejde</a>
+      <a href="#kind-projects">Kind projects</a>
+      <a href="#om-mig">Om mig</a>
+      <a class="nav-contact" href="#kontakt">Skriv til mig</a>
+    </nav>
+    <div class="head-tools">
+      <span class="lang-switch"><span aria-current="true" lang="da">DA</span><span aria-hidden="true">/</span><a href="en/" hreflang="en" lang="en" data-lang-choice="en">EN</a></span>
+      <button class="theme-toggle" id="lantern" type="button" aria-pressed="false" aria-label="Skift mellem dag og nat"><span class="theme-dot" aria-hidden="true"></span><span class="theme-word">Tema</span></button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     </div>
   </header>
 
   <main id="main-content" tabindex="-1">
-
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <ul class="hero-meta mono">
-            <li>Digitale løsninger</li>
-            <li>Struktur &amp; koordinering</li>
-            <li>Kultur &amp; fællesskab</li>
-            <li>Aarhus, Danmark</li>
-            <li class="coords">56.1629&deg; N &middot; 10.2039&deg; &Oslash;</li>
-          </ul>
-          <h1 id="hero-heading" class="reveal">Jeg bygger digitale løsninger, fællesskaber og <em>bedre måder at arbejde sammen på</em>.</h1>
-          <p class="lead reveal">
-            Jeg er trafikleder, digital skaber og kulturmenneske i Aarhus.
-            Jeg arbejder i krydsfeltet mellem mennesker, struktur og teknologi
-            og bygger løsninger, der giver overblik og gør hverdagen lettere
-            for dem, der skal bruge dem.
-          </p>
-          <div class="cta-row reveal">
-            <a class="btn btn-primary" href="#projekter">Se projekter &rarr;</a>
-            <a class="btn btn-ghost" href="#kontakt">Kontakt mig</a>
-          </div>
-          <p class="kind-hint reveal">
-            <span class="kind-hint-label mono">The Kind Project Rule</span>
-            Små kulturprojekter, frivillige initiativer og kreative mennesker må
-            altid gerne skrive. Nogle gange hjælper jeg gratis, når tiden er til
-            det. <a href="#kind-projects">Mere om&nbsp;det&nbsp;&darr;</a>
-          </p>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-copy">
+        <h1 id="hero-heading">Jeg bygger ting, der burde <em>findes</em>.</h1>
+        <p class="hero-lead">Websites, værktøjer og fællesskaber. Aarhus.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#arbejde">Se arbejdet</a>
+          <a class="button button-secondary" href="#kind-projects">Kind projects</a>
         </div>
-        <div class="hero-shots reveal">
-          <figure class="shot portrait-shot">
-            <img src="assets/img/portraet.jpg" alt="Kasper Krog smiler til kameraet i blazer og bordeaux slips, på en gade i Aarhus." width="900" height="1125" fetchpriority="high">
-            <figcaption class="mono">Kasper Krog &middot; Aarhus</figcaption>
-          </figure>
-          <figure class="shot shot-secondary">
-            <img src="assets/img/cases/folk-festival.jpg" alt="Forsiden af aarhusfolkfestival.dk med overskriften Folkemusikken samler Aarhus over et billede af dansende mennesker." width="1600" height="1000">
-            <figcaption class="mono">aarhusfolkfestival.dk &middot; webmaster</figcaption>
-          </figure>
-          <span class="hand hero-note" aria-hidden="true">Hej, det er mig.</span>
-        </div>
+      </div>
+      <div class="portrait-wrap">
+        <span class="portrait-ring" aria-hidden="true"></span>
+        <img src="assets/img/portraet.jpg" alt="Portræt af Kasper Krog i Aarhus." width="800" height="1000">
       </div>
     </section>
 
-    <hr class="divider wrap" aria-hidden="true">
+    <section class="three-things" aria-label="Det jeg gør">
+      <a href="#arbejde"><h2>Bygger</h2><p>Websites, værktøjer og systemer.</p></a>
+      <a href="#om-mig"><h2>Samler</h2><p>Klubber, festivaler og frivillige.</p></a>
+      <a href="#kind-projects"><h2>Hjælper</h2><p>Gratis arbejde for mennesker, der har brug for det.</p></a>
+    </section>
 
-    <section id="det-jeg-kan" aria-labelledby="skills-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">Det jeg kan</p>
-        <div>
-          <h2 id="skills-heading" class="reveal">Fire ting, jeg bliver ved med at vende tilbage til.</h2>
-          <p class="section-sub reveal">
-            Titlerne har skiftet undervejs, men arbejdet ligner sig selv:
-            Jeg finder ud af, hvor overblikket mangler, og bygger det, der mangler.
-          </p>
-          <ul class="skills-list reveal">
-            <li>
-              <span class="idx mono">01</span>
-              <h3>Digitale løsninger</h3>
-              <p>Websites, interne værktøjer og systemer, bygget omkring et konkret
-              behov. Brugervenlighed og tilgængelighed før teknik.</p>
-              <span class="skill-eg mono">Fx Turkis Crew &middot; aarhusfolkfestival.dk</span>
-            </li>
-            <li>
-              <span class="idx mono">02</span>
-              <h3>Struktur &amp; koordinering</h3>
-              <p>Overblik i komplekse arbejdsgange: information, mennesker og
-              situationer, der skal hænge sammen. Også når planen ændrer sig undervejs.</p>
-              <span class="skill-eg mono">Fx operativ planlægning i live drift</span>
-            </li>
-            <li>
-              <span class="idx mono">03</span>
-              <h3>Kommunikation &amp; formidling</h3>
-              <p>Kompleks information gjort forståelig og anvendelig for dem,
-              der faktisk skal bruge den. På dansk og engelsk.</p>
-              <span class="skill-eg mono">Fx oplæring af nye kolleger &middot; Matchabladet</span>
-            </li>
-            <li>
-              <span class="idx mono">04</span>
-              <h3>Fællesskaber &amp; kultur</h3>
-              <p>Frivillige, events, onboarding og værtskab. Rum hvor mennesker
-              kan mødes og bidrage.</p>
-              <span class="skill-eg mono">Fx Aarhus Gamestormers &middot; turkis</span>
-            </li>
-          </ul>
-          <p class="tools-line mono reveal">Værktøj: HTML &middot; CSS &middot; JavaScript &middot; WordPress &amp; CMS &middot; GitHub &middot; Vercel &middot; Adobe &middot; Office &middot; AI-assisteret udvikling</p>
-        </div>
+    <section class="work" id="arbejde" aria-labelledby="work-heading">
+      <h2 class="visually-hidden" id="work-heading">Udvalgt arbejde</h2>
+      <a class="project" href="https://www.aarhusfolkfestival.dk/" target="_blank" rel="noopener">
+        <figure class="project-plate"><img src="assets/img/cases/folk-festival.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
+        <div class="project-title-row"><h3>Aarhus Folk Festival</h3></div>
+        <p>Fire dage med koncerter, dans og workshops. Jeg bygger og vedligeholder festivalens website.</p>
+      </a>
+      <a class="project" href="https://www.gamestormers.dk/" target="_blank" rel="noopener">
+        <figure class="project-plate"><img src="assets/img/cases/gamestormers.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
+        <div class="project-title-row"><h3>Aarhus Gamestormers</h3></div>
+        <p>En videospilklub, der fungerer som en bogklub. Jeg startede den; 29 kommer til møderne, og 129 er med på Discord.</p>
+      </a>
+      <a class="project" href="https://abp-tegning.dk/" target="_blank" rel="noopener">
+        <figure class="project-plate"><img src="assets/img/cases/amanda-barup.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
+        <div class="project-title-row"><h3>Amanda Barup Pihlkjær</h3></div>
+        <p>En portfolio for en illustrator med et studie, hun selv kan opdatere. Postkort bestilles direkte på mail.</p>
+      </a>
+      <a class="project" href="https://matchabladet.dk/" target="_blank" rel="noopener">
+        <figure class="project-plate"><img src="assets/img/cases/matchabladet.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
+        <div class="project-title-row"><h3>Matchabladet</h3></div>
+        <p>Et dansk matchamagasin. Jeg besøger caféerne, skriver anmeldelserne og har bygget sitet.</p>
+      </a>
+      <a class="project" href="https://turkis.gamestormers.dk/" target="_blank" rel="noopener">
+        <figure class="project-plate"><img src="assets/img/cases/turkis-crew.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
+        <div class="project-title-row"><h3>Turkis Crew</h3></div>
+        <p>En platform til vagter, events og information for de frivillige på spillestedet turkis i Aarhus. Jeg arbejder selv backstage der.</p>
+      </a>
+      <div class="also">
+        <span>Også</span>
+        <p><a href="https://hygge.kasper-krog.dk" target="_blank" rel="noopener">Café Hygge</a>, en pixelcafé til læsning, og <a href="https://tp.kasper-krog.dk" target="_blank" rel="noopener">TP-bil-oversigten</a>, en lille live-side uden persondata.</p>
       </div>
     </section>
 
-    <section id="projekter" aria-labelledby="projects-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">Udvalgte projekter</p>
-        <div>
-          <h2 id="projects-heading" class="reveal">Rigtige løsninger for rigtige mennesker.</h2>
-          <p class="section-sub reveal">
-            Ingen af de her projekter startede med teknik. De startede med nogen,
-            der manglede noget.
-          </p>
-
-          <article class="case case-lead reveal">
-            <div class="case-media">
-              <figure class="shot">
-                <img src="assets/img/cases/turkis-crew.jpg" alt="Turkis Crew: frivilligplatformens eventside med kommende koncerter og bemanding af vagter." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">Eventsiden, set som frivillig</figcaption>
-              </figure>
-            </div>
-            <div class="case-columns">
-              <div class="case-body">
-                <span class="case-label mono">01 / Frivilligplatform</span>
-                <h3>Turkis Crew</h3>
-                <span class="case-meta mono">Spillestedet turkis, Aarhus &middot; Next.js &middot; Supabase</span>
-                <p>
-                  turkis drives af frivillige, og frivillige skal kunne finde deres
-                  vagter, deres information og hinanden. Turkis Crew samler det hele:
-                  Man søger om at blive frivillig, ser events, tager vagter, chatter
-                  med teamet og holder sin profil ved lige. Admins håndterer
-                  ansøgninger, events og beskeder samme sted.
-                </p>
-                <p>
-                  Jeg står selv backstage på huset, så platformen er bygget til
-                  arbejdsgange, jeg kender indefra.
-                </p>
-              </div>
-              <div class="case-aside">
-                <span class="case-role mono">Min rolle: Design, udvikling og drift &middot; frivillig backstage manager</span>
-                <ul class="tag-row" aria-label="Emner">
-                  <li class="tag">Web-app</li>
-                  <li class="tag">Frivillige</li>
-                  <li class="tag">Kulturliv</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-
-          <div class="case-duo">
-            <article class="case-compact reveal">
-              <figure class="shot">
-                <img src="assets/img/cases/folk-festival.jpg" alt="Forsiden af aarhusfolkfestival.dk med festivalens program og dansende mennesker i en sal." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">aarhusfolkfestival.dk</figcaption>
-              </figure>
-              <span class="case-label mono">02 / Kultur &amp; frivillighed</span>
-              <h3>Aarhus Folk Festival</h3>
-              <span class="case-meta mono">Webmaster &middot; suppleant i bestyrelsen</span>
-              <p>
-                Fire dage med koncerter, dans og workshops, båret af frivillige.
-                Jeg er webmaster på festivalens tosprogede site med program,
-                kunstnere, workshops og praktisk info, og jeg hjælper til omkring
-                festivalens frivillige.
-              </p>
-              <ul class="tag-row" aria-label="Emner">
-                <li class="tag">Festival</li>
-                <li class="tag">Web</li>
-                <li class="tag">Frivillige</li>
-              </ul>
-            </article>
-
-            <article class="case-compact reveal">
-              <figure class="shot">
-                <img src="assets/img/cases/gamestormers.jpg" alt="Forsiden af gamestormers.dk: Spil, oplev, diskutér. Videospilklub i Aarhus." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">gamestormers.dk</figcaption>
-              </figure>
-              <span class="case-label mono">03 / Fællesskab</span>
-              <h3>Aarhus Gamestormers</h3>
-              <span class="case-meta mono">Grundlagt februar 2025 &middot; Folkehuset Møllestien</span>
-              <p>
-                En spilklub, der fungerer som en bogklub: Vi vælger et spil, spiller
-                det hjemme og mødes for at diskutere det som det kulturværk, det er.
-                Jeg grundlagde klubben og står for møder, kommunikation og
-                onboarding. I dag er vi 29 aktive omkring møderne og 129 i
-                Discord-fællesskabet.
-              </p>
-              <ul class="tag-row" aria-label="Emner">
-                <li class="tag">Fællesskab</li>
-                <li class="tag">Events</li>
-                <li class="tag">Spil som kultur</li>
-              </ul>
-            </article>
-          </div>
-
-          <article class="case reveal">
-            <div class="case-media">
-              <figure class="shot">
-                <img src="assets/img/cases/amanda-barup.jpg" alt="Amanda Barups portfolio: stor serif-overskrift med hendes navn og en introduktion til hendes tegninger." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">Portfolio med indbygget studie</figcaption>
-              </figure>
-            </div>
-            <div class="case-body">
-              <span class="case-label mono">04 / Portfolio for en kunstner</span>
-              <h3>Amanda Barup</h3>
-              <span class="case-meta mono">Illustrator og postkortkunstner &middot; Next.js &middot; Sanity CMS</span>
-              <p>
-                Amanda tegner mennesker, bevægelse og øjeblikke og sælger sine
-                tegninger som postkort. Hun manglede et sted, hvor værkerne kan bo,
-                uden webshop og uden bøvl. Vi landede på én lang side, hvor kunsten
-                får ro, og et indbygget studie, hvor Amanda selv ændrer værker,
-                tekster og priser. Ændringer er live inden for et minut.
-              </p>
-              <p>
-                Postkort bestilles med en uforpligtende mail i stedet for en kurv.
-                Kunsten først, i et hjem hun selv kan passe.
-              </p>
-              <span class="case-role mono">Min rolle: Design, udvikling og CMS-opsætning</span>
-              <ul class="tag-row" aria-label="Emner">
-                <li class="tag">Design</li>
-                <li class="tag">CMS</li>
-                <li class="tag">Portfolio</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="case reveal">
-            <div class="case-media">
-              <figure class="shot">
-                <img src="assets/img/cases/matchabladet.jpg" alt="Forsiden af matchabladet.dk med overskriften Matcha. Bedre når det er gennemtænkt. og et glas iskold matcha." width="1600" height="1000" loading="lazy">
-                <figcaption class="mono">matchabladet.dk</figcaption>
-              </figure>
-            </div>
-            <div class="case-body">
-              <span class="case-label mono">05 / Eget magasin</span>
-              <h3>Matchabladet</h3>
-              <span class="case-meta mono">matchabladet.dk &middot; Astro</span>
-              <p>
-                Et dansk matcha-magasin med ærlige caféanmeldelser, rolige guides
-                og ranglister. Jeg besøger caféerne, skriver anmeldelserne og har
-                bygget sitet: statisk, hurtigt og designet til at blive læst i ro.
-              </p>
-              <span class="case-role mono">Min rolle: Redaktør, skribent og udvikler</span>
-              <ul class="tag-row" aria-label="Emner">
-                <li class="tag">Magasin</li>
-                <li class="tag">Indhold</li>
-                <li class="tag">Design</li>
-              </ul>
-            </div>
-          </article>
-
-          <div class="more-things reveal">
-            <h3>Andre ting, jeg har bygget</h3>
-            <ul class="more-list">
-              <li>
-                <span class="idx mono">+</span>
-                <p><strong><a href="https://tp.kasper-krog.dk" target="_blank" rel="noopener">TP-bil-oversigt</a></strong> <span class="desc">&middot; en lille live-side, der viser hvor letbanens TP-biler er lige nu. Uden persondata.</span></p>
-              </li>
-              <li>
-                <span class="idx mono">+</span>
-                <p><strong><a href="https://hygge.kasper-krog.dk" target="_blank" rel="noopener">Café Hygge</a></strong> <span class="desc">&middot; en pixel-café, der holder dig med selskab, mens du læser. Alt er tegnet og lydsat i kode.</span></p>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <section class="kind" id="kind-projects" aria-labelledby="kind-heading">
+      <div class="kind-rule" aria-hidden="true"></div>
+      <div class="kind-seam" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <div class="kind-content">
+        <h2 id="kind-heading">Nogle ting er værd at bygge, også når ingen betaler.</h2>
+        <p>Driver du et lille kulturprojekt, en forening eller laver du kunst, og mangler du et ordentligt website? Skriv. Nogle gange gør jeg det gratis.</p>
+        <a class="button button-primary" href="mailto:kontakt@kasper-krog.dk?subject=Kind%20project">Skriv om dit projekt</a>
+        <small>Amandas portfolio ovenfor begyndte sådan.</small>
       </div>
     </section>
 
-    <section id="om-mig" aria-labelledby="about-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">Om mig</p>
-        <div class="about-grid">
-          <div class="about-copy">
-            <h2 id="about-heading" class="reveal">Min vej ser ikke lineær ud på papir. Tråden er den samme hele vejen.</h2>
-            <p class="reveal">
-              Webintegrator, filosofi, en kandidat i videnskabsstudier,
-              forskningsformidling og så letbanen. Det, der binder det sammen,
-              er mennesker, systemer og information, og hvordan de fungerer sammen.
-            </p>
-            <p class="reveal">
-              Som trafikleder lægger jeg de operative planer, som kollegerne kører
-              efter, og som koblingsleder styrer jeg kørestrømmen og afgør, hvornår
-              anlægget er sikkert at arbejde på. Det er sikkerhedskritisk arbejde:
-              overblik, beslutninger og klar kommunikation, mens driften kører.
-              Jeg oplærer også nye kolleger i begge roller.
-            </p>
-            <blockquote class="pull reveal">
-              Jeg lægger mærke til, hvor mennesker mangler overblik,
-              og bygger så det, der mangler.
-            </blockquote>
-            <p class="reveal">
-              Da jeg startede i driftscentralen, gik vagtoverleveringen på papir.
-              Kritisk viden blev skrevet af i hånden, vagt efter vagt. Jeg satte
-              fælles dokumenter op, som hele teamet på omkring 15 kan redigere i
-              realtid. I dag er de teamets fælles hukommelse, og ledelsen har taget
-              dem til sig. Den slags går igen i alt, hvad jeg laver: oplæring,
-              frivilligplatforme, spilklubben, festivalen. Jeg vil gerne have,
-              at andre mennesker kan lykkes med det, de er i gang med.
-            </p>
-            <p class="hand about-note reveal" lang="da">Nysgerrig af natur. Struktureret i praksis. Menneske først.</p>
-          </div>
-          <aside class="about-aside">
-            <h3 class="timeline-title mono" id="erfaring">Erfaring</h3>
-            <ol class="timeline reveal">
-              <li>
-                <span class="years mono">2022 &ndash; nu</span>
-                <p><strong>Trafikleder og koblingsleder</strong>
-                <span class="detail">Keolis &middot; Aarhus Letbane. Sikkerhedskritisk koordinering i live drift.</span></p>
-              </li>
-              <li>
-                <span class="years mono">2025 &ndash; nu</span>
-                <p><strong>Frivillig i Aarhus' kulturliv</strong>
-                <span class="detail">Backstage manager på turkis. Webmaster og suppleant i bestyrelsen, Aarhus Folk Festival. Grundlægger af Aarhus Gamestormers.</span></p>
-              </li>
-              <li>
-                <span class="years mono">2018 &ndash; 2021</span>
-                <p><strong>Kandidat i videnskabsstudier</strong>
-                <span class="detail">Aarhus Universitet. Praktik hos ScienceAtHome, 2019 til 2020.</span></p>
-              </li>
-              <li>
-                <span class="years mono">2016 &ndash; 2018</span>
-                <p><strong>Bachelor i filosofi</strong>
-                <span class="detail">Syddansk Universitet. Studiejob i Forskningsstøtteenheden, 2017 til 2018.</span></p>
-              </li>
-              <li>
-                <span class="years mono">2008 &ndash; 2010</span>
-                <p><strong>Webintegrator</strong>
-                <span class="detail">Viden Djurs. Webdesign og webproduktion, afsluttet med 12.</span></p>
-              </li>
-            </ol>
-          </aside>
-        </div>
+    <section class="about" id="om-mig" aria-labelledby="about-heading">
+      <div>
+        <h2 id="about-heading">Jeg er trafikleder og bygger videre, når jeg har fri.</h2>
+        <p>På arbejde lægger jeg de operative planer for Aarhus Letbane og afgør, hvornår dele af kørestrømmen er sikre at arbejde på. Ved siden af bygger jeg websites, driver en spilklub og er frivillig på et spillested og en folkefestival.</p>
       </div>
+      <ol class="timeline" aria-label="Erfaring og uddannelse">
+        <li><span>2022</span><p>Trafikleder og koblingsleder, Aarhus Letbane</p></li>
+        <li><span>2025</span><p>Frivillig: turkis, folkefestival og spilklub</p></li>
+        <li><span>2018–21</span><p>Kandidat i Videnskabsstudier</p></li>
+        <li><span>2016–18</span><p>Bachelor i Filosofi</p></li>
+        <li><span>2008–10</span><p>Webintegrator</p></li>
+      </ol>
     </section>
 
-    <section id="kind-projects" class="kind" aria-labelledby="kind-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">The Kind Project Rule</p>
-        <div class="kind-grid">
-          <div>
-            <h2 id="kind-heading" class="reveal">Nogle projekter gør verden lidt bedre. <em>Dem hjælper jeg gerne med, gratis.</em></h2>
-            <p class="reveal">
-              Når tiden tillader det, hjælper jeg små kulturelle og frivilligdrevne
-              projekter uden regning: en hjemmeside, et digitalt værktøj, styr på
-              informationen, et onboarding-flow til frivillige, eller bare sparring,
-              til idéen kan stå selv.
-            </p>
-            <p class="reveal">
-              Det gælder også enkeltpersoner. Er du illustrator, musiker, fotograf
-              eller noget helt fjerde kreativt, og mangler dit arbejde et ordentligt
-              hjem online, så skriv. Amandas portfolio ovenfor startede præcis
-              sådan.
-            </p>
-            <p class="reveal">
-              Det er ikke en forretningsmodel. Jeg kan bare godt lide, når gode
-              idéer bliver til noget, og gode ting sker, når vi løfter i flok.
-            </p>
-            <p class="kind-cta reveal">
-              <a class="btn btn-kind" href="mailto:kontakt@kasper-krog.dk?subject=Kind%20project">Skriv om dit projekt &rarr;</a>
-              <span class="kind-cta-note">Fortæl, hvad du prøver at bygge. Så finder vi ud af resten sammen.</span>
-            </p>
-          </div>
-          <div>
-            <div class="kind-list reveal">
-              <span class="kind-list-title mono">Eksempler på kind projects</span>
-              <ul>
-              <li>Lokale foreninger, klubber og fællesskaber</li>
-              <li>Kulturelle initiativer, festivaler og events</li>
-              <li>Frivilligdrevne og nonprofit-projekter</li>
-              <li>Kunstnere, illustratorer, musikere og andre kreative</li>
-              <li>Eller bare en god idé, der fortjener en hånd</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="contact" id="kontakt" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Skriv til mig.</h2>
+      <a class="email" href="mailto:kontakt@kasper-krog.dk">kontakt@kasper-krog.dk</a>
+      <p>Dansk eller engelsk. En løs idé er helt fin.</p>
     </section>
-
-    <section class="personal" aria-labelledby="personal-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">Mere personligt</p>
-        <div>
-          <h2 id="personal-heading" class="reveal">Lidt længere ind</h2>
-          <p class="reveal">
-            Den her side var engang et lille havnehus med rum, regn og en lanterne.
-            Huset står der endnu, på engelsk, som det blev bygget: en journal, en
-            hylde, et forsamlingshus, et baglokale, ritualer og værten selv.
-            Lanternen øverst på siden virker stadig.
-          </p>
-          <ul class="rooms-row reveal">
-            <li><a href="journal/">Journal<span class="room-name">notesbogen</span></a></li>
-            <li><a href="shelf/">Shelf<span class="room-name">hylden</span></a></li>
-            <li><a href="gatherings/">Gatherings<span class="room-name">forsamlingshuset</span></a></li>
-            <li><a href="worlds/">Worlds<span class="room-name">baglokalet</span></a></li>
-            <li><a href="rituals/">Rituals<span class="room-name">ritualer</span></a></li>
-            <li><a href="keeper/">Keeper<span class="room-name">værten</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt" class="contact" aria-labelledby="contact-heading">
-      <div class="wrap section-grid">
-        <p class="rail mono">Kontakt</p>
-        <div>
-          <h2 id="contact-heading" class="reveal">Har du noget, du prøver at få ud i verden? <em>Skriv.</em></h2>
-          <p class="lead reveal">
-            Projekter, samarbejde, kulturarbejde eller en god idé, der mangler
-            hænder. Dansk eller engelsk.
-          </p>
-          <ul class="contact-rows reveal">
-            <li>
-              <span class="mono">E-mail</span>
-              <a href="mailto:kontakt@kasper-krog.dk">kontakt@kasper-krog.dk</a>
-            </li>
-            <li>
-              <span class="mono">GitHub</span>
-              <a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a>
-            </li>
-            <li>
-              <span class="mono">By</span>
-              <span>Aarhus, Danmark</span>
-            </li>
-          </ul>
-          <p class="hand contact-hand reveal">Også hvis det kun er en løs idé endnu.</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <footer class="site-foot">
-    <div class="wrap foot-inner">
-      <div class="foot-brand">
-        <img class="mark-dawn" src="assets/kk-mark.png" alt="" width="240" height="320">
-        <img class="mark-dusk" src="assets/kk-mark-dusk.png" alt="" width="240" height="320">
-        <span class="foot-line">Bygget i Aarhus, som regel mens det regner.</span>
-      </div>
-      <div class="foot-meta mono">
-        <span>&copy; 2026 Kasper Krog &middot; Aarhus</span>
-        <span>CV kan sendes på forespørgsel</span>
-        <span class="coords">56.1629&deg; N &middot; 10.2039&deg; &Oslash;</span>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-foot"><span>Kasper Krog, Aarhus</span><a href="https://github.com/KasperKrog92" target="_blank" rel="noopener">github.com/KasperKrog92</a><span>2026</span></footer>
   <script src="js/site.js"></script>
 </body>
 </html>

@@ -10,10 +10,11 @@ design layers with separate stylesheets:
 
 ## Front page: visual direction
 
-Nordic culture magazine × professional portfolio × well-made tool. Editorial
-grid, generous air, thin dividers, mono labels like `01 / PROJEKT`, real
-screenshots in thin frames, a single handwritten margin note per section at
-most. Never SaaS, never agency, never a wall of identical cards.
+Mineral grey architecture, plain language and real work. The page uses large
+sans-serif headlines, generous air, thin rules and full-width project
+screenshots. Brass is punctuation: the KK ring, a short portrait arc, focus
+rings and one seam in Kind Projects. Corners stay square except for the round
+identity mark.
 
 Clarity first. If a decorative idea makes the page harder to understand, the
 idea loses.
@@ -25,68 +26,46 @@ Theme tokens live under `[data-theme="dawn"]` and `[data-theme="dusk"]` in
 
 | Token | Dawn (day) | Dusk (night) |
 |---|---|---|
-| `--bg` | `#f2ecdf` warm ivory | `#12161c` charcoal blue-black |
-| `--bg-raised` | `#f8f4ea` | `#181e26` |
-| `--bg-deep` | `#e9e1cd` | `#0d1117` |
-| `--ink` / `--ink-strong` | charcoal / near-black | warm grey / parchment |
-| `--muted` | `#676153` | `#99917e` |
-| `--brass` (decorative) | `#a07a30` | `#c09055` |
-| `--accent-ink` (links, accent text) | `#74551c` | `#d8a45a` |
-| `--line` / `--line-soft` | warm paper lines | dark steel lines |
-| `--kind-*` | the dark Kind Projects panel keeps its own night palette in both themes |
+| `--mineral` | `#f4f5f3` cool grey-white | `#16181a` near-black |
+| `--plaster` | `#ffffff` | `#1c1f21` |
+| `--ink` | `#16181a` | `#f1f2ef` |
+| `--ink-2` | `#4a4e49` | `#c6cac4` |
+| `--muted` / `--faint` | cool greys with AA contrast | pale cool greys with AA contrast |
+| `--brass` (lines only) | `#a88b4e` | `#c9a960` |
+| `--brass-text` | `#7c652f` | `#e0c47f` |
+| `--line` / `--line-2` | mineral hairlines | charcoal hairlines |
 
-Pure `#fff` and `#000` are avoided everywhere. After changing a color, check
-body text, muted text, links, focus rings and the kind section in both themes;
-muted text still needs 4.5:1 contrast.
+The dawn `--plaster` panel may use white; pure black is avoided. After changing
+a color, check body text, muted and faint text, links, focus rings and the Kind
+Projects section in both themes. Small secondary text still needs 4.5:1
+contrast.
 
 ## Front page: typography
 
-- **Cormorant Garamond** (serif): wordmark, h1–h3, pull quotes. Italic `em`
-  inside headings for emphasis.
-- **Schibsted Grotesk** (sans): body copy and UI text.
-- **IBM Plex Mono**: labels, tags, metadata, coordinates, buttons and the
-  navigation. Always with `.mono` (uppercase, letterspaced).
-- **Caveat** via `.hand`: handwritten margin notes. At most one or two per
-  page.
+- **Archivo** at weights 400 and 500 owns headlines, body and interface text.
+- **Newsreader** italic 300 is used once per page, for *findes* / *exist* in
+  the hero. Do not spread it to other headings.
+- The front page has no monospace, handwriting, tracked uppercase labels or
+  catalogue numbering. Those belong only to the old house.
 
 ## Front page: components
 
-- `.brand` + `.brand-mark`: the header identity, KK monogram beside the serif
-  wordmark. The monogram is derived from `icon.png` (root) into
-  `assets/kk-mark.png` (dawn) and `assets/kk-mark-dusk.png` (dusk); the
-  generic `.mark-dawn`/`.mark-dusk` classes swap them with the theme (also
-  used in the footer). Favicons (`assets/favicon.ico`, `assets/favicon.png`,
-  `assets/apple-touch-icon.png`, root `favicon.ico`) are the monogram on a
-  small ivory plate.
-- `.section-grid` + `.rail`: every section is a two-column grid with a sticky
-  mono label rail on the left (stacks on mobile).
-- `.kind-hint`: the quiet Kind Projects invitation under the hero CTAs, a
-  brass mono label over two muted lines and an anchor down to `#kind-projects`.
-  Deliberately not a third CTA; it shrinks further on mobile.
-- `.hero-grid` + `.hero-shots`: the hero copy beside the real portrait
-  (`.portrait-shot`), one overlapping project screenshot (`.shot-secondary`)
-  and a single handwritten `.hero-note`. `.shot` is the standard frame for
-  any real screenshot or photograph: raised background, thin border, mono
-  caption.
-- `.skills-list`: the four competence areas in a two-column grid, each cell
-  opened by a short brass tick over the hairline, with an `.skill-eg` mono
-  example line.
-- `.case`: one project case; image and text columns alternate via
-  `:nth-of-type(even)`. Contains `.case-label`, `.case-meta`, `.case-role`,
-  `.tag-row`.
-- `.case-lead`: the full-width lead case (Turkis Crew): big image on top,
-  then `.case-columns` with the body beside a bordered `.case-aside` for role
-  and tags.
-- `.case-duo` + `.case-compact`: two related cases side by side in a tighter
-  format (image, label, title, one paragraph, tags).
-- `.more-list`: the small "andre ting" index.
-- `.about-grid` + `.timeline`: narrative beside a sticky aside with the
-  stacked experience timeline (the portrait lives in the hero).
-- `.kind`: the dark Kind Projects band with `.kind-list` checklist and the
-  brass `.btn-kind` CTA.
-- `.rooms-row`: the mono links into the old house.
-- `.contact-rows`: label/value contact rows.
-- `.reveal`: quiet scroll arrival; requires JavaScript, harmless without.
+- `.brand` + `.brand-mark`: Archivo initials in a one-pixel brass circle.
+  `favicon.svg` carries the same closed-ring mark.
+- `.site-nav` + `.menu-toggle`: four in-page links on desktop and a full-screen
+  plain-text menu below 700px. DA/EN and the theme control stay outside it.
+- `.hero`: the large statement and CTAs beside the real greyscale portrait.
+  `.portrait-ring` draws the pale circle and slowly moving brass arc.
+- `.three-things`: linked Build / Gather / Help columns, stacked as ruled
+  bands on narrower screens.
+- `.project`: one full-width linked screenshot, project name and one sentence.
+  Project images are decorative because the text names the work.
+- `.also`: the hairline-topped row for small projects without full cases.
+- `.kind`: the raised Kind Projects panel. `.kind-seam` is its one kintsugi
+  line and draws once when the section enters the viewport.
+- `.about` + `.timeline`: concise work narrative beside dated experience and
+  education rows.
+- `.contact` + `.site-foot`: the permanent near-black closing field.
 
 Reuse an existing component when its meaning fits.
 
@@ -103,17 +82,17 @@ card `og.jpg` is a real screenshot of the page itself, 1200 by 630.
 
 ## Front page: motion
 
-Motion is environmental and optional: reveals, small hover lifts, the lantern
-transition, and the summoned rain (easter egg, three quick lantern presses).
-Every new transition needs a useful still state and must stop inside
-`@media (prefers-reduced-motion: reduce)`.
+Motion is limited to the hero arrival, the 260-second portrait arc, one
+five-second Kind Projects seam and a two-percent project-image scale on hover.
+Three quick theme-control presses still summon the rain easter egg. Every move
+has a useful still state and stops inside `prefers-reduced-motion: reduce`.
 
 ## Responsive behavior
 
-Breakpoints at `1000px` (rails and grids stack, case columns collapse) and
-`680px` (navigation wraps, secondary hero shot hides, timeline and contact
-rows stack). Test down to about `320px`. Do not clip focus outlines; no
-hover-only disclosure.
+At `1080px`, the hero, three-part strip and About grid stack. At `820px`, the
+header uses a second row. At `700px`, page padding drops to 20px, the full-screen
+menu appears, project plates shorten and the footer stacks. Test to 320px. Do
+not clip focus outlines; no hover-only disclosure.
 
 ## The old house (rooms + 404)
 
