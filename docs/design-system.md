@@ -43,8 +43,8 @@ contrast.
 ## Front page: typography
 
 - **Archivo** at weights 400 and 500 owns headlines, body and interface text.
-- **Newsreader** italic 300 is used once per page, for *findes* / *exist* in
-  the hero. Do not spread it to other headings.
+- **Newsreader** italic 300 is used once per page, for *Kasper* in the hero
+  greeting. Do not spread it to other headings.
 - The front page has no monospace, handwriting, tracked uppercase labels or
   catalogue numbering. Those belong only to the old house.
 
@@ -54,7 +54,7 @@ contrast.
   `favicon.svg` carries the same closed-ring mark.
 - `.site-nav` + `.menu-toggle`: four in-page links on desktop and a full-screen
   plain-text menu below 700px. DA/EN and the theme control stay outside it.
-- `.hero`: the large statement and CTAs beside the real greyscale portrait.
+- `.hero`: the large greeting and CTAs beside the real greyscale portrait.
   `.portrait-ring` draws the pale circle and slowly moving brass arc.
 - `.three-things`: linked Build / Gather / Help columns, stacked as ruled
   bands on narrower screens.
