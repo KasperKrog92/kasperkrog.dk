@@ -19,7 +19,6 @@ projects, real photographs, or an honest designed placeholder.
 | `cases/turkis-crew.jpg` | project 05 | Real screenshot of the Turkis Crew events page, logged in as the disposable test volunteer. Contains no personal data; never publish shots of /home or /crew (they show real volunteers) |
 | `cases/gamestormers.jpg` | project 02 | Real screenshot of gamestormers.dk |
 | `cases/amanda-barup.jpg` | project 03 | Real screenshot of Amanda Barup Pihlkjær's live portfolio at abp-tegning.dk (captured 2026-08-27) |
-| `cases/tp.jpg` | unused spare | Real screenshot of tp.kasper-krog.dk (public page, no personal data) |
 | `portraet.jpg` | hero, both languages | Real photograph of Kasper (Aarhus, 2026), cropped 4:5 and rendered greyscale by CSS |
 | `og.jpg` | `og:image`, both languages | Real screenshot of the mineral front page in dawn, exactly 1200×630 (recaptured 2026-08-27) |
 
