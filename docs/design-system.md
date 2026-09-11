@@ -12,7 +12,7 @@ design layers with separate stylesheets:
 
 Mineral grey architecture, plain language and real work. The page uses large
 sans-serif headlines, generous air, thin rules and full-width project
-screenshots. Brass is punctuation: the KK ring, a short portrait arc, focus
+screenshots. Brass is punctuation: the gold KK monogram, a short portrait arc, focus
 rings and one seam in Kind Projects. Corners stay square except for the round
 identity mark.
 
@@ -50,8 +50,9 @@ contrast.
 
 ## Front page: components
 
-- `.brand` + `.brand-mark`: Archivo initials in a one-pixel brass circle.
-  `favicon.svg` carries the same closed-ring mark.
+- `.brand` + `.brand-mark`: the approved gold KK monogram with arc and star,
+  rendered from `assets/kk-logo.png` at 44px beside the Archivo wordmark.
+  The same text-free monogram supplies the PNG, ICO and Apple touch icons.
 - `.site-nav` + `.menu-toggle`: four in-page links on desktop and a full-screen
   plain-text menu below 700px. DA/EN and the theme control stay outside it.
 - `.hero`: the large greeting and CTAs beside the real greyscale portrait.
@@ -73,6 +74,8 @@ Reuse an existing component when its meaning fits.
 
 Read [assets/img/README.md](../assets/img/README.md) before adding or
 replacing an image.
+
+The user-approved gold identity mark is the sole exception to the rule below.
 
 Hard rule: **no AI-generated images on the front pages.** Only real
 screenshots of real projects (`assets/img/cases/`), real photographs

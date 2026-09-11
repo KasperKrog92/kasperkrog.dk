@@ -9,7 +9,8 @@ ffmpeg -i name.png -q:v 4 name.jpg
 
 ## The professional front (`/` and `/en/`)
 
-Hard rule: **no AI-generated images here.** Only real screenshots of real
+Apart from the approved identity mark documented below, **no AI-generated
+images here.** Only real screenshots of real
 projects, real photographs, or an honest designed placeholder.
 
 | File | Wired into | What it is |
@@ -28,18 +29,23 @@ meaningfully, recapture rather than letting the case image drift out of date.
 
 ## Identity assets (outside this folder)
 
-The old-house KK monogram's source sheet is `icon.png` in the repository root.
-The rooms still use its derived assets. The professional front draws a simple
-closed KK ring in CSS and uses `favicon.svg` as its primary favicon.
+The gold KK monogram with its arc and star was supplied and explicitly approved
+by Kasper on 2026-09-11 for the logo and favicon. This identity mark is the sole
+exception to the front page's no-generated-imagery rule. The original was cropped
+to omit the name below, with stray red/yellow edge pixels removed and its real
+alpha transparency preserved. Both front pages use it beside the HTML wordmark;
+all pages share its favicon. The old rooms retain their brass nameplate.
 
 | File | What it is |
 |---|---|
-| `favicon.svg` | Professional front's closed-ring KK mark on mineral |
-| `assets/kk-mark.png` | transparent monogram, dawn colors (ink + brass) |
-| `assets/kk-mark-dusk.png` | transparent monogram, dusk colors (parchment + brass) |
-| `assets/favicon.ico` (+ root copy `favicon.ico`) | monogram on an ivory plate, 16/32/48 |
-| `assets/favicon.png` | 64×64 plate (also referenced by the rooms) |
-| `assets/apple-touch-icon.png` | 180×180 plate, square (iOS rounds it) |
+| `assets/kk-logo.png` | Approved 490×490 transparent gold monogram, without the name; source for web icons |
+| `assets/favicon.png` | 64×64 transparent monogram, all pages |
+| `assets/favicon.ico` (+ root copy `favicon.ico`) | Transparent monogram at 16/32/48 pixels |
+| `assets/apple-touch-icon.png` | 180×180 monogram on an opaque mineral background |
+| `icon.png`, `assets/kk-mark.png`, `assets/kk-mark-dusk.png` | Retained legacy identity assets; not used by current page markup |
+
+Regenerate icon sizes on Windows with `tools/make-identity-assets.ps1`
+(PowerShell and FFmpeg).
 
 ## The old house (rooms + 404)
 

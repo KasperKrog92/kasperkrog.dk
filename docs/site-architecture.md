@@ -40,7 +40,7 @@ rather than word for word. Shared structure:
 3. The inline pre-paint theme script (see theme contract).
 4. One Google Fonts request: Archivo 400/500 and Newsreader italic 300.
 5. Skip link → `<main id="main-content" tabindex="-1">`.
-6. Non-sticky header: CSS-drawn KK ring, Archivo wordmark, four anchor links,
+6. Non-sticky header: gold KK monogram, Archivo wordmark, four anchor links,
    DA/EN switch, theme control and a full-screen mobile menu.
 7. Sections in order: hero, Build/Gather/Help strip, work, Kind Projects,
    about (with timeline), contact, footer.
@@ -55,7 +55,7 @@ professional front does not link back to the rooms.
 
 Front pages: the header links are in-page anchors in this order: Arbejde /
 Work, Kind projects, Om mig / About, Skriv til mig / Write to me. The brand
-(ring + wordmark) links to the page's own root (`./`).
+(monogram + wordmark) links to the page's own root (`./`).
 
 Rooms: the original seven-link book-spine order (Harbor, Journal, Shelf,
 Gatherings, Worlds, Rituals, Keeper) is unchanged and still styled by

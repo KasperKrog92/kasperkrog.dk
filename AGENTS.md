@@ -33,7 +33,8 @@ uses `css/site.css` + `js/site.js`, the rooms keep `css/style.css` +
   stylesheet is the only tolerated external request.
 - **No AI-generated images on the professional front.** Only real screenshots
   of real projects, real photographs, or honest designed placeholders. The old
-  rooms keep their existing plates as the house's art.
+  rooms keep their existing plates as the house's art. The user-approved gold
+  KK identity mark is the sole exception (see `assets/img/README.md`).
 - Danish is the primary language of the front page; `en/index.html` is the
   full English mirror. A content change on one front page is a change on both.
   Keep `lang`, canonical and hreflang metadata correct.
