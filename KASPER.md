@@ -36,6 +36,11 @@ ask. A fact can guide a conversation without being stored in the repository.
 - If a subject keeps returning without fitting anywhere, consider whether the
   house needs another room.
 
+## Public contact
+
+Since September 11, 2026, the public contact email for the site is
+`kasper@kasper-krog.dk`.
+
 ## At a glance
 
 Kasper Krog lives in Aarhus, Denmark and works within public transportation.
