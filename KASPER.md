@@ -108,6 +108,11 @@ is one of the contrasts he wants to explore.
 Turkis Crew, software for volunteers in cultural spaces, carries this concern
 most directly.
 
+Update (October 2, 2026, confirmed by Kasper): turkis Crew is actively used by
+turkis at https://crew.turkis.nu and has a refreshed design. Kasper built and
+runs the platform for shift coordination and access to volunteer information.
+No usage counts or measured outcomes have been supplied.
+
 ### Atmosphere
 
 Atmosphere is a serious subject here: the emotional texture of places,

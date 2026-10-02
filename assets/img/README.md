@@ -17,7 +17,7 @@ projects, real photographs, or an honest designed placeholder.
 |---|---|---|
 | `cases/folk-festival.jpg` | project 01 | Real screenshot of aarhusfolkfestival.dk (captured 2026-08) |
 | `cases/matchabladet.jpg` | project 04 | Real screenshot of matchabladet.dk |
-| `cases/turkis-crew.jpg` | project 05 | Real screenshot of the Turkis Crew events page, logged in as the disposable test volunteer. Contains no personal data; never publish shots of /home or /crew (they show real volunteers) |
+| `cases/turkis-crew.jpg` | project 05 | Real screenshot of the redesigned events page at crew.turkis.nu/events, in Danish, captured 2026-10-02 using the read-only test volunteer. Shows events and aggregate shift staffing, with no private volunteer information. Never publish shots of /home or /crew (they show real volunteers) |
 | `cases/gamestormers.jpg` | project 02 | Real screenshot of gamestormers.dk |
 | `cases/amanda-barup.jpg` | project 03 | Real screenshot of Amanda Barup Pihlkjær's live portfolio at abp-tegning.dk (captured 2026-08-27) |
 | `portraet.jpg` | hero, both languages | Real photograph of Kasper (Aarhus, 2026), cropped 4:5 and rendered greyscale by CSS |
