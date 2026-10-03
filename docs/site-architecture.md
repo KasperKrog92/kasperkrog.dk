@@ -7,24 +7,16 @@ The structural and runtime contracts of kasper-krog.dk.
 The site is static, dependency-free HTML, CSS and JavaScript. There is no
 framework, package manager, templating system or build step.
 
-GitHub Pages serves the repository root. Room pages live in named directories
-so their public URLs end with a slash.
+GitHub Pages serves the repository root. The English page lives in `en/` so
+its public URL ends with a slash.
 
 | File | Public URL | Role |
 |---|---|---|
 | `index.html` | `/` | Professional front page, Danish (primary language) |
 | `en/index.html` | `/en/` | Professional front page, English mirror |
-| `journal/index.html` | `/journal/` | *Notesbogen* (old house) |
-| `shelf/index.html` | `/shelf/` | *Hylden* (old house) |
-| `gatherings/index.html` | `/gatherings/` | *Forsamlingshuset* (old house) |
-| `worlds/index.html` | `/worlds/` | *Baglokalet* (old house) |
-| `rituals/index.html` | `/rituals/` | *Ritualer* (old house) |
-| `keeper/index.html` | `/keeper/` | *Værten* (old house) |
-| `404.html` | any missing path | Lost in the rain (old house shell) |
-| `css/site.css` | `/css/site.css` | Front-page design system, both themes |
-| `js/site.js` | `/js/site.js` | Front-page runtime: theme, language memory, mobile menu, seam, rain easter egg |
-| `css/style.css` | `/css/style.css` | Old-house design system (rooms + 404 only) |
-| `js/main.js` | `/js/main.js` | Old-house runtime (rooms + 404 only) |
+| `404.html` | any missing path | Not found page in Danish, with a button to the English front page |
+| `css/site.css` | `/css/site.css` | Design system for all three pages, both themes |
+| `js/site.js` | `/js/site.js` | Runtime for all three pages: theme, language memory, mobile menu, seam, rain easter egg |
 
 `CNAME` holds the custom domain and `.nojekyll` disables Jekyll processing.
 
@@ -46,21 +38,18 @@ rather than word for word. Shared structure:
    about (with timeline), contact, footer.
 8. `js/site.js` at the end of `<body>`.
 
-The old rooms keep their own shell (brass nameplate, seven book-spine room
-links, rain canvas). Their "Harbor" link now leads to the new front page. Do
-not add the front page's navigation to the rooms or vice versa. The
-professional front does not link back to the rooms.
+## The 404
+
+`404.html` reuses the Danish front-page shell with root-absolute paths,
+`noindex` and no canonical, hreflang or Open Graph metadata. Its header links
+point to the Danish front page's sections (`/#arbejde` and so on), and its
+second button leads to `/en/`. It has no contact section.
 
 ## Navigation contracts
 
 Front pages: the header links are in-page anchors in this order: Arbejde /
 Work, Kind projects, Om mig / About, Skriv til mig / Write to me. The brand
 (monogram + wordmark) links to the page's own root (`./`).
-
-Rooms: the original seven-link book-spine order (Harbor, Journal, Shelf,
-Gatherings, Worlds, Rituals, Keeper) is unchanged and still styled by
-`:nth-child()` in `css/style.css`. Each room marks itself with
-`aria-current="page"`.
 
 ## Theme contract
 
@@ -74,13 +63,11 @@ before first paint:
 - The override expires after three hours.
 - Invalid or expired data is removed.
 - The script updates both `data-theme` and the browser `theme-color`
-  (front: `#f4f5f3` dawn / `#16181a` dusk; rooms keep their own colors).
+  (`#f4f5f3` dawn / `#16181a` dusk).
 
 The logic is repeated after load and re-checked every minute and on tab
-visibility, by `js/site.js` on the front pages and `js/main.js` in the rooms.
-If the boundaries, key or stored shape changes, update every inline script and
-both runtime files together. Front-page theme colors are repeated in its two
-inline scripts and `js/site.js`; room colors remain separate.
+visibility by `js/site.js`. If the boundaries, key, stored shape or theme
+colors change, update the three inline scripts and `js/site.js` together.
 
 ## Language contract
 
@@ -110,7 +97,6 @@ Core copy, links and navigation must remain useful if the script fails.
 
 - The Danish front page uses root-level relative paths (`css/site.css`).
 - The English front page uses `../` paths (`../css/site.css`).
-- Room pages use relative local paths such as `../css/style.css`.
 - The 404 uses root-absolute paths.
 - Canonical URLs use `https://kasper-krog.dk/` with trailing slashes.
 - External links use HTTPS; `target="_blank"` always pairs with

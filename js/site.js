@@ -1,6 +1,5 @@
-/* kasper-krog.dk: front-page runtime, without dependencies.
-   The kk-theme key, time boundary and three-hour override are shared with
-   the old rooms in js/main.js. */
+/* kasper-krog.dk: runtime for both front pages and the 404, without
+   dependencies. */
 (function () {
   'use strict';
 

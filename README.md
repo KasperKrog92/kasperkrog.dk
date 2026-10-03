@@ -8,10 +8,6 @@ who Kasper is, what he can do, real projects with real screenshots, a short
 timeline, and the Kind Project Rule (small cultural and volunteer-driven
 projects get help for free when time allows).
 
-The site's original identity still lives at its existing URLs as a separate
-personal layer: a small harbor house with rooms in English. It is no longer
-linked from the professional front.
-
 ## Selected projects on the site
 
 | | | |
@@ -28,13 +24,11 @@ framework, no build step, no trackers, no cookies, no analytics.
 
 - `index.html` — the front page, Danish
 - `en/index.html` — the front page, English
-- `css/site.css` + `js/site.js` — the front page's design system and runtime
-- `journal/ shelf/ gatherings/ worlds/ rituals/ keeper/` — the old house,
-  with its own `css/style.css` + `js/main.js`
-- `404.html` — for pages the rain washed away
+- `css/site.css` + `js/site.js` — the design system and runtime
+- `404.html` — for addresses that don't exist
 
-Both layers share the dawn/dusk theme: it follows the visitor's local time,
-and the theme control overrides it for three hours. All images on the front
+The dawn/dusk theme follows the visitor's local time, and the theme control
+overrides it for three hours. All images on the front
 page are real screenshots or real photographs; nothing is generated.
 
 Start with [AGENTS.md](AGENTS.md), the project-wide index and hard

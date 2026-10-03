@@ -1,12 +1,8 @@
 # Design system
 
-The visual language of kasper-krog.dk. Since August 2026 the site has two
-design layers with separate stylesheets:
-
-- **The professional front** (`/` and `/en/`): `css/site.css`. This file's
-  first half documents itself; the rules below record intent.
-- **The old house** (rooms + 404): `css/style.css`, unchanged. Its original
-  rules are preserved at the bottom of this guide.
+The visual language of kasper-krog.dk. Both front pages (`/` and `/en/`) and
+the 404 use `css/site.css`. The stylesheet documents itself; the rules below
+record intent.
 
 ## Front page: visual direction
 
@@ -45,8 +41,8 @@ contrast.
 - **Archivo** at weights 400 and 500 owns headlines, body and interface text.
 - **Newsreader** italic 300 is used once per page, for *Kasper* in the hero
   greeting. Do not spread it to other headings.
-- The front page has no monospace, handwriting, tracked uppercase labels or
-  catalogue numbering. Those belong only to the old house.
+- The site has no monospace, handwriting, tracked uppercase labels or
+  catalogue numbering.
 
 ## Front page: components
 
@@ -66,7 +62,11 @@ contrast.
   line and draws once when the section enters the viewport.
 - `.about` + `.timeline`: concise work narrative beside dated experience and
   education rows.
-- `.contact` + `.site-foot`: the permanent near-black closing field.
+- `.contact` + `.site-foot`: the permanent near-black closing field. The
+  footer holds only name, place and year.
+- `.page-not-found`: the 404 reuses the header, the `.hero` copy and the
+  footer without a portrait, and keeps the footer at the bottom of short
+  screens.
 
 Reuse an existing component when its meaning fits.
 
@@ -96,15 +96,3 @@ At `1080px`, the hero, three-part strip and About grid stack. At `820px`, the
 header uses a second row. At `700px`, page padding drops to 20px, the full-screen
 menu appears, project plates shorten and the footer stacks. Test to 320px. Do
 not clip focus outlines; no hover-only disclosure.
-
-## The old house (rooms + 404)
-
-`css/style.css` still owns the rooms and is deliberately untouched by the
-redesign: dusk/dawn tokens (`#0e1216` ink night / `#ece5d6` warm paper,
-lantern amber accents), Cormorant Garamond / EB Garamond / IBM Plex Mono /
-Caveat, the entrance-table header with book-spine navigation and brass
-nameplate, `.plate` figures with dusk/dawn twins, canvas rain, grain, sea and
-boat. Its component inventory and image rules are preserved in
-[assets/img/README.md](../assets/img/README.md) and in the git history of
-this file. When working inside a room, match the room's existing idiom, not
-the front page's.

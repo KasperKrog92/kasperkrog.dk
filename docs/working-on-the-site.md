@@ -31,36 +31,6 @@ Serve the repository over HTTP rather than opening HTML files directly.
 Root-absolute 404 paths, navigation and browser storage are more accurately
 tested that way.
 
-## Adding a journal entry
-
-Journal entries are newest first and use month-level dates only.
-
-```html
-<article class="journal-entry reveal">
-  <span class="mono date">06 &middot; 2026</span>
-  <div>
-    <h3>Title, lowercase mood</h3>
-    <p>Two to five sentences. Observation first, meaning second, no moral.</p>
-  </div>
-</article>
-```
-
-Keep the entry concise. Update `KASPER.md` only if the material adds or
-corrects durable personal context.
-
-## Adding a shelf item
-
-```html
-<div class="shelf-item reveal">
-  <span class="mono">sound</span>
-  <h3>Name of the thing</h3>
-  <p>One italic line about why it is on the shelf.</p>
-</div>
-```
-
-Never frame a shelf item as a recommendation. The shelf records current
-attention and may rotate.
-
 ## Adding or changing a front-page project case
 
 Front-page cases live in `#arbejde` / `#work` and use the linked `.project`
@@ -73,42 +43,32 @@ structure: full-width screenshot, title and one sentence. Rules:
 - Facts, numbers and roles must be verified before publishing.
 - Update [the image inventory](../assets/img/README.md).
 
-For gatherings and rooms, use the existing `.entry` structure and keep labels
-short. For external links, use HTTPS and preserve the local
+For external links, use HTTPS and preserve the local
 `target="_blank" rel="noopener"` pattern.
 
-## Adding a page or room
+## Adding a page
 
-Copy an existing room page as the starting point, then:
+The site is two front pages and a 404. If a new page is ever needed, copy a
+front page as the starting point, then:
 
-1. Set a unique title, description and canonical URL.
-2. Fix relative paths for the favicon, CSS, images, room links and JavaScript.
+1. Set a unique title, description, canonical URL and hreflang pair.
+2. Fix relative paths for the favicon, CSS, images and JavaScript.
 3. Keep the inline pre-paint theme script unchanged.
-4. Move `aria-current="page"` to the new navigation link.
-5. Add the room link to every existing page header.
-6. Add the room to the homepage map.
-7. Update the nav's `:nth-child()` layout for desktop and mobile.
-8. Add the room to [site architecture](site-architecture.md) and the house map
-   in [KASPER.md](../KASPER.md).
-9. Add a plate only when the room needs one; update the image inventory and
-   roman-numeral sequence if so.
-10. Check the 404 navigation separately because it uses root-absolute paths.
+4. Add the page to [site architecture](site-architecture.md).
 
 Adding a page is not complete while the repeated page shells disagree.
 
 ## Changing shared behavior
 
-For header, navigation, footer, font or head changes, search every HTML page and
-update all affected copies.
+For header, navigation, footer, font or head changes, update both front pages
+and the 404.
 
 For theme changes:
 
-- Keep both theme token blocks complete, in `css/site.css` (front) and
-  `css/style.css` (rooms).
-- Keep the shared time boundary, storage key and saved shape in every inline
-  head script, `js/site.js` and `js/main.js`. Front and room palettes stay
-  separate.
-- Check `theme-color` per layer.
+- Keep both theme token blocks in `css/site.css` complete.
+- Keep the shared time boundary, storage key, saved shape and colors in every
+  inline head script and `js/site.js`.
+- Check `theme-color`.
 - Test an expired or malformed `kk-theme` value.
 
 For front-page copy changes: Danish and English mirrors must both be updated
@@ -126,8 +86,8 @@ For JavaScript changes:
 There is no automated test suite, linter or build command. Verification is a
 manual browser pass proportional to the change.
 
-Always check the affected page and one unaffected room. For shared shell,
-theme, CSS or JavaScript work, check all page types including the 404.
+Always check the affected page. For shared shell, theme, CSS or JavaScript
+work, check both front pages and the 404.
 
 Minimum pass:
 
@@ -135,21 +95,18 @@ Minimum pass:
 - Automatic theme logic around 07:00 and 19:00 when relevant.
 - Mobile width around `380px`; use `320px` for navigation or narrow layouts.
 - A desktop width around `1280px`.
-- Front-page keyboard order: skip link, brand, section links, language, theme
-  control, mobile menu when shown, then main links.
-- Room keyboard order: skip link, home nameplate, seven room books, lantern,
-  main links, then the passing ship.
+- Keyboard order: skip link, brand, section links, language, theme control,
+  mobile menu when shown, then main links.
 - Skip link visibly appears and moves focus to main.
-- Exactly one correct `aria-current`, except on the 404.
+- Exactly one correct `aria-current` in the language switch.
 - Logical heading order and useful landmarks.
 - Visible focus without clipping.
-- Reduced motion: no rain, smooth scroll, reveal movement, book pull, water
-  drift, boat bob, verse writing or lantern flicker.
+- Reduced motion: no rain, smooth scroll, hero arrival, portrait arc or seam
+  drawing.
 - Muted and ordinary text retain WCAG AA contrast in both themes.
 - Images have dimensions, correct paths, appropriate lazy loading and useful
   alt text.
 - No unexpected horizontal scrolling.
-- Footer clears the sea at the bottom of ordinary pages.
 - Browser console has no errors.
 
 For copy, also read the changed passage aloud and search for repeated imagery

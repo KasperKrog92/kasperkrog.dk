@@ -1,11 +1,11 @@
 # KASPER.md
 
-A living sourcebook about Kasper Krog and the house at kasper-krog.dk.
+A living sourcebook about Kasper Krog and his site at kasper-krog.dk.
 
 This file holds the personal and editorial context behind the site. It is not
 finished copy, a formal biography or a list of claims that must all appear
 online. Agents should use it to understand new material, notice connections,
-and decide what belongs in the house.
+and decide what belongs on the site.
 
 The first version was assembled on June 10, 2026 from the material already
 published across the site. Kasper's later corrections and additions take
@@ -30,11 +30,8 @@ ask. A fact can guide a conversation without being stored in the repository.
 - Preserve contradictions. A person does not need to resolve into one theme.
 - Do not turn every detail into public copy.
 - Look for concrete moments, objects, places and habits.
-- Update this file when new information changes the understanding of Kasper or
-  the purpose of a room.
+- Update this file when new information changes the understanding of Kasper.
 - Update the site when the new material has found a form and a proper place.
-- If a subject keeps returning without fitting anywhere, consider whether the
-  house needs another room.
 
 ## Public contact
 
@@ -124,13 +121,11 @@ late cafés, cultural venues after closing, bookshelves, ferries and lamplight.
 
 ### Ritual
 
-Small repeated acts help give a day its shape. Matcha, shared meals, playlists,
-night walks and the kettle after an event are already part of the site's
-language.
+Small repeated acts help give a day its shape: matcha, shared meals,
+playlists, night walks and the kettle after an event.
 
 Correction (June 10, 2026): Kasper does not really use paper for anything.
-Notebooks and "paper first" were removed from the rituals page and the rooms
-map, and should not be reintroduced as personal facts.
+Notebooks and "paper first" should not be reintroduced as personal facts.
 
 Other examples Kasper has named include sharing meals, walking through a rainy
 city at night and staying after an event to help clean up. These small actions
@@ -164,21 +159,18 @@ Kasper loves Akira Kurosawa's idea of *ma*, the patient pause. In his words
 (June 12, 2026): "If I don't let you watch the rain fall on this peaceful
 village, how will you know what violence is? All the horror of the battle
 comes from the rain." The pause is where contrast is built: the quiet gives
-the violence its meaning. Published as the journal fragment "The rain before
-the battle".
+the violence its meaning.
 
 Solis Lantern Chronicles is a tabletop RPG campaign played by a GM and five
 players who meet regularly. Each session is written up as a narrative artefact.
 The setting is reshaped considerably from Robert Jackson Bennett's *Shadow of
 the Leviathan* series into a D&D game with new factions and rules, and the story
 now belongs to the people playing it. (Updated June 13, 2026; the earlier
-"mood, identity, systems" framing was too abstract and is corrected on the
-harbor and Baglokalet pages.)
+"mood, identity, systems" framing was too abstract.)
 
 Five titles Kasper loves, each still waiting for its story (June 12, 2026):
 *The City by the Sea*, *This is the Greatest Fear*, *Shivers in the Void*,
-*The Silent Primordial Scream*, *Fated, Heaven-sent*. They sit in Baglokalet
-as "Five titles, no stories yet".
+*The Silent Primordial Scream*, *Fated, Heaven-sent*.
 
 ## Philosophical ground
 
@@ -203,8 +195,7 @@ refuges for culture, reflection, creativity and human connection.
 
 A conviction in his own words (June 12, 2026): "This is the whole point: do
 what you want to do and see who sticks around to put wind in your sails."
-Making comes before audience; the people who stay are the point. The keeper
-page closes its philosophy section with this line.
+Making comes before audience; the people who stay are the point.
 
 ## Cultural shelf
 
@@ -220,23 +211,21 @@ These works and forms currently help describe Kasper's taste:
   moral and emotional weight.
 - Folk dancing: going to balls, turning with strangers, the laughter and group
   consciousness of a room briefly of one mind. The dance matters more to Kasper
-  than folk music as something to listen to. He is a keen folk dancer; it now
-  appears both on the shelf and as a Forsamlingshuset (gatherings) entry.
+  than folk music as something to listen to. He is a keen folk dancer.
 - Trip hop: a slow trance for focus, beautiful melancholy with determination
   under it. Not especially "midnight" or Bristol-coded for him.
 - Current rotation (June 2026): electronic and indie songs built to move to,
   with melancholy in the best of them (Otha, Jungle, Low Roar, Daphni and the
-  like). Correction: he does not particularly listen to long ambient records,
-  despite the earlier shelf and keeper copy; that has been removed.
+  like). Correction: he does not particularly listen to long ambient records.
 - Slow cinema: patience and attention.
 - Kurosawa and *ma*: the long pause that teaches what the violence costs.
 - Rainy city photography: reflected light, wet streets and inhabited darkness.
 - Tea culture: attention made physical through a bowl and a repeated act.
 - Late-night conversation and quiet cultural spaces: company without spectacle.
 
-This list should change as Kasper changes. The shelf is current, not canonical.
+This list should change as Kasper changes.
 
-## Projects and public rooms
+## Projects
 
 | Project | What it currently expresses |
 |---|---|
@@ -246,24 +235,12 @@ This list should change as Kasper changes. The shelf is current, not canonical.
 | Solis Lantern Chronicles | An ongoing tabletop RPG campaign, chronicled after each session, reshaped from Robert Jackson Bennett's *Shadow of the Leviathan* |
 | Aarhus Folk Festival | Folk culture, volunteering, tradition and shared rooms |
 
-## Current map of the house
+## The site
 
-Since August 2026 the site's front door is a professional portfolio page
-(Danish at `/`, English at `/en/`): who Kasper is, what he can do, four real
-project cases, a timeline, the Kind Project Rule and contact. The old harbor
-page was retired; the rooms below survive unchanged at their existing URLs as
-a separate personal layer, no longer linked from the professional front.
-
-| File | Room | Present purpose | Material that may belong here |
-|---|---|---|---|
-| `index.html` + `en/index.html` | The front | Professional portfolio: identity, competences, projects, experience, kind projects, contact | A new major project case, a changed role or verified fact, contact changes |
-| `journal/index.html` | Notesbogen, the journal | Dated fragments and observations | A moment, memory, small realization or scene that can stand in two to five sentences |
-| `shelf/index.html` | Hylden, the shelf | What is feeding Kasper's attention now | Books, games, records, films, places, objects or ideas with one specific reason for being present |
-| `gatherings/index.html` | Forsamlingshuset, the gathering house | Clubs, tables, venues, volunteering and shared events | Stories about hosting, community, people meeting, practical care or cultural work |
-| `worlds/index.html` | Baglokalet, the back room | Fiction, worldbuilding, cozy horror and unfinished experiments | Characters, settings, strange systems, game ideas, fictional scraps or work that should remain half-lit |
-| `rituals/index.html` | Ritualer, rituals | Repeated acts that shape ordinary days | Habits with physical detail, seasonal practices, routes, meals, tools or small household laws |
-| `keeper/index.html` | Værten, the keeper | First-person account of Kasper, his outlook and ways to reach him | Durable personal facts, honest admissions, philosophy and details that help a visitor understand who keeps the house |
-| `404.html` | Off the map | A lost path that still feels part of the house | Usually no personal archive material |
+Since August 2026 kasper-krog.dk is a professional portfolio page (Danish at
+`/`, English at `/en/`): who Kasper is, what he can do, four real project
+cases, a timeline, Kind Projects and contact. Material that may belong there:
+a new major project case, a changed role or verified fact, or contact changes.
 
 ## Routing new material
 
@@ -272,11 +249,11 @@ When Kasper shares something new, ask:
 1. Is this a durable fact, a passing observation, a story, a taste, a ritual,
    a project, a belief or a fictional seed?
 2. What is the most alive detail in it?
-3. Does it deepen an existing room, revise what the sourcebook says, or suggest
-   a room that does not exist yet?
+3. Does it change something on the site, revise what the sourcebook says, or
+   belong only here?
 4. Is it meant to be public?
-5. What form fits it: one sentence, a dated fragment, a shelf card, an archive
-   row, a longer first-person passage, an image, or no site change yet?
+5. What form fits it: a project case, a corrected fact, a line of copy, an
+   image, or no site change yet?
 
 Do not publish a summary merely because one can be written. Wait for a form
 that earns its place.
@@ -285,7 +262,7 @@ that earns its place.
 
 The current site leaves room to learn more about:
 
-- Kasper's life in Aarhus beyond the harbor image.
+- Kasper's life in Aarhus.
 - Public transportation and what he notices through that work.
 - The actual history of the communities and projects he has built.
 - People, places and moments that shaped his view of hospitality.

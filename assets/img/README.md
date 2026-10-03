@@ -7,10 +7,10 @@ regenerate from a PNG:
 ffmpeg -i name.png -q:v 4 name.jpg
 ```
 
-## The professional front (`/` and `/en/`)
+## Site images
 
 Apart from the approved identity mark documented below, **no AI-generated
-images here.** Only real screenshots of real
+images.** Only real screenshots of real
 projects, real photographs, or an honest designed placeholder.
 
 | File | Wired into | What it is |
@@ -30,10 +30,10 @@ meaningfully, recapture rather than letting the case image drift out of date.
 
 The gold KK monogram with its arc and star was supplied and explicitly approved
 by Kasper on 2026-09-11 for the logo and favicon. This identity mark is the sole
-exception to the front page's no-generated-imagery rule. The original was cropped
+exception to the site's no-generated-imagery rule. The original was cropped
 to omit the name below, with stray red/yellow edge pixels removed and its real
-alpha transparency preserved. Both front pages use it beside the HTML wordmark;
-all pages share its favicon. The old rooms retain their brass nameplate.
+alpha transparency preserved. All three pages use it beside the HTML wordmark
+and as their favicon.
 
 | File | What it is |
 |---|---|
@@ -45,27 +45,3 @@ all pages share its favicon. The old rooms retain their brass nameplate.
 
 Regenerate icon sizes on Windows with `tools/make-identity-assets.ps1`
 (PowerShell and FFmpeg).
-
-## The old house (rooms + 404)
-
-The rooms keep their original plates and chrome, untouched by the redesign:
-
-| File (+ `-dawn.jpg` twin) | Wired into | As |
-|---|---|---|
-| `journal.jpg` | journal/index.html | pl. ii — room hero |
-| `shelf.jpg` | shelf/index.html | pl. iii — room hero |
-| `gatherings.jpg` | gatherings/index.html | pl. iv — room hero |
-| `worlds.jpg` | worlds/index.html | pl. v — under the Night Ferry fragment |
-| `rituals.jpg` | rituals/index.html | pl. vi — room hero |
-| `keeper.jpg` | keeper/index.html | pl. vii — room hero |
-| `kasper-krog-plate.png` | every room header | the brass nameplate (the committed-PNG exception) |
-| `ship.svg` | rooms via js/main.js | the ship on the waterline, dusk and dawn frames |
-
-Each `.plate` figure stacks a dusk base image and a `-dawn.jpg` twin; CSS
-cross-fades them with the theme. Room-plate conventions (object-position,
-no `loading="lazy"` above the fold, roman-numeral captions) are documented in
-the git history of `docs/design-system.md` and visible in the room markup.
-
-Removed in the August 2026 redesign: `harbor.jpg` (+ dawn), the old
-`projects/` card backgrounds, and the generated `og.jpg`. The front page now
-uses only real material.

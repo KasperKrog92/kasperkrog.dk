@@ -7,23 +7,13 @@ matches the work. `CLAUDE.md` points here and contains no separate rules.
 
 ## The place
 
-kasper-krog.dk is Kasper Krog's personal site. Since August 2026 it has two
-layers:
+kasper-krog.dk is Kasper Krog's personal site: an editorial portfolio landing
+page (`index.html` in Danish, `en/index.html` in English). It answers, within
+seconds, who Kasper is (trafikleder, digital skaber, kulturmenneske i Aarhus),
+what he can do, what he has built, and how to reach him. Clarity first,
+personality as a strong layer on top. Professional but never corporate.
 
-1. **The professional front** (`index.html` in Danish, `en/index.html` in
-   English): an editorial portfolio landing page. It answers, within seconds,
-   who Kasper is (trafikleder, digital skaber, kulturmenneske i Aarhus), what
-   he can do, what he has built, and how to reach him. Clarity first,
-   personality as a strong layer on top. Professional but never corporate.
-2. **The old house** (`journal/`, `shelf/`, `gatherings/`, `worlds/`,
-   `rituals/`, `keeper/`): the original quiet cultural archive, in English,
-   preserved at its existing URLs as a separate personal layer. It is not
-   linked from the professional front. Change the rooms only with the same
-   care as before.
-
-The two layers share the dawn/dusk theme contract and nothing else: the front
-uses `css/site.css` + `js/site.js`, the rooms keep `css/style.css` +
-`js/main.js`. Do not mix the stylesheets.
+The two front pages and `404.html` share `css/site.css` + `js/site.js`.
 
 ## Non-negotiable rules
 
@@ -31,19 +21,18 @@ uses `css/site.css` + `js/site.js`, the rooms keep `css/style.css` +
   step.
 - Add no trackers, cookies, analytics or remote embeds. The Google Fonts
   stylesheet is the only tolerated external request.
-- **No AI-generated images on the professional front.** Only real screenshots
-  of real projects, real photographs, or honest designed placeholders. The old
-  rooms keep their existing plates as the house's art. The user-approved gold
-  KK identity mark is the sole exception (see `assets/img/README.md`).
+- **No AI-generated images.** Only real screenshots of real projects, real
+  photographs, or honest designed placeholders. The user-approved gold KK
+  identity mark is the sole exception (see `assets/img/README.md`).
 - Danish is the primary language of the front page; `en/index.html` is the
   full English mirror. A content change on one front page is a change on both.
   Keep `lang`, canonical and hreflang metadata correct.
 - Keep dusk and dawn working on every page. The theme follows the visitor's
-  local time (dawn 07:00–18:59) and the lantern override lasts three hours in
-  `localStorage` under `kk-theme`. The contract lives in three places: the
-  inline head scripts, `js/site.js` and `js/main.js`. Change all together.
-- Respect `prefers-reduced-motion`. Reveals, smooth scrolling and the rain
-  easter egg must stop.
+  local time (dawn 07:00–18:59) and the theme-control override lasts three
+  hours in `localStorage` under `kk-theme`. The contract lives in the inline
+  head scripts of all three pages and in `js/site.js`. Change them together.
+- Respect `prefers-reduced-motion`. The hero arrival, smooth scrolling and the
+  rain easter egg must stop.
 - Keep the HTML accessible: landmarks, logical headings, a skip link, visible
   focus and WCAG AA text contrast in both themes.
 - Use HTTPS for external links when the destination supports it.
@@ -73,10 +62,10 @@ is not a backlog of facts that must be published.
 
 - `AGENTS.md`: project identity, hard constraints and the documentation map.
 - `KASPER.md`: durable personal and editorial context about Kasper.
-- `docs/editorial.md`: visitor-facing voice for both layers.
+- `docs/editorial.md`: visitor-facing voice.
 - `docs/site-architecture.md`: file structure, page shells and runtime
   contracts.
-- `docs/design-system.md`: visual tokens and components for both layers.
+- `docs/design-system.md`: visual tokens and components.
 - `docs/working-on-the-site.md`: repeatable editing, verification and
   deployment practice.
 - `assets/img/README.md`: image inventory and production details.
