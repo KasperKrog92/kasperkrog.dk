@@ -18,9 +18,8 @@ linked from the professional front.
 |---|---|---|
 | 01 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
 | 02 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club, founded 2025 |
-| 03 | [Amanda Barup Pihlkjær](https://abp-tegning.dk/) | portfolio with a built-in studio for a real illustrator |
-| 04 | [Matchabladet](https://matchabladet.dk/) | a Danish matcha magazine |
-| 05 | [Turkis Crew](https://turkis.gamestormers.dk/) | volunteer platform for the Aarhus venue turkis |
+| 03 | [turkis Crew](https://crew.turkis.nu/) | volunteer platform for the Aarhus venue turkis |
+| 04 | [Amanda Barup Pihlkjær](https://abp-tegning.dk/) | portfolio with a built-in studio for a real illustrator |
 
 ## How it's built
 
