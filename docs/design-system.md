@@ -20,7 +20,7 @@ track, read by scrolling.
 Mineral grey architecture, plain language and real work stay. Brass marks the
 track already travelled, the current stop, the kicker rule above each heading,
 the Kind projects card edge and focus rings. Corners stay square except for
-stop dots and the round identity mark.
+stop dots and the rounded favicon square.
 
 Clarity first. If a decorative idea makes the page harder to understand, the
 idea loses.
@@ -54,14 +54,15 @@ contrast.
 - **Archivo** at weights 400 and 500 owns headlines, body, interface and the
   board. The board uses tabular figures, not a monospace face.
 - **Newsreader** italic 300 is used once per page, for *Kasper* in the
-  greeting. Do not spread it to other headings.
+  greeting ("Hej, jeg hedder *Kasper*." / "Hi, my name is *Kasper*."), which
+  sits in the wider `.stop-first` column so it stays on one line. Do not spread it to other headings.
 - No monospace, handwriting or tracked uppercase labels. Stop counts
   ("Station 3 af 8") are the only numbering, and only on wide screens.
 
 ## Front page: components
 
-- `.brand` + `.brand-mark`: the approved gold KK monogram at 40px beside the
-  Archivo wordmark.
+- `.brand`: the wordmark *Kasper Krog* in Archivo 500. There is no logo;
+  the favicon repeats the brass station ring.
 - `.board`: the small departure board in the header: clock, Aarhus and the
   next stop. Decorative (`aria-hidden`); below 900px only the clock remains.
 - `.head-tools`: DA/EN, the theme control and, on phones only, a "Skriv" link
@@ -87,8 +88,6 @@ stop: add it to the route, the platforms and `--stops` in both languages.
 Read [assets/img/README.md](../assets/img/README.md) before adding or
 replacing an image.
 
-The user-approved gold identity mark is the sole exception to the rule below.
-
 Hard rule: **no AI-generated images on the front pages.** Only real
 screenshots of real projects (`assets/img/cases/`), real photographs
 (`assets/img/portraet.jpg`), or an honest designed placeholder. Optimized
@@ -108,5 +107,5 @@ useful still state and stops inside `prefers-reduced-motion: reduce`.
 At `900px` and wider, with the script running, one stop is shown at a time
 and the body fills the viewport; test at 1280x720. Below `900px` the route and
 "Næste" rows hide, the page becomes the vertical line, and the screenshot
-moves under the copy. Below `560px` the wordmark, "Aarhus" and the theme word
-hide. Test to 320px. Do not clip focus outlines; no hover-only disclosure.
+moves under the copy. Below `560px` "Aarhus" and the theme word hide, and below
+`400px` the board hides so the wordmark keeps its room. Test to 320px. Do not clip focus outlines; no hover-only disclosure.

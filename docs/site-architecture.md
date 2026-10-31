@@ -32,7 +32,7 @@ rather than word for word. Shared structure:
 3. The inline pre-paint theme script (see theme contract).
 4. One Google Fonts request: Archivo 400/500 and Newsreader italic 300.
 5. Skip link → `<main id="main-content" tabindex="-1">`.
-6. Non-sticky header: gold KK monogram, Archivo wordmark, the departure
+6. Non-sticky header: Archivo wordmark (no logo), the departure
    board, a phone-only contact link, DA/EN switch and theme control.
 7. `<nav class="route">` with `<ol id="route">`: one in-page link per stop.
 8. `<main class="platforms" id="main-content">` holding one `section.stop`

@@ -23,8 +23,8 @@ The two front pages and `404.html` share `css/site.css` + `js/site.js`.
 - Add no trackers, cookies, analytics or remote embeds. The Google Fonts
   stylesheet is the only tolerated external request.
 - **No AI-generated images.** Only real screenshots of real projects, real
-  photographs, or honest designed placeholders. The user-approved gold KK
-  identity mark is the sole exception (see `assets/img/README.md`).
+  photographs, or honest designed placeholders. The site has no logo; the
+  favicon is a plain vector station ring (see `assets/img/README.md`).
 - Danish is the primary language of the front page; `en/index.html` is the
   full English mirror. A content change on one front page is a change on both.
   Keep `lang`, canonical and hreflang metadata correct.

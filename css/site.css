@@ -96,8 +96,7 @@ img { display: block; max-width: 100%; height: auto; }
   padding: 1.1rem var(--page-x);
 }
 
-.brand { display: inline-flex; align-items: center; gap: .7rem; justify-self: start; font-weight: 500; text-decoration: none; }
-.brand-mark { width: 40px; height: 40px; }
+.brand { display: inline-flex; align-items: center; min-height: 2.75rem; justify-self: start; font-size: 1.05rem; font-weight: 500; letter-spacing: -.01em; text-decoration: none; white-space: nowrap; }
 
 .board {
   display: flex;
@@ -262,6 +261,11 @@ img { display: block; max-width: 100%; height: auto; }
 }
 .stop h1:focus,
 .stop h2:focus { outline: none; }
+/* the greeting gets a wider column so it stays on one line */
+.stop-first { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.stop-first .stop-copy { max-width: 42rem; }
+.stop-first h1 { font-size: clamp(2.2rem, 3.8vw, 3.6rem); }
+.stop-first .stop-copy > p { max-width: 34rem; }
 .stop h1 em { font-family: var(--font-accent); font-weight: 300; letter-spacing: -.01em; }
 
 .stop p { margin: 0 0 1rem; color: var(--ink-2); font-size: 1.08rem; }
@@ -418,7 +422,11 @@ a.plate:hover img { transform: scale(1.02); }
 }
 
 @media (max-width: 560px) {
-  .brand span, .board-place { display: none; }
+  .board-place { display: none; }
+}
+
+@media (max-width: 400px) {
+  .board { display: none; }
   .head-tools { gap: .8rem; }
   .theme-word { display: none; }
 }

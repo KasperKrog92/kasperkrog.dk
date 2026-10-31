@@ -1,26 +1,54 @@
-# Regenerate web icons from the approved, transparent gold monogram.
+# Regenerate the web icons: the brass station ring from the route, on a
+# near-black rounded square. Mirrors assets/favicon.svg (a 32-unit grid:
+# corner radius 7, ring radius 8.5, ring width 4.5).
 # Run from any directory with PowerShell on Windows. No site build step.
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
 $root = Split-Path $PSScriptRoot -Parent
-$source = Join-Path $root 'assets/kk-logo.png'
+$ink = [System.Drawing.ColorTranslator]::FromHtml('#16181a')
+$brass = [System.Drawing.ColorTranslator]::FromHtml('#c9a960')
 
-foreach ($size in @(16, 32, 48, 64, 180)) {
-    $target = Join-Path $env:TEMP "kk-favicon-$size.png"
-    & ffmpeg -hide_banner -loglevel error -i $source -vf "scale=${size}:${size}:flags=lanczos" -frames:v 1 -y $target
-    if ($LASTEXITCODE -ne 0) { throw "Icon resize failed: $size" }
+function New-StationIcon([int]$size, [bool]$rounded) {
+    $unit = $size / 32
+    $bitmap = [System.Drawing.Bitmap]::new($size, $size)
+    $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
+    $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+    $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+    $graphics.Clear([System.Drawing.Color]::Transparent)
+
+    $fill = [System.Drawing.SolidBrush]::new($ink)
+    if ($rounded) {
+        $d = 14 * $unit
+        $path = [System.Drawing.Drawing2D.GraphicsPath]::new()
+        $path.AddArc(0, 0, $d, $d, 180, 90)
+        $path.AddArc($size - $d, 0, $d, $d, 270, 90)
+        $path.AddArc($size - $d, $size - $d, $d, $d, 0, 90)
+        $path.AddArc(0, $size - $d, $d, $d, 90, 90)
+        $path.CloseFigure()
+        $graphics.FillPath($fill, $path)
+        $path.Dispose()
+    } else {
+        # iOS applies its own mask, so the touch icon stays square and opaque.
+        $graphics.FillRectangle($fill, 0, 0, $size, $size)
+    }
+
+    $pen = [System.Drawing.Pen]::new($brass, 4.5 * $unit)
+    $r = 8.5 * $unit
+    $graphics.DrawEllipse($pen, 16 * $unit - $r, 16 * $unit - $r, 2 * $r, 2 * $r)
+
+    $pen.Dispose(); $fill.Dispose(); $graphics.Dispose()
+    return $bitmap
+}
+
+foreach ($size in @(16, 32, 48, 64)) {
+    $icon = New-StationIcon $size $true
+    $icon.Save((Join-Path $env:TEMP "kk-favicon-$size.png"), [System.Drawing.Imaging.ImageFormat]::Png)
+    $icon.Dispose()
 }
 Copy-Item (Join-Path $env:TEMP 'kk-favicon-64.png') (Join-Path $root 'assets/favicon.png') -Force
 
-# iOS supplies its own rounded mask; use an opaque mineral background.
-$apple = [System.Drawing.Bitmap]::new(180, 180)
-$graphics = [System.Drawing.Graphics]::FromImage($apple)
-$graphics.Clear([System.Drawing.ColorTranslator]::FromHtml('#f4f5f3'))
-$mark = [System.Drawing.Image]::FromFile((Join-Path $env:TEMP 'kk-favicon-180.png'))
-$graphics.DrawImage($mark, 9, 9, 162, 162)
+$apple = New-StationIcon 180 $false
 $apple.Save((Join-Path $root 'assets/apple-touch-icon.png'), [System.Drawing.Imaging.ImageFormat]::Png)
-$mark.Dispose()
-$graphics.Dispose()
 $apple.Dispose()
 
 # ICO directory containing three lossless PNG images.
