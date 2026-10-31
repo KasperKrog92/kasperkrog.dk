@@ -6,11 +6,21 @@ record intent.
 
 ## Front page: visual direction
 
-Mineral grey architecture, plain language and real work. The page uses large
-sans-serif headlines, generous air, thin rules and full-width project
-screenshots. Brass is punctuation: the gold KK monogram, a short portrait arc, focus
-rings and one seam in Kind Projects. Corners stay square except for the round
-identity mark.
+**Linjen** (October 2026): the page is one light-rail line with eight stops.
+Hej, Aarhus Folk Festival, Gamestormers, turkis Crew, Café Hygge, Kind
+projects (the interchange), Om mig and Skriv til mig (the terminus). A line
+diagram is one of the most legible pictures there is, and it belongs to
+Kasper without showing anything from his workplace.
+
+On wide screens the route diagram sits under the header and one stop is shown
+at a time, with no page scroll. On phones, and whenever the script has not
+run, the page itself is the line: every stop stacked on one vertical brass
+track, read by scrolling.
+
+Mineral grey architecture, plain language and real work stay. Brass marks the
+track already travelled, the current stop, the kicker rule above each heading,
+the Kind projects card edge and focus rings. Corners stay square except for
+stop dots and the round identity mark.
 
 Clarity first. If a decorative idea makes the page harder to understand, the
 idea loses.
@@ -26,49 +36,51 @@ Theme tokens live under `[data-theme="dawn"]` and `[data-theme="dusk"]` in
 | `--plaster` | `#ffffff` | `#1c1f21` |
 | `--ink` | `#16181a` | `#f1f2ef` |
 | `--ink-2` | `#4a4e49` | `#c6cac4` |
-| `--muted` / `--faint` | cool greys with AA contrast | pale cool greys with AA contrast |
+| `--muted` | `#5f645e` | `#a9ada7` |
 | `--brass` (lines only) | `#a88b4e` | `#c9a960` |
 | `--brass-text` | `#7c652f` | `#e0c47f` |
-| `--line` / `--line-2` | mineral hairlines | charcoal hairlines |
+| `--line` | track and hairlines | track and hairlines |
+| `--board`, `--board-ink`, `--board-muted` | departure board, dark in both themes | |
 
-The dawn `--plaster` panel may use white; pure black is avoided. After changing
-a color, check body text, muted and faint text, links, focus rings and the Kind
-Projects section in both themes. Small secondary text still needs 4.5:1
+`--track` (6px) is the width of the line, stop rings and the Kind card edge.
+`--stops` is the number of stops in the route grid; change it with the markup.
+
+After changing a color, check body text, muted text, route labels, the board,
+links and focus rings in both themes. Small secondary text still needs 4.5:1
 contrast.
 
 ## Front page: typography
 
-- **Archivo** at weights 400 and 500 owns headlines, body and interface text.
-- **Newsreader** italic 300 is used once per page, for *Kasper* in the hero
+- **Archivo** at weights 400 and 500 owns headlines, body, interface and the
+  board. The board uses tabular figures, not a monospace face.
+- **Newsreader** italic 300 is used once per page, for *Kasper* in the
   greeting. Do not spread it to other headings.
-- The site has no monospace, handwriting, tracked uppercase labels or
-  catalogue numbering.
+- No monospace, handwriting or tracked uppercase labels. Stop counts
+  ("Station 3 af 8") are the only numbering, and only on wide screens.
 
 ## Front page: components
 
-- `.brand` + `.brand-mark`: the approved gold KK monogram with arc and star,
-  rendered from `assets/kk-logo.png` at 44px beside the Archivo wordmark.
-  The same text-free monogram supplies the PNG, ICO and Apple touch icons.
-- `.site-nav` + `.menu-toggle`: four in-page links on desktop and a full-screen
-  plain-text menu below 700px. DA/EN and the theme control stay outside it.
-- `.hero`: the large greeting and CTAs beside the real greyscale portrait.
-  `.portrait-ring` draws the pale circle and slowly moving brass arc.
-- `.three-things`: linked Build / Gather / Help columns, stacked as ruled
-  bands on narrower screens.
-- `.project`: one full-width linked screenshot, project name and one sentence.
-  Project images are decorative because the text names the work.
-- `.also`: the hairline-topped row for small projects without full cases.
-- `.kind`: the raised Kind Projects panel. `.kind-seam` is its one kintsugi
-  line and draws once when the section enters the viewport.
-- `.about` + `.timeline`: concise work narrative beside dated experience and
-  education rows.
-- `.contact` + `.site-foot`: the permanent near-black closing field. The
-  footer holds only name, place and year.
-- `.page-not-found`: the 404 reuses the header, the `.hero` copy and the
-  footer without a portrait, and keeps the footer at the bottom of short
-  screens.
+- `.brand` + `.brand-mark`: the approved gold KK monogram at 40px beside the
+  Archivo wordmark.
+- `.board`: the small departure board in the header: clock, Aarhus and the
+  next stop. Decorative (`aria-hidden`); below 900px only the clock remains.
+- `.head-tools`: DA/EN, the theme control and, on phones only, a "Skriv" link
+  to the terminus.
+- `.route`: the line diagram, an ordered list of in-page links. `.terminus`
+  marks the two ends, `.interchange` marks Kind projects, `.passed` and
+  `aria-current="step"` are set by the script. `.train` is the small carriage
+  that rides to the current stop.
+- `.stop`: one platform. `.stop-copy` holds `.stop-kicker` (a short role
+  word: Bygger, Samler, Leger, Skift her, Endestation), the heading, copy and
+  `.stop-actions`. The other column holds a `.plate` screenshot, the
+  `.portrait`, the `.kind-card` or the `.timeline`.
+- `.stop-foot`: the "Næste: …" row the script adds to every stop but the last.
+- `.button` (+ `.button-secondary`), `.text-link`, `.email`.
+- `.page-not-found`: the 404 reuses the header (with a static board) and a
+  single `.stop` without the route.
 
-Reuse an existing component when its meaning fits.
+Reuse an existing component when its meaning fits. A new project is a new
+stop: add it to the route, the platforms and `--stops` in both languages.
 
 ## Front page: images
 
@@ -85,14 +97,16 @@ card `og.jpg` is a real screenshot of the page itself, 1200 by 630.
 
 ## Front page: motion
 
-Motion is limited to the hero arrival, the 260-second portrait arc, one
-five-second Kind Projects seam and a two-percent project-image scale on hover.
-Three quick theme-control presses still summon the rain easter egg. Every move
-has a useful still state and stops inside `prefers-reduced-motion: reduce`.
+Motion is limited to the platform arrival (a 28px slide in the direction of
+travel), the brass progress line and train moving along the route, a slight
+dot scale on hover and a two-percent screenshot scale on hover. Three quick
+theme-control presses still summon the rain easter egg. Every move has a
+useful still state and stops inside `prefers-reduced-motion: reduce`.
 
 ## Responsive behavior
 
-At `1080px`, the hero, three-part strip and About grid stack. At `820px`, the
-header uses a second row. At `700px`, page padding drops to 20px, the full-screen
-menu appears, project plates shorten and the footer stacks. Test to 320px. Do
-not clip focus outlines; no hover-only disclosure.
+At `900px` and wider, with the script running, one stop is shown at a time
+and the body fills the viewport; test at 1280x720. Below `900px` the route and
+"Næste" rows hide, the page becomes the vertical line, and the screenshot
+moves under the copy. Below `560px` the wordmark, "Aarhus" and the theme word
+hide. Test to 320px. Do not clip focus outlines; no hover-only disclosure.

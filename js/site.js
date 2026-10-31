@@ -79,55 +79,133 @@
     });
   });
 
-  var menuToggle = document.querySelector('.menu-toggle');
-  var menu = document.getElementById('primary-nav');
-  var main = document.querySelector('main');
-  var footer = document.querySelector('footer');
+  // Linjen: the route diagram shows one stop at a time on wide screens.
+  // Phones and script-less visits read every stop as one page.
+  var route = document.getElementById('route');
+  if (route) { setUpLine(route); }
 
-  function setMenu(open) {
-    if (!menuToggle || !menu) { return; }
-    document.body.classList.toggle('menu-open', open);
-    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    menuToggle.textContent = open ? (doc.lang === 'da' ? 'Luk' : 'Close') : 'Menu';
-    if ('inert' in HTMLElement.prototype) {
-      if (main) { main.inert = open; }
-      if (footer) { footer.inert = open; }
+  function setUpLine(route) {
+    var danish = doc.lang === 'da';
+    var words = danish
+      ? { stop: 'Station', of: 'af', next: 'Næste', end: 'Endestation' }
+      : { stop: 'Stop', of: 'of', next: 'Next', end: 'End of the line' };
+    var aliases = { arbejde: 'folkfestival', work: 'folk-festival' };
+    var wide = window.matchMedia('(min-width: 900px)');
+    var links = Array.prototype.slice.call(route.querySelectorAll('a'));
+    var stops = links.map(function (link) { return document.getElementById(link.hash.slice(1)); });
+    var boardNext = document.getElementById('board-next');
+    var current = -1;
+
+    var train = document.createElement('span');
+    train.className = 'train';
+    route.appendChild(train);
+
+    function nameOf(i) { return links[i].textContent.trim(); }
+
+    function indexOf(id) {
+      id = aliases[id] || id;
+      for (var n = 0; n < stops.length; n += 1) { if (stops[n].id === id) { return n; } }
+      return -1;
     }
-  }
 
-  if (menuToggle && menu) {
-    menuToggle.addEventListener('click', function () {
-      setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+    function centerOf(i) {
+      var dot = links[i].querySelector('.dot').getBoundingClientRect();
+      return dot.left + dot.width / 2 - route.getBoundingClientRect().left;
+    }
+
+    function placeTrain() {
+      if (current < 0 || !wide.matches) { return; }
+      var x = centerOf(current);
+      route.style.setProperty('--progress', (x - centerOf(0)) + 'px');
+      route.style.setProperty('--train-x', (x - 5) + 'px');
+    }
+
+    function go(i, moveFocus, keepUrl) {
+      i = Math.max(0, Math.min(stops.length - 1, i));
+      if (i === current) { return; }
+      var back = i < current;
+      current = i;
+      stops.forEach(function (stop, n) {
+        stop.classList.toggle('is-current', n === i);
+        stop.classList.toggle('from-left', back);
+      });
+      links.forEach(function (link, n) {
+        link.parentNode.classList.toggle('passed', n < i);
+        if (n === i) { link.setAttribute('aria-current', 'step'); } else { link.removeAttribute('aria-current'); }
+      });
+      if (boardNext) { boardNext.textContent = i < stops.length - 1 ? nameOf(i + 1) : words.end; }
+      if (!keepUrl && history.replaceState) { history.replaceState(null, '', '#' + stops[i].id); }
+      placeTrain();
+      if (moveFocus) { stops[i].querySelector('h1, h2').focus({ preventScroll: true }); }
+    }
+
+    stops.forEach(function (stop, n) {
+      var heading = stop.querySelector('h1, h2');
+      if (heading) { heading.setAttribute('tabindex', '-1'); }
+      if (n === stops.length - 1) { return; }
+      var foot = document.createElement('div');
+      foot.className = 'stop-foot';
+      var where = document.createElement('span');
+      where.textContent = words.stop + ' ' + (n + 1) + ' ' + words.of + ' ' + stops.length;
+      var next = document.createElement('button');
+      next.type = 'button';
+      next.className = 'next';
+      next.textContent = words.next + ': ' + nameOf(n + 1) + ' →';
+      next.addEventListener('click', function () { go(n + 1, true); });
+      foot.appendChild(where);
+      foot.appendChild(next);
+      stop.querySelector('.stop-copy').appendChild(foot);
     });
-    Array.prototype.forEach.call(menu.querySelectorAll('a'), function (link) {
-      link.addEventListener('click', function () { setMenu(false); });
-    });
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
-        setMenu(false);
-        menuToggle.focus();
+
+    document.addEventListener('click', function (event) {
+      var target = event.target.closest('a[href^="#"], [data-go]');
+      if (!target) { return; }
+      var n = indexOf(target.getAttribute('data-go') || target.hash.slice(1));
+      if (n < 0) { return; }
+      event.preventDefault();
+      if (wide.matches) {
+        go(n, true);
+      } else {
+        stops[n].scrollIntoView({ behavior: reducedMotion.matches ? 'auto' : 'smooth' });
+        if (history.replaceState) { history.replaceState(null, '', '#' + stops[n].id); }
       }
     });
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 700) { setMenu(false); }
+
+    document.addEventListener('keydown', function (event) {
+      if (!wide.matches || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) { return; }
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(event.target.tagName)) { return; }
+      if (event.key === 'ArrowRight') { go(current + 1, false); }
+      if (event.key === 'ArrowLeft') { go(current - 1, false); }
     });
+
+    window.addEventListener('hashchange', function () {
+      var n = indexOf(location.hash.slice(1));
+      if (n >= 0 && wide.matches) { go(n, true); }
+    });
+
+    window.addEventListener('resize', placeTrain);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(placeTrain); }
+
+    doc.classList.add('line-ready');
+    var start = indexOf(location.hash.slice(1));
+    go(start < 0 ? 0 : start, false, true);
+    if (start > 0 && !wide.matches) { stops[start].scrollIntoView(); }
+    // A deep link on a short wide screen: the browser's own fragment scroll
+    // would push the route out of view, so keep the top in place.
+    if (start > 0 && wide.matches) {
+      window.addEventListener('load', function () { window.scrollTo(0, 0); });
+    }
   }
 
-  var seam = document.querySelector('.kind-seam');
-  if (seam) {
-    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
-      seam.classList.add('is-drawn');
-    } else {
-      var seamObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            seam.classList.add('is-drawn');
-            seamObserver.disconnect();
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: .1 });
-      seamObserver.observe(seam);
-    }
+  // Departure board clock
+  var boardTime = document.getElementById('board-time');
+  function tick() {
+    var now = new Date();
+    boardTime.textContent = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+  }
+  if (boardTime) {
+    tick();
+    setInterval(tick, 15000);
   }
 
   var rainCanvas = null;

@@ -238,8 +238,11 @@ This list should change as Kasper changes.
 ## The site
 
 Since August 2026 kasper-krog.dk is a professional portfolio page (Danish at
-`/`, English at `/en/`): who Kasper is, what he can do, four real project
-cases, a timeline, Kind Projects and contact. Material that may belong there:
+`/`, English at `/en/`): who Kasper is, what he can do, real project cases, a
+timeline, Kind Projects and contact. Since October 31, 2026 it is laid out as
+*Linjen*, one light-rail line with a stop per project; Kasper chose the
+concept. The same day he removed the Amanda Barup case and promoted Café Hygge
+to a full stop with a screenshot of its idle café. Material that may belong there:
 a new major project case, a changed role or verified fact, or contact changes.
 
 ## Routing new material

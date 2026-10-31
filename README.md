@@ -3,8 +3,8 @@
 The personal site of Kasper Krog: trafikleder, digital skaber og
 kulturmenneske i Aarhus.
 
-The front page (Danish at `/`, English at `/en/`) is an editorial portfolio:
-who Kasper is, what he can do, real projects with real screenshots, a short
+The front page (Danish at `/`, English at `/en/`) is an editorial portfolio
+laid out as one light-rail line, with a stop for each project: who Kasper is, what he can do, real projects with real screenshots, a short
 timeline, and the Kind Project Rule (small cultural and volunteer-driven
 projects get help for free when time allows).
 
@@ -15,7 +15,7 @@ projects get help for free when time allows).
 | 01 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
 | 02 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club, founded 2025 |
 | 03 | [turkis Crew](https://crew.turkis.nu/) | volunteer platform for the Aarhus venue turkis |
-| 04 | [Amanda Barup Pihlkjær](https://abp-tegning.dk/) | portfolio with a built-in studio for a real illustrator |
+| 04 | [Café Hygge](https://hygge.kasper-krog.dk/) | a pixel café that keeps you company while you read |
 
 ## How it's built
 

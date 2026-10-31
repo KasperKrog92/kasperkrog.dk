@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kasper Krog · Digital maker, traffic controller and culture organiser in Aarhus</title>
-  <meta name="description" content="Kasper Krog builds websites, tools and communities in Aarhus. See the work, read about Kind Projects, or write with an idea.">
+  <meta name="description" content="Kasper Krog builds websites, tools and communities in Aarhus. Ride the line through the work, read about Kind Projects, or write with an idea.">
   <meta property="og:title" content="Kasper Krog">
   <meta property="og:description" content="Websites, tools and community projects. Aarhus.">
   <meta property="og:url" content="https://kasper-krog.dk/en/">
@@ -63,70 +63,109 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-head">
-    <a class="brand" href="./" aria-label="Kasper Krog, home"><img class="brand-mark" src="../assets/kk-logo.png" width="490" height="490" alt="" aria-hidden="true"><span>Kasper Krog</span></a>
-    <nav class="site-nav" id="primary-nav" aria-label="Sections of the page">
-      <a href="#work">Work</a><a href="#kind-projects">Kind projects</a><a href="#about">About</a><a class="nav-contact" href="#contact">Write to me</a>
-    </nav>
+    <a class="brand" href="./" data-go="hi" aria-label="Kasper Krog, home">
+      <img class="brand-mark" src="../assets/kk-logo.png" width="490" height="490" alt="" aria-hidden="true"><span>Kasper Krog</span>
+    </a>
+    <div class="board" aria-hidden="true">
+      <span class="board-time" id="board-time">The line</span>
+      <span class="board-place">Aarhus</span>
+      <span class="board-next">Next: <strong id="board-next">Aarhus Folk Festival</strong></span>
+    </div>
     <div class="head-tools">
+      <a class="head-contact" href="#contact">Write</a>
       <span class="lang-switch"><a href="../" hreflang="da" lang="da" data-lang-choice="da">DA</a><span aria-hidden="true">/</span><span aria-current="true" lang="en">EN</span></span>
       <button class="theme-toggle" id="lantern" type="button" aria-pressed="false" aria-label="Switch between day and night"><span class="theme-dot" aria-hidden="true"></span><span class="theme-word">Theme</span></button>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     </div>
   </header>
 
-  <main id="main-content" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-copy">
+  <nav class="route" aria-label="The line: stops on this page">
+    <ol id="route">
+      <li class="terminus"><a href="#hi"><span class="name">Hi</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li><a href="#folk-festival"><span class="name">Aarhus Folk Festival</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li><a href="#gamestormers"><span class="name">Gamestormers</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li><a href="#turkis"><span class="name">turkis Crew</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li><a href="#hygge"><span class="name">Café Hygge</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li class="interchange"><a href="#kind-projects"><span class="name">Kind projects</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li><a href="#about"><span class="name">About</span><span class="dot" aria-hidden="true"></span></a></li>
+      <li class="terminus"><a href="#contact"><span class="name">Write to me</span><span class="dot" aria-hidden="true"></span></a></li>
+    </ol>
+  </nav>
+
+  <main class="platforms" id="main-content" tabindex="-1">
+    <section class="stop terminus" id="hi" aria-labelledby="hero-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">First stop</p>
         <h1 id="hero-heading">Hi, I'm <em>Kasper</em>.</h1>
-        <p class="hero-lead">I build websites, tools and community projects. Aarhus.</p>
-        <div class="button-row"><a class="button button-primary" href="#work">See the work</a><a class="button button-secondary" href="#kind-projects">Kind projects</a></div>
+        <p class="lead">I build websites, tools and community projects. Aarhus.</p>
+        <p>This page is one line with eight stops. My day job is planning a light rail, so it felt right.</p>
+        <div class="stop-actions">
+          <a class="button" href="#folk-festival">All aboard →</a>
+          <span class="hint" aria-hidden="true">or use <kbd>←</kbd> <kbd>→</kbd></span>
+        </div>
       </div>
-      <div class="portrait-wrap"><span class="portrait-ring" aria-hidden="true"></span><img src="../assets/img/portraet.jpg" alt="Portrait of Kasper Krog in Aarhus." width="800" height="1000"></div>
+      <figure class="plate portrait"><img src="../assets/img/portraet.jpg" alt="Portrait of Kasper Krog in Aarhus." width="900" height="1125"></figure>
     </section>
 
-    <section class="three-things" aria-label="What I do">
-      <a href="#work"><h2>Build</h2><p>Websites, tools and systems.</p></a>
-      <a href="#about"><h2>Gather</h2><p>Clubs, festivals and volunteers.</p></a>
-      <a href="#kind-projects"><h2>Help</h2><p>Free work for people who need it.</p></a>
-    </section>
-
-    <section class="work" id="work" aria-labelledby="work-heading">
-      <h2 class="visually-hidden" id="work-heading">Selected work</h2>
-      <a class="project" href="https://www.aarhusfolkfestival.dk/" target="_blank" rel="noopener">
-        <figure class="project-plate"><img src="../assets/img/cases/folk-festival.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
-        <div class="project-title-row"><h3>Aarhus Folk Festival</h3></div>
+    <section class="stop" id="folk-festival" aria-labelledby="folk-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">Build</p>
+        <h2 id="folk-heading">Aarhus Folk Festival</h2>
         <p>Four days of concerts, dance and workshops. I build and maintain the festival's website.</p>
-      </a>
-      <a class="project" href="https://www.gamestormers.dk/" target="_blank" rel="noopener">
-        <figure class="project-plate"><img src="../assets/img/cases/gamestormers.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
-        <div class="project-title-row"><h3>Aarhus Gamestormers</h3></div>
-        <p>A game club that works like a book club. I started it; 29 come to the meetings, and 129 are in the Discord community.</p>
-      </a>
-      <a class="project" href="https://crew.turkis.nu/" target="_blank" rel="noopener">
-        <figure class="project-plate"><img src="../assets/img/cases/turkis-crew.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
-        <div class="project-title-row"><h3>turkis Crew</h3></div>
-        <p>I built and run the platform now used by turkis, a music venue in Aarhus, for shifts, events and volunteer information. I also volunteer backstage at the venue.</p>
-      </a>
-      <a class="project" href="https://abp-tegning.dk/" target="_blank" rel="noopener">
-        <figure class="project-plate"><img src="../assets/img/cases/amanda-barup.jpg" alt="" width="1600" height="1000" loading="lazy"></figure>
-        <div class="project-title-row"><h3>Amanda Barup Pihlkjær</h3></div>
-        <p>A portfolio for an illustrator, with a studio she updates herself. Postcards are ordered directly by email.</p>
-      </a>
-      <div class="also"><span>Also</span><p><a href="https://hygge.kasper-krog.dk" target="_blank" rel="noopener">Café Hygge</a>, a pixel café for reading.</p></div>
+        <div class="stop-actions"><a class="text-link" href="https://www.aarhusfolkfestival.dk/" target="_blank" rel="noopener">aarhusfolkfestival.dk ↗</a></div>
+      </div>
+      <a class="plate" href="https://www.aarhusfolkfestival.dk/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/img/cases/folk-festival.jpg" alt="" width="1600" height="1000" loading="lazy"></a>
     </section>
 
-    <section class="kind" id="kind-projects" aria-labelledby="kind-heading">
-      <div class="kind-rule" aria-hidden="true"></div>
-      <div class="kind-seam" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-      <div class="kind-content">
+    <section class="stop" id="gamestormers" aria-labelledby="gamestormers-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">Gather</p>
+        <h2 id="gamestormers-heading">Aarhus Gamestormers</h2>
+        <p>A game club that works like a book club. I started it; 29 come to the meetings, and 129 are in the Discord community.</p>
+        <div class="stop-actions"><a class="text-link" href="https://www.gamestormers.dk/" target="_blank" rel="noopener">gamestormers.dk ↗</a></div>
+      </div>
+      <a class="plate" href="https://www.gamestormers.dk/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/img/cases/gamestormers.jpg" alt="" width="1600" height="1000" loading="lazy"></a>
+    </section>
+
+    <section class="stop" id="turkis" aria-labelledby="turkis-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">Build · Gather</p>
+        <h2 id="turkis-heading">turkis Crew</h2>
+        <p>I built and run the platform now used by turkis, a music venue in Aarhus, for shifts, events and volunteer information. I also volunteer backstage at the venue.</p>
+        <div class="stop-actions"><a class="text-link" href="https://crew.turkis.nu/" target="_blank" rel="noopener">crew.turkis.nu ↗</a></div>
+      </div>
+      <a class="plate" href="https://crew.turkis.nu/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/img/cases/turkis-crew.jpg" alt="" width="1600" height="1000" loading="lazy"></a>
+    </section>
+
+    <section class="stop" id="hygge" aria-labelledby="hygge-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">Play</p>
+        <h2 id="hygge-heading">Café Hygge</h2>
+        <p>A pixel café for reading. It runs in the browser while you read a real book.</p>
+        <div class="stop-actions"><a class="text-link" href="https://hygge.kasper-krog.dk/" target="_blank" rel="noopener">hygge.kasper-krog.dk ↗</a></div>
+      </div>
+      <a class="plate" href="https://hygge.kasper-krog.dk/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/img/cases/cafe-hygge.jpg" alt="" width="1600" height="1000" loading="lazy"></a>
+    </section>
+
+    <section class="stop" id="kind-projects" aria-labelledby="kind-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">Change here</p>
         <h2 id="kind-heading">Got an idea worth building?</h2>
         <p>Run a small cultural project, a club, or make art, and your website is missing or bad? Write to me. Sometimes I do it for free.</p>
-        <a class="button button-primary" href="mailto:kasper@kasper-krog.dk?subject=Kind%20project">Write about your project</a>
+        <div class="stop-actions"><a class="button" href="mailto:kasper@kasper-krog.dk?subject=Kind%20project">Write about your project</a></div>
+      </div>
+      <div class="kind-card">
+        <p>The form matters less than whether I can be useful. It might be:</p>
+        <ul>
+          <li>A proper website</li>
+          <li>A tool for volunteers</li>
+          <li>A hand with an event</li>
+        </ul>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-heading">
-      <div>
+    <section class="stop" id="about" aria-labelledby="about-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">About</p>
         <h2 id="about-heading">I'm a traffic controller who keeps building things after work.</h2>
         <p>At work I make the operational plans for the Aarhus light rail and decide when sections of the traction power are safe to work on. Outside work I build websites, run a game club, and volunteer at a music venue and a folk festival.</p>
       </div>
@@ -139,10 +178,15 @@
       </ol>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Write to me.</h2>
-      <a class="email" href="mailto:kasper@kasper-krog.dk">kasper@kasper-krog.dk</a>
-      <p>Danish or English. Even a loose idea is fine.</p>
+    <section class="stop terminus" id="contact" aria-labelledby="contact-heading">
+      <div class="stop-copy">
+        <p class="stop-kicker">End of the line</p>
+        <h2 id="contact-heading">Write to me.</h2>
+        <a class="email" href="mailto:kasper@kasper-krog.dk">kasper@kasper-krog.dk</a>
+        <p>Danish or English. Even a loose idea is fine.</p>
+        <div class="stop-actions"><a class="text-link" href="#hi">Ride it again ↺</a></div>
+      </div>
+      <div class="stop-empty" aria-hidden="true"></div>
     </section>
   </main>
 

@@ -7,8 +7,9 @@ matches the work. `CLAUDE.md` points here and contains no separate rules.
 
 ## The place
 
-kasper-krog.dk is Kasper Krog's personal site: an editorial portfolio landing
-page (`index.html` in Danish, `en/index.html` in English). It answers, within
+kasper-krog.dk is Kasper Krog's personal site: an editorial portfolio laid out
+as one light-rail line, *Linjen* (`index.html` in Danish, `en/index.html` in
+English). It answers, within
 seconds, who Kasper is (trafikleder, digital skaber, kulturmenneske i Aarhus),
 what he can do, what he has built, and how to reach him. Clarity first,
 personality as a strong layer on top. Professional but never corporate.
@@ -31,8 +32,8 @@ The two front pages and `404.html` share `css/site.css` + `js/site.js`.
   local time (dawn 07:00–18:59) and the theme-control override lasts three
   hours in `localStorage` under `kk-theme`. The contract lives in the inline
   head scripts of all three pages and in `js/site.js`. Change them together.
-- Respect `prefers-reduced-motion`. The hero arrival, smooth scrolling and the
-  rain easter egg must stop.
+- Respect `prefers-reduced-motion`. The platform slide, the train, smooth
+  scrolling and the rain easter egg must stop.
 - Keep the HTML accessible: landmarks, logical headings, a skip link, visible
   focus and WCAG AA text contrast in both themes.
 - Use HTTPS for external links when the destination supports it.
