@@ -16,7 +16,7 @@ its public URL ends with a slash.
 | `en/index.html` | `/en/` | Professional front page, English mirror |
 | `404.html` | any missing path | Not found page in Danish, with a button to the English front page |
 | `css/site.css` | `/css/site.css` | Design system for all three pages, both themes |
-| `js/site.js` | `/js/site.js` | Runtime for all three pages: theme, language memory, the line, board clock, rain easter egg |
+| `js/site.js` | `/js/site.js` | Runtime for all three pages: theme and language memory |
 
 `CNAME` holds the custom domain and `.nojekyll` disables Jekyll processing.
 
@@ -30,30 +30,28 @@ rather than word for word. Shared structure:
 2. Unique title/description per language, Open Graph metadata, canonical URL
    and a full `hreflang` pair (`da`, `en`, `x-default` → Danish).
 3. The inline pre-paint theme script (see theme contract).
-4. One Google Fonts request: Archivo 400/500 and Newsreader italic 300.
+4. One Google Fonts request: Archivo 400/500.
 5. Skip link → `<main id="main-content" tabindex="-1">`.
-6. Non-sticky header: Archivo wordmark (no logo), the departure
-   board, a phone-only contact link, DA/EN switch and theme control.
-7. `<nav class="route">` with `<ol id="route">`: one in-page link per stop.
-8. `<main class="platforms" id="main-content">` holding one `section.stop`
-   per stop, in route order: hej/hi, folkfestival/folk-festival, nordisk-dans,
-   gamestormers, turkis, hygge, kind-projects, om-mig/about, kontakt/contact.
-   Only the first stop has an `h1`.
+6. Non-sticky header: the name in Archivo (no logo), `<nav class="site-nav">`
+   with four in-page links, DA/EN switch and theme control.
+7. `<main id="main-content">` holding five `section.section` blocks in this
+   order: hej/hi (the only `h1`), arbejde/work, kind-projects, om-mig/about,
+   kontakt/contact.
+8. Inside the work section, one `article.project` per project with an `h3`:
+   folkfestival/folk-festival, nordisk-dans, gamestormers, turkis, hygge.
 9. Footer, then `js/site.js` at the end of `<body>`.
 
 ## The 404
 
 `404.html` reuses the Danish header with root-absolute paths, `noindex` and
-no canonical, hreflang or Open Graph metadata. Its board is static and it has
-no route. One `.stop` holds the message, a button to `/` and one to `/en/`.
+no canonical, hreflang or Open Graph metadata. It has no nav. One `.section`
+holds the message, a button to `/` and one to `/en/`.
 
 ## Navigation contracts
 
-Front pages: the route links are in-page anchors in stop order. Stop ids are
-stable URLs (`/#gamestormers`, `/en/#about`). The old anchors `#arbejde` and
-`#work` are aliased in `js/site.js` to the first project stop. The brand
-links to the page's own root (`./`) and, with the script, returns to the
-first stop.
+Front pages: the header nav links are plain in-page anchors, and the page
+scrolls natively. Section and project ids are stable URLs (`/#gamestormers`,
+`/en/#about`). The brand links to the page's own root (`./`).
 
 ## Theme contract
 
@@ -88,17 +86,6 @@ One dependency-free IIFE:
 - The theme control (historical id `lantern`) toggles dawn and dusk, stores the
   three-hour override and keeps `aria-pressed` in sync.
 - Language links write `kk-lang` on click.
-- The line (`#route` present): marks `<html>` with `line-ready`, then on
-  screens 900px and wider shows one `.stop.is-current` at a time. Route
-  links, `[data-go]` controls, in-page stop links, left/right arrow keys and
-  `hashchange` move between stops; the hash is kept current with
-  `replaceState` and focus moves to the stop heading after a click. It sets
-  `aria-current="step"`, `.passed`, the `--progress` and `--train-x` route
-  properties and the board's next stop, and adds the "Næste/Next" row to each
-  stop. Below 900px stop links scroll smoothly instead.
-- The board clock updates every 15 seconds.
-- Easter egg: three theme-control presses within 1.6 seconds summon a light canvas
-  rain for about half a minute. It never runs under reduced motion.
 
 Core copy, links and navigation must remain useful if the script fails.
 
@@ -120,7 +107,8 @@ allowed external page request.
 - Preserve logical heading order; each front-page section is labelled by its
   own heading via `aria-labelledby`.
 - Keep visible keyboard focus and sensible source-order navigation.
-- The board, route dots, train and rain canvas stay out of the accessibility tree.
+- The linked project screenshots duplicate the text link below them, so they
+  stay out of the tab order and the accessibility tree.
 - Images need useful alt text in the page's own language unless genuinely
   decorative.
 - Text, including muted text, must meet WCAG AA contrast in both themes.

@@ -31,16 +31,13 @@ Serve the repository over HTTP rather than opening HTML files directly.
 Root-absolute 404 paths, navigation and browser storage are more accurately
 tested that way.
 
-## Adding or changing a project stop
+## Adding or changing a project
 
-Each project is a stop on the line: a route link in `#route` and a
-`section.stop` with kicker, heading, one or two sentences, a text link and a
-linked `.plate` screenshot. Rules:
+Each project is an `article.project` in the work section: a linked `.shot`
+screenshot, an `h3`, one or two sentences and a text link. Rules:
 
-- Every stop ships in both languages; edit `index.html` and `en/index.html`
-  together, keep route and platforms in the same order, and update `--stops`
-  in `css/site.css` when the count changes.
-- Check that the longest route label still fits at 900px.
+- Every project ships in both languages; edit `index.html` and
+  `en/index.html` together and keep the same order.
 - The case image is a real screenshot under `assets/img/cases/`, captured
   from the live project (1600x1000, `ffmpeg -q:v 4`). No generated imagery.
 - Facts, numbers and roles must be verified before publishing.
@@ -97,15 +94,14 @@ Minimum pass:
 - Dusk and dawn through the theme control.
 - Automatic theme logic around 07:00 and 19:00 when relevant.
 - Mobile width around `380px`; use `320px` for navigation or narrow layouts.
-- A desktop width around `1280px` (at 1280x720 a stop fits without page
-  scroll), arrow keys, route clicks and a deep link such as `/#turkis`.
-- Keyboard order: skip link, brand, language, theme control, route links,
-  then the current stop's links.
+- A desktop width around `1280px` and a deep link such as `/#turkis`.
+- Keyboard order: skip link, brand, nav links, language, theme control,
+  then the page's links from top to bottom.
 - Skip link visibly appears and moves focus to main.
 - Exactly one correct `aria-current` in the language switch.
 - Logical heading order and useful landmarks.
 - Visible focus without clipping.
-- Reduced motion: no rain, smooth scroll, platform slide or train movement.
+- Reduced motion: no color fades.
 - Muted and ordinary text retain WCAG AA contrast in both themes.
 - Images have dimensions, correct paths, appropriate lazy loading and useful
   alt text.

@@ -1,12 +1,11 @@
 # kasper-krog.dk
 
-The personal site of Kasper Krog: trafikleder, digital skaber og
-kulturmenneske i Aarhus.
+The personal site of Kasper Krog: digital skaber og kulturmenneske i Aarhus.
 
-The front page (Danish at `/`, English at `/en/`) is an editorial portfolio
-laid out as one light-rail line, with a stop for each project: who Kasper is, what he can do, real projects with real screenshots, a short
-timeline, and the Kind Project Rule (small cultural and volunteer-driven
-projects get help for free when time allows).
+The front page (Danish at `/`, English at `/en/`) is one plain page: who
+Kasper is, real projects with real screenshots, and the Kind Project Rule
+(small cultural and volunteer-driven projects get help for free when time
+allows).
 
 ## Selected projects on the site
 
@@ -59,4 +58,4 @@ CNAME www  kasperkrog92.github.io
 
 ---
 
-Kept in Aarhus. It is raining, if you ask it to.
+Kept in Aarhus.

@@ -7,12 +7,12 @@ matches the work. `CLAUDE.md` points here and contains no separate rules.
 
 ## The place
 
-kasper-krog.dk is Kasper Krog's personal site: an editorial portfolio laid out
-as one light-rail line, *Linjen* (`index.html` in Danish, `en/index.html` in
-English). It answers, within
-seconds, who Kasper is (trafikleder, digital skaber, kulturmenneske i Aarhus),
-what he can do, what he has built, and how to reach him. Clarity first,
-personality as a strong layer on top. Professional but never corporate.
+kasper-krog.dk is Kasper Krog's personal site: one plain page (`index.html`
+in Danish, `en/index.html` in English) that shows his work and his call to
+Kind projects. It answers, within seconds, who Kasper is (digital skaber og
+kulturmenneske i Aarhus), what he has built, and how to reach him. Kasper
+wants it simple: his colors, plain text, no concept, gimmick or decorative
+type. Professional but never corporate.
 
 The two front pages and `404.html` share `css/site.css` + `js/site.js`.
 
@@ -24,7 +24,7 @@ The two front pages and `404.html` share `css/site.css` + `js/site.js`.
   stylesheet is the only tolerated external request.
 - **No AI-generated images.** Only real screenshots of real projects, real
   photographs, or honest designed placeholders. The site has no logo; the
-  favicon is a plain vector station ring (see `assets/img/README.md`).
+  favicon is a plain vector brass ring (see `assets/img/README.md`).
 - Danish is the primary language of the front page; `en/index.html` is the
   full English mirror. A content change on one front page is a change on both.
   Keep `lang`, canonical and hreflang metadata correct.
@@ -32,15 +32,17 @@ The two front pages and `404.html` share `css/site.css` + `js/site.js`.
   local time (dawn 07:00–18:59) and the theme-control override lasts three
   hours in `localStorage` under `kk-theme`. The contract lives in the inline
   head scripts of all three pages and in `js/site.js`. Change them together.
-- Respect `prefers-reduced-motion`. The platform slide, the train, smooth
-  scrolling and the rain easter egg must stop.
+- Respect `prefers-reduced-motion`. The site has almost no motion; whatever
+  there is must stop.
 - Keep the HTML accessible: landmarks, logical headings, a skip link, visible
   focus and WCAG AA text contrast in both themes.
 - Use HTTPS for external links when the destination supports it.
 - Treat the repository as public. Do not store secrets, private contact
   details, other people's personal information or workplace-sensitive
   material. Kasper's employer-related tooling (vagtplan/OCC) is deliberately
-  **not** presented on the site; do not add it.
+  **not** presented on the site; do not add it. Since November 2026 the site
+  also leaves out his day job (trafikleder, Aarhus Letbane) and his
+  education, at his request; do not add them back.
 - Verify every fact in visitor-facing copy against
   `C:\Webprojekter\jobsoegning\profile\facts.md` conventions: no invented
   numbers, titles or responsibilities. Never claim personnel management,

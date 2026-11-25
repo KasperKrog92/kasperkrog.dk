@@ -1,4 +1,4 @@
-# Regenerate the web icons: the brass station ring from the route, on a
+# Regenerate the web icons: a plain brass ring on a
 # near-black rounded square. Mirrors assets/favicon.svg (a 32-unit grid:
 # corner radius 7, ring radius 8.5, ring width 4.5).
 # Run from any directory with PowerShell on Windows. No site build step.
