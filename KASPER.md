@@ -234,6 +234,7 @@ This list should change as Kasper changes.
 | Matchabladet | Tea, ritual, cafés, slowness and attention |
 | Solis Lantern Chronicles | An ongoing tabletop RPG campaign, chronicled after each session, reshaped from Robert Jackson Bennett's *Shadow of the Leviathan* |
 | Aarhus Folk Festival | Folk culture, volunteering, tradition and shared rooms |
+| Nordisk Dans | Folk dance evenings in six cities; webmaster of nordiskdans.dk since November 2026, with a rebuilt site |
 
 ## The site
 

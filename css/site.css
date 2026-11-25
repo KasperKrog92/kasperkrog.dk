@@ -1,5 +1,5 @@
 /* kasper-krog.dk: Linjen, October 2026.
-   The site is one route with eight stops. On wide screens a line diagram
+   The site is one route with nine stops. On wide screens a line diagram
    shows one platform at a time; on phones, and whenever the script has not
    run, the page itself is the line and is read top to bottom.
    Styles both front pages and the 404. */
@@ -11,7 +11,7 @@
   --content: 1500px;
   --ease: cubic-bezier(.16, 1, .3, 1);
   --track: 6px;
-  --stops: 8;
+  --stops: 9;
 }
 
 [data-theme="dawn"] {

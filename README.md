@@ -13,9 +13,10 @@ projects get help for free when time allows).
 | | | |
 |---|---|---|
 | 01 | [Aarhus Folk Festival](https://www.aarhusfolkfestival.dk/) | the online home of a community folk festival |
-| 02 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club, founded 2025 |
-| 03 | [turkis Crew](https://crew.turkis.nu/) | volunteer platform for the Aarhus venue turkis |
-| 04 | [Café Hygge](https://hygge.kasper-krog.dk/) | a pixel café that keeps you company while you read |
+| 02 | [Nordisk Dans](https://nordiskdans.dk/) | dance evenings in six cities; Kasper is webmaster and rebuilt the site in 2026 |
+| 03 | [Aarhus Gamestormers](https://www.gamestormers.dk/) | a game club run like a book club, founded 2025 |
+| 04 | [turkis Crew](https://crew.turkis.nu/) | volunteer platform for the Aarhus venue turkis |
+| 05 | [Café Hygge](https://hygge.kasper-krog.dk/) | a pixel café that keeps you company while you read |
 
 ## How it's built
 

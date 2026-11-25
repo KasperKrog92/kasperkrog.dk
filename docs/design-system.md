@@ -6,9 +6,9 @@ record intent.
 
 ## Front page: visual direction
 
-**Linjen** (October 2026): the page is one light-rail line with eight stops.
-Hej, Aarhus Folk Festival, Gamestormers, turkis Crew, Café Hygge, Kind
-projects (the interchange), Om mig and Skriv til mig (the terminus). A line
+**Linjen** (October 2026): the page is one light-rail line with nine stops.
+Hej, Aarhus Folk Festival, Nordisk Dans, Gamestormers, turkis Crew, Café
+Hygge, Kind projects (the interchange), Om mig and Skriv til mig (the terminus). A line
 diagram is one of the most legible pictures there is, and it belongs to
 Kasper without showing anything from his workplace.
 

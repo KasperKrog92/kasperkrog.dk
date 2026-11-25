@@ -36,7 +36,7 @@ rather than word for word. Shared structure:
    board, a phone-only contact link, DA/EN switch and theme control.
 7. `<nav class="route">` with `<ol id="route">`: one in-page link per stop.
 8. `<main class="platforms" id="main-content">` holding one `section.stop`
-   per stop, in route order: hej/hi, folkfestival/folk-festival,
+   per stop, in route order: hej/hi, folkfestival/folk-festival, nordisk-dans,
    gamestormers, turkis, hygge, kind-projects, om-mig/about, kontakt/contact.
    Only the first stop has an `h1`.
 9. Footer, then `js/site.js` at the end of `<body>`.
